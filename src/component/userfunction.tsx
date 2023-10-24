@@ -1,4 +1,4 @@
-import firebase_app from "./firebasecon";
+import Firebase_App from "./firebasecon";
 import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithRedirect, signOut } from "firebase/auth";
 import Swal from "sweetalert2";
 
@@ -15,6 +15,8 @@ import Swal from "sweetalert2";
 
 // const app = initializeApp(firebaseConfig);
 // const db = getDatabase(app);
+
+let firebase_app = Firebase_App();
 
 export function login(){
   Swal.fire('Please wait')
