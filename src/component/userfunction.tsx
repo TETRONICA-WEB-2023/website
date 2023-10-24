@@ -29,9 +29,9 @@ export function login(){
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
+      const token = credential!.accessToken;
       // The signed-in user info.
-      const user = result.user;
+      const user = (result as any).user;
     }).catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;
@@ -57,7 +57,7 @@ const auth = getAuth(firebase_app);
 onAuthStateChanged(auth, (user) => {
   if (user) {
     console.log(user.email);
-    if(!user.email.includes('@mail.ugm.ac.id')){
+    if(!user.email!.includes('@mail.ugm.ac.id')){
       Swal.fire('Please use your UGM email to login');
       signOut(auth).then(() => {
         }).catch((error) => {
