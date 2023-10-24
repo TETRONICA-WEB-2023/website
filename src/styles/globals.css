@@ -29,19 +29,13 @@ body {
   color: #ffff;
 }
 
-.nav {
-  position: fixed;
-  top: 0px;
-  width: 100%;
-}
-
-.navbar{
+/* .navbar{
   position: fixed;
   top: 0px;
   width: 100%;
   z-index: 9999;
   background-color: #ffffff;
-}
+} */
 
 .btn{
   background-color: #9D4EDD;

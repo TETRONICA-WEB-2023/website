@@ -1,16 +1,17 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
+import { login } from '../component/userfunction'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
     <main>
-    <nav className="navbar navbar-expand-lg bg-light shadow">
+    <nav className="navbar navbar-fixed-top navbar-expand-lg bg-light shadow">
     <div className="container-fluid">
       <a className="navbar-brand" href="#">
-        <Image className="logo-kmteti" src="/logo-kmteti.png" alt="Bootstrap" width={40} />
-        <Image className="logo-tetronica" src="/logo-tetronica.png" alt="Bootstrap" width={120} />
+        <Image className="logo-kmteti" src="/logo-kmteti.png" alt="Bootstrap" width="0" height="0" sizes="100vw" style={{ width: '5%', height: 'auto' }}/>
+        <Image className="logo-tetronica" src="/logo-tetronica.png" alt="Bootstrap" width="0" height="0" sizes="50vw" style={{ width: '20%', height: 'auto' }}/>
       </a>
       <button
         className="navbar-toggler"
@@ -45,7 +46,7 @@ export default function Home() {
             </a>
           </li>
           <li className="nav-item">
-            <button type="button" className="btn btn-outline-secondary">
+            <button type="button" className="btn btn-outline-secondary" onClick={() => login()}>
               DAFTAR
             </button>
           </li>
@@ -60,7 +61,7 @@ export default function Home() {
   <br />
   <section className="jumbotron text-center">
     <Image
-      src="http://via.placeholder.com/640x640"
+      src="/600x600.svg"
       alt="Calon-Ketua-1"
       width={200}
       height={200}
@@ -117,7 +118,7 @@ export default function Home() {
         <div className="row justify-content-between">
           <div className="col-md-4 mb-3">
             <div className="card">
-              <Image src="..." className="card-img-top" alt="..." />
+              <Image src="/logo-kmteti.png" className="card-img-top" alt="..." width={200} height={100}/>
               <div className="card-body">
                 <h5 className="card-title">Card title</h5>
                 <p className="card-text">
@@ -132,7 +133,7 @@ export default function Home() {
           </div>
           <div className="col-md-4 mb-3">
             <div className="card">
-              <Image src="..." className="card-img-top" alt="..." />
+              <Image src="/logo-kmteti.png" className="card-img-top" alt="..." width={200} height={100}/>
               <div className="card-body">
                 <h5 className="card-title">Card title</h5>
                 <p className="card-text">
@@ -147,7 +148,7 @@ export default function Home() {
           </div>
           <div className="col-md-4 mb-3">
             <div className="card">
-              <Image src="..." className="card-img-top" alt="..." />
+              <Image src="/logo-kmteti.png" className="card-img-top" alt="..." width={200} height={100}/>
               <div className="card-body">
                 <h5 className="card-title">Card title</h5>
                 <p className="card-text">
