@@ -1,13 +1,12 @@
 import Image from 'next/image'
 import { Poppins } from 'next/font/google'
-import Link from 'next/link'
 
 const inter = Poppins({ weight: '400', style: 'normal', subsets: ['latin-ext'] })
 
 export default function Home() {
   return (
     <main>
-    <nav className="navbar navbar-expand-lg bg-light shadow">
+    <nav className="navbar navbar-expand-lg bg-transparent shadow">
     <div className="container-fluid">
       <a className="navbar-brand" href="#">
         <img className="logo-kmteti" src="/logo-kmteti.png" alt="Bootstrap" width={40} height="" />
@@ -26,7 +25,7 @@ export default function Home() {
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ms-auto">
           <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="#">
+            <a className="nav-link active" aria-current="page" href="./">
               HOME
             </a>
           </li>
@@ -97,13 +96,13 @@ export default function Home() {
           quis quia aut, nesciunt eveniet tempora magni! Natus labore doloribus
           nemo laudantium saepe accusamus ipsam vero minus?
         </p>
-        <Link
+        <a
           className="btn btn-danger btn-lg btn-outline-dark"
-          href="/about"
+          href="#"
           role="button"
         >
           Learn more
-        </Link>
+        </a>
       </div>
     </div>
   </section>
