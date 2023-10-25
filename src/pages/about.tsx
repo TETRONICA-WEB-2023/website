@@ -68,9 +68,8 @@ export default function Home() {
     />
     <h1 className="display-4">Hello, world!</h1>
     <p className="lead">
-      This is a simple hero unit, a simple jumbotron-style component for calling
-      extra attention to featured content or information.
-    </p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur doloribus ex libero quod laborum reiciendis ad quos eaque maxime dolorem ut delectus mollitia quis accusamus corrupti, aliquid velit laudantium dicta.
+      Iure consequuntur tenetur sequi cum harum adipisci modi officiis autem ut. Laudantium, asperiores nisi? Perspiciatis accusamus labore voluptates ducimus quisquam placeat tenetur! Unde neque, blanditiis eligendi dolorum aliquid laudantium quae!    </p>
     <hr className="my-4" />
     <p>
       It uses utility classes for typography and spacing to space content out
