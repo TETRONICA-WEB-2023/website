@@ -54,116 +54,91 @@ export default function Home() {
     </div>
   </nav>
   {/* Akhir Navbar */}
-  {/* Jumbotron */}
+  {/* Tentang KPU */}
   <br />
-  <br />
-  <br />
-  <section className="jumbotron text-center">
-    <img
-      src="http://via.placeholder.com/640x640"
-      alt="Calon-Ketua-1"
-      width={200}
-      height={200}
-      className="rounded-circle img-thumbnail"
-    />
-    <h1 className="display-4">Hello, world!</h1>
-    <p className="lead">
-      This is a simple hero unit, a simple jumbotron-style component for calling
-      extra attention to featured content or information.
-    </p>
-    <hr className="my-4" />
-    <p>
-      It uses utility classes for typography and spacing to space content out
-      within the larger container.
-    </p>
-  </section>
-  {/* Akhir Jumbotron */}
-  {/* About Us */}
   <section id="about">
-    <div className="container">
+    <div className="container py-5">
       <div className="row text-center">
         <div className="col">
-          <h2>About Us</h2>
+          <h1 className="display-4">KOMISI PEMILIHAN UMUM</h1>
+          <h3>KMTETI 2023</h3>
         </div>
       </div>
-      <div className="about-us">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-          reiciendis maiores eius sed ex officiis, obcaecati ullam, vitae rem,
-          numquam laborum. Voluptates ipsum aspernatur placeat voluptatem
-          eveniet odit. Ipsa, distinctio? Porro dolores ab iste facere at
-          accusantium delectus recusandae beatae neque consequatur asperiores
-          quis quia aut, nesciunt eveniet tempora magni! Natus labore doloribus
-          nemo laudantium saepe accusamus ipsam vero minus?
-        </p>
-        <a
-          className="btn btn-danger btn-lg btn-outline-dark"
-          href="#"
-          role="button"
-        >
-          Learn more
-        </a>
+      <div className="pt-4">
+      <p className="">
+    Komisi Pemilihan Umum Keluarga Mahasiswa Teknik Elektro dan Teknologi Informasi Fakultas Teknik Universitas Gadjah Mada yang selanjutnya disebut KPU adalah suatu komisi yang menyelenggarakan pemilu berdasarkan Undang-Undang Pemilu. 
+    <br /><br />Pada tahun ini, KPU KMTETI mengusung tema TETRONICA. TETRONICA sendiri merupakan singkatan dari ....... 
+    </p>
       </div>
     </div>
   </section>
-  {/* Akhir About Us */}
-  {/* Projects */}
+  {/* Akhir Tentang KPU */}
+  {/* Tugas dan Wewenang */}
+  <section id="about">
+    <div className="container py-5">
+      <div className="row text-center">
+        <div className="col">
+          <h1 className="display-4">TUGAS DAN WEWENANG</h1>
+          <h3>KPU KMTETI</h3>
+        </div>
+      </div>
+      <div className="pt-4">
+        <ol className="list-group list-group-numbered list-group-flush bg-transparent text-white">
+          <li className="list-group-item bg-transparent text-white">Merencanakan, mengkoordinasikan, dan memantau penyelenggaraan pemilu.</li>
+          <li className="list-group-item bg-transparent text-white">Menetapkan, mengkoordinasikan, menyelenggarakan, dan mengendalikan semua tahapan pelaksanaan pemilu.</li>
+          <li className="list-group-item bg-transparent text-white">Menetapkan daftar pemilih.</li>
+          <li className="list-group-item bg-transparent text-white">Menetapkan peserta pemilu.</li>
+          <li className="list-group-item bg-transparent text-white">Merancang SPS.</li>
+          <li className="list-group-item bg-transparent text-white">Menetapkan waktu, tanggal, tata cara pelaksanaan kampanye, dan pemungutan suara.</li>
+          <li className="list-group-item bg-transparent text-white">Mengumumkan Ketua PH KMTETI FT UGM terpilih.</li>
+          <li className="list-group-item bg-transparent text-white">Melakukan evaluasi dan pelaporan pelaksanaan pemilu.</li>
+          <li className="list-group-item bg-transparent text-white">Melaksanakan tugas dan kewenangan yang diatur Undang-Undang Pemilu.</li>
+          <li className="list-group-item bg-transparent text-white">Menyusun peraturan yang belum diatur dalam Undang-Undang Pemilu atas persetujuan Ketua PH KMTETI FT UGM
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+  {/* Akhir Tugas dan Wewenang */}
+  {/* Our Team */}
   <section id="projects">
-    <div className="container">
-      <div className="row text-center">
-        <div className="col">
-          <h2>My Projects</h2>
-        </div>
-        <div className="row justify-content-between">
-          <div className="col-md-4 mb-3">
-            <div className="card">
-              <img src="..." className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card&apos;s content.
-                </p>
-                <a href="#" className="btn btn-primary">
-                  Go somewhere
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4 mb-3">
-            <div className="card">
-              <img src="..." className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card&apos;s content.
-                </p>
-                <a href="#" className="btn btn-primary">
-                  Go somewhere
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4 mb-3">
-            <div className="card">
-              <img src="..." className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card&apos;s content.
-                </p>
-                <a href="#" className="btn btn-primary">
-                  Go somewhere
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+  <div className="row row-cols-1 row-cols-md-3 g-4">
+  <div className="col">
+    <div className="card">
+      <img src="..." className="card-img-top" alt="..."/>
+      <div className="card-body">
+        <h5 className="card-title">Card title</h5>
+        <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
       </div>
     </div>
+  </div>
+  <div className="col">
+    <div className="card">
+      <img src="..." className="card-img-top" alt="..."/>
+      <div className="card-body">
+        <h5 className="card-title">Card title</h5>
+        <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+  <div className="col">
+    <div className="card">
+      <img src="..." className="card-img-top" alt="..."/>
+      <div className="card-body">
+        <h5 className="card-title">Card title</h5>
+        <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
   </section>
+
+
+
+
+
+
   <div className="d-flex 
 justify-content-center align-items-center">
       <button
