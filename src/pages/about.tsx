@@ -500,7 +500,11 @@ export default function Home() {
 
 {/* footer */}
   <footer>
-    
+    <div></div>
+      <h2 className="footer-contact">Official Account</h2>
+      <img src="" href="" alt="Instagram"></img>
+      <img src="" href="" alt="line"></img>
+    </div>
   </footer>
 {/* Akhir footer */}
 
