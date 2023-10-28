@@ -49,34 +49,31 @@ const Navbar = () => {
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <a className="nav-link" href="#">Home</a>
+          <Link className="nav-link" href="/">Home</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">About</a>
+          <Link className="nav-link" href="./caket">Calon Ketua</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Profile</a>
+          <Link className="nav-link" href="./about">About Us</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Explore</a>
+          <Link className="nav-link" href="./tatacara">Tata Cara</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" href="./timeline">Lini Masa</Link>
         </li>
       </ul>
-      <ul className="navbar-nav d-flex flex-row ms-auto me-3">
-        <li className="nav-item me-3 me-lg-0 dropdown">
-          <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false"><b>+ </b>
-          </a>
-          <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <li><a className="dropdown-item" href="#">Action</a></li>
-            <li><a className="dropdown-item" href="#">Another action</a></li>
-            <li>
-              <hr className="dropdown-divider" />
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">Something else here</a>
-            </li>
-          </ul>
+      {loading ? null : !user ? ( 
+        null
+      ):(
+        <ul className="navbar-nav d-flex flex-row mb-0 mb-lg-0">
+        <li className="nav-item">
+          <Link className="nav-link" href="./vote">Vote</Link>
         </li>
+      </ul>
+      )}
+      <ul className="navbar-nav d-flex flex-row mb-0 mb-lg-0">
         {loading ? null : !user ? (
             <li className="nav-item me-3 me-lg-0">
             <a className="nav-link" onClick={handleSignIn} role="button" aria-expanded="false">
@@ -91,8 +88,8 @@ const Navbar = () => {
               alt="" loading="lazy" />
           </a>
           <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown1">
-            <li><a className="dropdown-item" href="#">Lengkapi Data</a></li>
-            <li><a className="dropdown-item" href="#">Informasi</a></li>
+            <li><Link className="dropdown-item" href="#">Lengkapi Data</Link></li>
+            <li><Link className="dropdown-item" href="#">Informasi</Link></li>
             <li>
               <hr className="dropdown-divider" />
             </li>

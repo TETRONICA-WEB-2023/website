@@ -31,18 +31,20 @@ export const AuthContextProvider = ({ children }) => {
                 logOut();
             } else {
                 setUser(currentUser);
-                Swal.fire({
-                    toast: true,
-                    position: 'top-right',
-                    showConfirmButton: false,
-                    timer: 2500,
-                    timerProgressBar: true,
-                    icon: 'success',
-                    title: 'Logged in as ' + currentUser.displayName
-                })
+                    
+                // Swal.fire({
+                //     toast: true,
+                //     position: 'top-right',
+                //     showConfirmButton: false,
+                //     timer: 2500,
+                //     timerProgressBar: true,
+                //     icon: 'success',
+                //     title: 'Logged in as ' + currentUser.displayName
+                // })
             }
+        } else {
+            setUser(null);
         }
-      setUser(currentUser);
     });
     return () => unsubscribe();
   }, [user]);
