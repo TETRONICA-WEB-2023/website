@@ -59,9 +59,15 @@ body {
 
 #about{
   color: #ffff;
+  text-align: justify;
 }
 
 #projects{
+  background-color: #9e4edf00;
+  color: #ffff;
+}
+
+#members{
   background-color: #9e4edf00;
   color: #ffff;
 }

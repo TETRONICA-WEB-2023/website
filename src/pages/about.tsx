@@ -54,7 +54,7 @@ export default function Home() {
     </div>
   </nav>
   {/* Akhir Navbar */}
-  {/* Jumbotron */}
+  {/* Tentang KPU */}
   <br />
   <br />
   <br />
@@ -68,137 +68,485 @@ export default function Home() {
     />
     <h1 className="display-4">Hello, world!</h1>
     <p className="lead">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur doloribus ex libero quod laborum reiciendis ad quos eaque maxime dolorem ut delectus mollitia quis accusamus corrupti, aliquid velit laudantium dicta.
-      Iure consequuntur tenetur sequi cum harum adipisci modi officiis autem ut. Laudantium, asperiores nisi? Perspiciatis accusamus labore voluptates ducimus quisquam placeat tenetur! Unde neque, blanditiis eligendi dolorum aliquid laudantium quae!    </p>
+      This is a simple hero unit, a simple jumbotron-style component for calling
+      extra attention to featured content or information.
+    </p>
     <hr className="my-4" />
     <p>
       It uses utility classes for typography and spacing to space content out
       within the larger container.
     </p>
   </section>
-  {/* Akhir Jumbotron */}
-  {/* About Us */}
+  {/* Akhir Tentang KPU */}
+  {/* Tugas dan Wewenang */}
   <section id="about">
-    <div className="container">
+    <div className="container py-5">
       <div className="row text-center">
         <div className="col">
-          <h2>About Us</h2>
+          <h1 className="display-4">TUGAS DAN WEWENANG</h1>
+          <h3>KPU KMTETI</h3>
         </div>
       </div>
-      <div className="about-us">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-          reiciendis maiores eius sed ex officiis, obcaecati ullam, vitae rem,
-          numquam laborum. Voluptates ipsum aspernatur placeat voluptatem
-          eveniet odit. Ipsa, distinctio? Porro dolores ab iste facere at
-          accusantium delectus recusandae beatae neque consequatur asperiores
-          quis quia aut, nesciunt eveniet tempora magni! Natus labore doloribus
-          nemo laudantium saepe accusamus ipsam vero minus?
-        </p>
-        <a
-          className="btn btn-danger btn-lg btn-outline-dark"
-          href="#"
-          role="button"
-        >
-          Learn more
-        </a>
+      <div className="pt-4">
+        <ol className="list-group list-group-numbered list-group-flush bg-transparent text-white">
+          <li className="list-group-item bg-transparent text-white">Merencanakan, mengkoordinasikan, dan memantau penyelenggaraan pemilu.</li>
+          <li className="list-group-item bg-transparent text-white">Menetapkan, mengkoordinasikan, menyelenggarakan, dan mengendalikan semua tahapan pelaksanaan pemilu.</li>
+          <li className="list-group-item bg-transparent text-white">Menetapkan daftar pemilih.</li>
+          <li className="list-group-item bg-transparent text-white">Menetapkan peserta pemilu.</li>
+          <li className="list-group-item bg-transparent text-white">Merancang SPS.</li>
+          <li className="list-group-item bg-transparent text-white">Menetapkan waktu, tanggal, tata cara pelaksanaan kampanye, dan pemungutan suara.</li>
+          <li className="list-group-item bg-transparent text-white">Mengumumkan Ketua PH KMTETI FT UGM terpilih.</li>
+          <li className="list-group-item bg-transparent text-white">Melakukan evaluasi dan pelaporan pelaksanaan pemilu.</li>
+          <li className="list-group-item bg-transparent text-white">Melaksanakan tugas dan kewenangan yang diatur Undang-Undang Pemilu.</li>
+          <li className="list-group-item bg-transparent text-white">Menyusun peraturan yang belum diatur dalam Undang-Undang Pemilu atas persetujuan Ketua PH KMTETI FT UGM
+          </li>
+        </ol>
       </div>
     </div>
   </section>
-  {/* Akhir About Us */}
-  {/* Projects */}
-  <section id="projects">
-    <div className="container">
+  {/* Akhir Tugas dan Wewenang */}
+  {/* OUR TEAM */}
+  <section id="members">
+    <div className="container py-5">
       <div className="row text-center">
-        <div className="col">
-          <h2>My Projects</h2>
+        <div className="col pb-5">
+          <h2>OUR TEAM</h2>
         </div>
-        <div className="row justify-content-between">
-          <div className="col-md-4 mb-3">
-            <div className="card">
-              <img src="..." className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card&apos;s content.
-                </p>
-                <a href="#" className="btn btn-primary">
-                  Go somewhere
-                </a>
-              </div>
-            </div>
+      </div>
+      {/* Ketua dkk */}
+      <div className="row justify-content-evenly">
+        <div className="col-md-3 mb-3">
+          <div className="card">
+            <img src="/placeholder ano/subaru.png" className="card-img-top" alt="..." />
+            <div className="card-body">
+              <p className="card-text">
+                Some quick example text to build on the card title and make up the bulk of
+                the card's content.
+              </p>
+           </div>
           </div>
-          <div className="col-md-4 mb-3">
-            <div className="card">
-              <img src="..." className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card&apos;s content.
-                </p>
-                <a href="#" className="btn btn-primary">
-                  Go somewhere
-                </a>
-              </div>
-            </div>
+        </div>
+        <div className="col-md-4 mb-3">
+          <div className="card">
+            <img src="/placeholder ano/hajime.png" className="card-img-top" alt="..." />
+            <div className="card-body">
+              <p className="card-text">
+                Some quick example text to build on the card title and make up the bulk of
+                the card's content.
+              </p>
+           </div>
           </div>
-          <div className="col-md-4 mb-3">
-            <div className="card">
-              <img src="..." className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card&apos;s content.
-                </p>
-                <a href="#" className="btn btn-primary">
-                  Go somewhere
-                </a>
-              </div>
-            </div>
+        </div>
+        <div className="col-md-3">
+          <div className="card">
+            <img src="/placeholder ano/miooo.png" className="card-img-top" alt="..." />
+            <div className="card-body">
+              <p className="card-text">
+                Some quick example text to build on the card title and make up the bulk of
+                the card's content.
+              </p>
+           </div>
           </div>
         </div>
       </div>
+      {/* Akhir Ketua dkk */}
+      {/* Anggota divisi */}
+      <div className="row justify-content-evenly">
+        {/* car_acara */}
+        <div className="col-4">
+          <div id="car_acara" className="carousel slide">
+            <div className="carousel-indicators">
+                  <button
+                    type="button"
+                    data-bs-target="#car_acara"
+                    data-bs-slide-to={0}
+                    className="active"
+                    aria-current="true"
+                    aria-label="Slide 1"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#car_acara"
+                    data-bs-slide-to={1}
+                    aria-label="Slide 2"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#car_acara"
+                    data-bs-slide-to={2}
+                    aria-label="Slide 3"
+                  />
+            </div>
+            <div className="carousel-inner">
+                  <div className="carousel-item active">
+                    <img src="/placeholder ano/mole.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>First slide label</h5>
+                      <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="/placeholder ano/sapi.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>Second slide label</h5>
+                      <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="/placeholder ano/seal.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>Third slide label</h5>
+                      <p>Some representative placeholder content for the third slide.</p>
+                    </div>
+                  </div>
+            </div>
+                <button
+                  className="carousel-control-prev"
+                  type="button"
+                  data-bs-target="#car_acara"
+                  data-bs-slide="prev"
+                >
+                  <span className="carousel-control-prev-icon" aria-hidden="true" />
+                  <span className="visually-hidden">Previous</span>
+                </button>
+                <button
+                  className="carousel-control-next"
+                  type="button"
+                  data-bs-target="#car_acara"
+                  data-bs-slide="next"
+                >
+                  <span className="carousel-control-next-icon" aria-hidden="true" />
+                  <span className="visually-hidden">Next</span>
+                </button>
+          </div>
+        </div>
+        {/* akhir car_acara */}
+        {/* car_it */}
+        <div className="col-4">
+          <div id="car_it" className="carousel slide">
+            <div className="carousel-indicators">
+                  <button
+                    type="button"
+                    data-bs-target="#car_it"
+                    data-bs-slide-to={0}
+                    className="active"
+                    aria-current="true"
+                    aria-label="Slide 1"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#car_it"
+                    data-bs-slide-to={1}
+                    aria-label="Slide 2"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#car_it"
+                    data-bs-slide-to={2}
+                    aria-label="Slide 3"
+                  />
+            </div>
+            <div className="carousel-inner">
+                  <div className="carousel-item active">
+                    <img src="/placeholder ano/mole.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>First slide label</h5>
+                      <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="/placeholder ano/sapi.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>Second slide label</h5>
+                      <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="/placeholder ano/seal.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>Third slide label</h5>
+                      <p>Some representative placeholder content for the third slide.</p>
+                    </div>
+                  </div>
+            </div>
+                <button
+                  className="carousel-control-prev"
+                  type="button"
+                  data-bs-target="#car_it"
+                  data-bs-slide="prev"
+                >
+                  <span className="carousel-control-prev-icon" aria-hidden="true" />
+                  <span className="visually-hidden">Previous</span>
+                </button>
+                <button
+                  className="carousel-control-next"
+                  type="button"
+                  data-bs-target="#car_it"
+                  data-bs-slide="next"
+                >
+                  <span className="carousel-control-next-icon" aria-hidden="true" />
+                  <span className="visually-hidden">Next</span>
+                </button>
+          </div>
+        </div>
+        {/* akhir car_it */}
+        {/* car_ddd */}
+        <div className="col-4">
+          <div id="car_ddd" className="carousel slide">
+            <div className="carousel-indicators">
+                  <button
+                    type="button"
+                    data-bs-target="#car_ddd"
+                    data-bs-slide-to={0}
+                    className="active"
+                    aria-current="true"
+                    aria-label="Slide 1"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#car_ddd"
+                    data-bs-slide-to={1}
+                    aria-label="Slide 2"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#car_ddd"
+                    data-bs-slide-to={2}
+                    aria-label="Slide 3"
+                  />
+            </div>
+            <div className="carousel-inner">
+                  <div className="carousel-item active">
+                    <img src="/placeholder ano/mole.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>First slide label</h5>
+                      <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="/placeholder ano/sapi.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>Second slide label</h5>
+                      <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="/placeholder ano/seal.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>Third slide label</h5>
+                      <p>Some representative placeholder content for the third slide.</p>
+                    </div>
+                  </div>
+            </div>
+                <button
+                  className="carousel-control-prev"
+                  type="button"
+                  data-bs-target="#car_ddd"
+                  data-bs-slide="prev"
+                >
+                  <span className="carousel-control-prev-icon" aria-hidden="true" />
+                  <span className="visually-hidden">Previous</span>
+                </button>
+                <button
+                  className="carousel-control-next"
+                  type="button"
+                  data-bs-target="#car_ddd"
+                  data-bs-slide="next"
+                >
+                  <span className="carousel-control-next-icon" aria-hidden="true" />
+                  <span className="visually-hidden">Next</span>
+                </button>
+          </div>
+        </div>
+        {/* akhir car_ddd */}
+        {/* car_perkap */}
+        <div className="col-4">
+          <div id="car_perkap" className="carousel slide">
+            <div className="carousel-indicators">
+                  <button
+                    type="button"
+                    data-bs-target="#car_perkap"
+                    data-bs-slide-to={0}
+                    className="active"
+                    aria-current="true"
+                    aria-label="Slide 1"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#car_perkap"
+                    data-bs-slide-to={1}
+                    aria-label="Slide 2"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#car_perkap"
+                    data-bs-slide-to={2}
+                    aria-label="Slide 3"
+                  />
+            </div>
+            <div className="carousel-inner">
+                  <div className="carousel-item active">
+                    <img src="/placeholder ano/mole.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>First slide label</h5>
+                      <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="/placeholder ano/sapi.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>Second slide label</h5>
+                      <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="/placeholder ano/seal.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>Third slide label</h5>
+                      <p>Some representative placeholder content for the third slide.</p>
+                    </div>
+                  </div>
+            </div>
+                <button
+                  className="carousel-control-prev"
+                  type="button"
+                  data-bs-target="#car_perkap"
+                  data-bs-slide="prev"
+                >
+                  <span className="carousel-control-prev-icon" aria-hidden="true" />
+                  <span className="visually-hidden">Previous</span>
+                </button>
+                <button
+                  className="carousel-control-next"
+                  type="button"
+                  data-bs-target="#car_perkap"
+                  data-bs-slide="next"
+                >
+                  <span className="carousel-control-next-icon" aria-hidden="true" />
+                  <span className="visually-hidden">Next</span>
+                </button>
+          </div>
+        </div>
+        {/* akhir car_perkap */}
+        {/* car_pr */}
+        <div className="col-4">
+          <div id="car_pr" className="carousel slide">
+            <div className="carousel-indicators">
+                  <button
+                    type="button"
+                    data-bs-target="#car_pr"
+                    data-bs-slide-to={0}
+                    className="active"
+                    aria-current="true"
+                    aria-label="Slide 1"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#car_pr"
+                    data-bs-slide-to={1}
+                    aria-label="Slide 2"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#car_pr"
+                    data-bs-slide-to={2}
+                    aria-label="Slide 3"
+                  />
+            </div>
+            <div className="carousel-inner">
+                  <div className="carousel-item active">
+                    <img src="/placeholder ano/mole.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>First slide label</h5>
+                      <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="/placeholder ano/sapi.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>Second slide label</h5>
+                      <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="/placeholder ano/seal.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>Third slide label</h5>
+                      <p>Some representative placeholder content for the third slide.</p>
+                    </div>
+                  </div>
+            </div>
+                <button
+                  className="carousel-control-prev"
+                  type="button"
+                  data-bs-target="#car_pr"
+                  data-bs-slide="prev"
+                >
+                  <span className="carousel-control-prev-icon" aria-hidden="true" />
+                  <span className="visually-hidden">Previous</span>
+                </button>
+                <button
+                  className="carousel-control-next"
+                  type="button"
+                  data-bs-target="#car_pr"
+                  data-bs-slide="next"
+                >
+                  <span className="carousel-control-next-icon" aria-hidden="true" />
+                  <span className="visually-hidden">Next</span>
+                </button>
+          </div>
+        </div>
+        {/* akhir car_pr */}
+      </div>
+      {/* Akhir Anggota divisi */}
     </div>
   </section>
-  <div className="d-flex 
-justify-content-center align-items-center">
-      <button
-        type="button"
-        className="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-      >
-        Launch demo modal
-      </button>
+  {/* Akhir OUR TEAM */}
 
-      <div
-        className="modal fade"
-        id="exampleModal"
-        tabIndex={-1}
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">
-                Modal title
-              </h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
+{/* footer */}
+  <footer>
+    
+  </footer>
+{/* Akhir footer */}
+
+  {/* button gajelas */}
+      <div className="d-flex 
+    justify-content-center align-items-center">
+          <button
+            type="button"
+            className="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            Launch demo modal
+          </button>
+
+          <div
+            className="modal fade"
+            id="exampleModal"
+            tabIndex={-1}
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="exampleModalLabel">
+                    Modal title
+                  </h5>
+                  <button
+                    type="button"
+                    className="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div className="modal-body">...</div>
+              </div>
             </div>
-            <div className="modal-body">...</div>
           </div>
-        </div>
       </div>
-    </div>
+  {/* akhir button gajelas */}
     </main>
   )
 }
