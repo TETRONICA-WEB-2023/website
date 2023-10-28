@@ -1,67 +1,15 @@
 import Image from 'next/image'
-import { Poppins } from 'next/font/google'
-import Link from 'next/link'
-
-const inter = Poppins({ weight: '400', style: 'normal', subsets: ['latin-ext'] })
 
 export default function Home() {
   return (
     <main>
-    <nav className="navbar navbar-expand-lg bg-light shadow">
-    <div className="container-fluid">
-      <a className="navbar-brand" href="#">
-        <img className="logo-kmteti" src="/logo-kmteti.png" alt="Bootstrap" width={40} height="" />
-        <img className="logo-tetronica" src="/logo-tetronica.png" alt="Bootstrap" width={120} />
-      </a>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon" />
-      </button>
-      <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav ms-auto">
-          <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="#">
-              HOME
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#about">
-              ABOUT
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">
-              TATA CARA
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">
-              TIMELINE
-            </a>
-          </li>
-          <li className="nav-item">
-            <button type="button" className="btn btn-outline-secondary">
-              DAFTAR
-            </button>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  {/* Akhir Navbar */}
   {/* Jumbotron */}
   <br />
   <br />
   <br />
   <section className="jumbotron text-center">
-    <img
-      src="http://via.placeholder.com/640x640"
+    <Image
+      src="/600x600.svg"
       alt="Calon-Ketua-1"
       width={200}
       height={200}
@@ -97,13 +45,13 @@ export default function Home() {
           quis quia aut, nesciunt eveniet tempora magni! Natus labore doloribus
           nemo laudantium saepe accusamus ipsam vero minus?
         </p>
-        <Link
+        <a
           className="btn btn-danger btn-lg btn-outline-dark"
-          href="/about"
+          href="#"
           role="button"
         >
           Learn more
-        </Link>
+        </a>
       </div>
     </div>
   </section>
@@ -118,7 +66,7 @@ export default function Home() {
         <div className="row justify-content-between">
           <div className="col-md-4 mb-3">
             <div className="card">
-              <img src="..." className="card-img-top" alt="..." />
+              <Image src="/logo-kmteti.png" className="card-img-top" alt="..." width={200} height={100}/>
               <div className="card-body">
                 <h5 className="card-title">Card title</h5>
                 <p className="card-text">
@@ -133,7 +81,7 @@ export default function Home() {
           </div>
           <div className="col-md-4 mb-3">
             <div className="card">
-              <img src="..." className="card-img-top" alt="..." />
+              <Image src="/logo-kmteti.png" className="card-img-top" alt="..." width={200} height={100}/>
               <div className="card-body">
                 <h5 className="card-title">Card title</h5>
                 <p className="card-text">
@@ -148,7 +96,7 @@ export default function Home() {
           </div>
           <div className="col-md-4 mb-3">
             <div className="card">
-              <img src="..." className="card-img-top" alt="..." />
+              <Image src="/logo-kmteti.png" className="card-img-top" alt="..." width={200} height={100}/>
               <div className="card-body">
                 <h5 className="card-title">Card title</h5>
                 <p className="card-text">
