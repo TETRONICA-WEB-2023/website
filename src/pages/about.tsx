@@ -105,40 +105,44 @@ export default function Home() {
     <div className="container py-5">
       <div className="row text-center">
         <div className="col pb-5">
-          <h2>OUR TEAM</h2>
+          <h1 className="display-4">OUR TEAM</h1>
         </div>
       </div>
       {/* Ketua dkk */}
       <div className="row justify-content-evenly">
         <div className="col-md-3 mb-3">
           <div className="card">
-            <img src="/placeholder ano/subaru.png" className="card-img-top" alt="..." />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Cristiano_Ronaldo_playing_for_Al_Nassr_FC_against_Persepolis%2C_September_2023_%28cropped%29.jpg" className="card-img-top" alt="..." />
             <div className="card-body">
               <p className="card-text">
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
+                SEKRETARIS
+              </p>
+              <p className="card-text">
+                Christiano Ronaldo
               </p>
            </div>
           </div>
         </div>
         <div className="col-md-4 mb-3">
           <div className="card">
-            <img src="/placeholder ano/hajime.png" className="card-img-top" alt="..." />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Joko_Widodo_2019_official_portrait.jpg" className="card-img-top" alt="..." />
             <div className="card-body">
               <p className="card-text">
                 Some quick example text to build on the card title and make up the bulk of
-                the card's content.
+                the card&apos;s content.
               </p>
            </div>
           </div>
         </div>
         <div className="col-md-3">
           <div className="card">
-            <img src="/placeholder ano/miooo.png" className="card-img-top" alt="..." />
+            <img src="https://media.formula1.com/content/dam/fom-website/drivers/2023Drivers/verstappen.jpg.img.640.medium.jpg/1677069646195.jpg" className="card-img-top" alt="..." />
             <div className="card-body">
-              <p className="card-text">
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
+              <p className="card-text text-end">
+                BENDAHARA
+              </p>
+              <p className="card-text text-end">
+                Max Verstappen
               </p>
            </div>
           </div>
@@ -146,10 +150,10 @@ export default function Home() {
       </div>
       {/* Akhir Ketua dkk */}
       {/* Anggota divisi */}
-      <div className="row justify-content-evenly">
+      <div className="row justify-content-evenly py-5">
         {/* car_acara */}
-        <div className="col-4">
-          <div id="car_acara" className="carousel slide">
+        <div className="col-md-4 px-3 py-3">
+          <div id="car_acara" className="carousel slide" data-bs-touch="true">
             <div className="carousel-indicators">
                   <button
                     type="button"
@@ -174,24 +178,21 @@ export default function Home() {
             </div>
             <div className="carousel-inner">
                   <div className="carousel-item active">
-                    <img src="/placeholder ano/mole.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-ixn6Lst2PGA/YQs0bRVsxlI/AAAAAAABe9E/XJuLl3RnBNwMo9uHlazF9SBYoNfMJtBcwCNcBGAsYHQ/s400/eto_tora_banzai.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
                       <h5>First slide label</h5>
-                      <p>Some representative placeholder content for the first slide.</p>
                     </div>
                   </div>
                   <div className="carousel-item">
-                    <img src="/placeholder ano/sapi.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-4_h9rd4XQgU/Xy4eZz8gOAI/AAAAAAABafU/6do566GVhBYElQQYpSikosFLOxJuYNP8gCNcBGAsYHQ/s400/eto_ushi_banzai.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
                       <h5>Second slide label</h5>
-                      <p>Some representative placeholder content for the second slide.</p>
                     </div>
                   </div>
                   <div className="carousel-item">
-                    <img src="/placeholder ano/seal.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
                       <h5>Third slide label</h5>
-                      <p>Some representative placeholder content for the third slide.</p>
                     </div>
                   </div>
             </div>
@@ -214,10 +215,11 @@ export default function Home() {
                   <span className="visually-hidden">Next</span>
                 </button>
           </div>
+          <h1 className="text-center">DIVISI ACARA</h1>
         </div>
         {/* akhir car_acara */}
         {/* car_it */}
-        <div className="col-4">
+        <div className="col-md-4 px-3 py-3">
           <div id="car_it" className="carousel slide">
             <div className="carousel-indicators">
                   <button
@@ -243,24 +245,21 @@ export default function Home() {
             </div>
             <div className="carousel-inner">
                   <div className="carousel-item active">
-                    <img src="/placeholder ano/mole.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-ixn6Lst2PGA/YQs0bRVsxlI/AAAAAAABe9E/XJuLl3RnBNwMo9uHlazF9SBYoNfMJtBcwCNcBGAsYHQ/s400/eto_tora_banzai.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
                       <h5>First slide label</h5>
-                      <p>Some representative placeholder content for the first slide.</p>
                     </div>
                   </div>
                   <div className="carousel-item">
-                    <img src="/placeholder ano/sapi.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-4_h9rd4XQgU/Xy4eZz8gOAI/AAAAAAABafU/6do566GVhBYElQQYpSikosFLOxJuYNP8gCNcBGAsYHQ/s400/eto_ushi_banzai.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
                       <h5>Second slide label</h5>
-                      <p>Some representative placeholder content for the second slide.</p>
                     </div>
                   </div>
                   <div className="carousel-item">
-                    <img src="/placeholder ano/seal.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
                       <h5>Third slide label</h5>
-                      <p>Some representative placeholder content for the third slide.</p>
                     </div>
                   </div>
             </div>
@@ -283,10 +282,11 @@ export default function Home() {
                   <span className="visually-hidden">Next</span>
                 </button>
           </div>
+          <h1 className="text-center">DIVISI IT</h1>
         </div>
         {/* akhir car_it */}
         {/* car_ddd */}
-        <div className="col-4">
+        <div className="col-md-4 px-3 py-3">
           <div id="car_ddd" className="carousel slide">
             <div className="carousel-indicators">
                   <button
@@ -312,24 +312,21 @@ export default function Home() {
             </div>
             <div className="carousel-inner">
                   <div className="carousel-item active">
-                    <img src="/placeholder ano/mole.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-ixn6Lst2PGA/YQs0bRVsxlI/AAAAAAABe9E/XJuLl3RnBNwMo9uHlazF9SBYoNfMJtBcwCNcBGAsYHQ/s400/eto_tora_banzai.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
                       <h5>First slide label</h5>
-                      <p>Some representative placeholder content for the first slide.</p>
                     </div>
                   </div>
                   <div className="carousel-item">
-                    <img src="/placeholder ano/sapi.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-4_h9rd4XQgU/Xy4eZz8gOAI/AAAAAAABafU/6do566GVhBYElQQYpSikosFLOxJuYNP8gCNcBGAsYHQ/s400/eto_ushi_banzai.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
                       <h5>Second slide label</h5>
-                      <p>Some representative placeholder content for the second slide.</p>
                     </div>
                   </div>
                   <div className="carousel-item">
-                    <img src="/placeholder ano/seal.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
                       <h5>Third slide label</h5>
-                      <p>Some representative placeholder content for the third slide.</p>
                     </div>
                   </div>
             </div>
@@ -352,10 +349,11 @@ export default function Home() {
                   <span className="visually-hidden">Next</span>
                 </button>
           </div>
+          <h1 className="text-center">DIVISI DDD</h1>
         </div>
         {/* akhir car_ddd */}
         {/* car_perkap */}
-        <div className="col-4">
+        <div className="col-md-4 px-3 py-3">
           <div id="car_perkap" className="carousel slide">
             <div className="carousel-indicators">
                   <button
@@ -381,24 +379,21 @@ export default function Home() {
             </div>
             <div className="carousel-inner">
                   <div className="carousel-item active">
-                    <img src="/placeholder ano/mole.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-ixn6Lst2PGA/YQs0bRVsxlI/AAAAAAABe9E/XJuLl3RnBNwMo9uHlazF9SBYoNfMJtBcwCNcBGAsYHQ/s400/eto_tora_banzai.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
                       <h5>First slide label</h5>
-                      <p>Some representative placeholder content for the first slide.</p>
                     </div>
                   </div>
                   <div className="carousel-item">
-                    <img src="/placeholder ano/sapi.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-4_h9rd4XQgU/Xy4eZz8gOAI/AAAAAAABafU/6do566GVhBYElQQYpSikosFLOxJuYNP8gCNcBGAsYHQ/s400/eto_ushi_banzai.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
                       <h5>Second slide label</h5>
-                      <p>Some representative placeholder content for the second slide.</p>
                     </div>
                   </div>
                   <div className="carousel-item">
-                    <img src="/placeholder ano/seal.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
                       <h5>Third slide label</h5>
-                      <p>Some representative placeholder content for the third slide.</p>
                     </div>
                   </div>
             </div>
@@ -421,10 +416,11 @@ export default function Home() {
                   <span className="visually-hidden">Next</span>
                 </button>
           </div>
+          <h1 className="text-center">DIVISI PERKAP</h1>
         </div>
         {/* akhir car_perkap */}
         {/* car_pr */}
-        <div className="col-4">
+        <div className="col-md-4 px-3 py-3">
           <div id="car_pr" className="carousel slide">
             <div className="carousel-indicators">
                   <button
@@ -450,24 +446,21 @@ export default function Home() {
             </div>
             <div className="carousel-inner">
                   <div className="carousel-item active">
-                    <img src="/placeholder ano/mole.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-ixn6Lst2PGA/YQs0bRVsxlI/AAAAAAABe9E/XJuLl3RnBNwMo9uHlazF9SBYoNfMJtBcwCNcBGAsYHQ/s400/eto_tora_banzai.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
                       <h5>First slide label</h5>
-                      <p>Some representative placeholder content for the first slide.</p>
                     </div>
                   </div>
                   <div className="carousel-item">
-                    <img src="/placeholder ano/sapi.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-4_h9rd4XQgU/Xy4eZz8gOAI/AAAAAAABafU/6do566GVhBYElQQYpSikosFLOxJuYNP8gCNcBGAsYHQ/s400/eto_ushi_banzai.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
                       <h5>Second slide label</h5>
-                      <p>Some representative placeholder content for the second slide.</p>
                     </div>
                   </div>
                   <div className="carousel-item">
-                    <img src="/placeholder ano/seal.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
                       <h5>Third slide label</h5>
-                      <p>Some representative placeholder content for the third slide.</p>
                     </div>
                   </div>
             </div>
@@ -490,6 +483,7 @@ export default function Home() {
                   <span className="visually-hidden">Next</span>
                 </button>
           </div>
+          <h1 className="text-center">DIVISI PR</h1>
         </div>
         {/* akhir car_pr */}
       </div>

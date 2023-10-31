@@ -29,19 +29,17 @@ body {
   color: #ffff;
 }
 
-.nav {
-  position: fixed;
-  top: 0px;
-  width: 100%;
+nav {
+  background-color: #b357ff50;
 }
 
-.navbar{
+/* .navbar{
   position: fixed;
   top: 0px;
   width: 100%;
   z-index: 9999;
   background-color: #ffffff;
-}
+} */
 
 .btn{
   background-color: #9D4EDD;
@@ -59,15 +57,9 @@ body {
 
 #about{
   color: #ffff;
-  text-align: justify;
 }
 
 #projects{
-  background-color: #9e4edf00;
-  color: #ffff;
-}
-
-#members{
   background-color: #9e4edf00;
   color: #ffff;
 }
@@ -78,4 +70,8 @@ body {
 
 .logo-tetronica{
   margin-left: 2rem;
+}
+
+#members{
+  color: white;
 }
