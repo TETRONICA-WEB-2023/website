@@ -15,7 +15,7 @@ export default function Home() {
       height={200}
       className="rounded-circle img-thumbnail"
     />
-    <h1 className="display-4">Hello, world!</h1>
+    <h1 className="gotham-bold display-4">Hello, world!</h1>
     <p className="lead">
       This is a simple hero unit, a simple jumbotron-style component for calling
       extra attention to featured content or information.
@@ -61,13 +61,13 @@ export default function Home() {
     <div className="container">
       <div className="row text-center">
         <div className="col">
-          <h2>My Projects</h2>
+            <h2>My Projects</h2>
         </div>
         <div className="row justify-content-between">
           <div className="col-md-4 mb-3">
             <div className="card">
               <Image src="/logo-kmteti.png" className="card-img-top" alt="..." width={200} height={100}/>
-              <div className="card-body">
+                <div className="card-body">
                 <h5 className="card-title">Card title</h5>
                 <p className="card-text">
                   Some quick example text to build on the card title and make up
