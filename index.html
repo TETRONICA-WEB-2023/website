@@ -19,25 +19,60 @@
     <link rel="stylesheet" href="timeline.css" />
   </head>
   <body>
-    <nav>
-      <div class="nav-logo">
-        <a href="#">
-          <img src="img/tetronica-logo.png" alt="TETRONICA LOGO" />
-        </a>
+    <nav class="navbar navbar-expand-md bg-transparent navbar-dark fixed-top py-4">
+      <div class="nav-container container-fluid d-flex mx-lg-5">
+        <a class="navbar-brand" href="#"><img src="img/tetronica.svg" alt="Tetronica-logo"></a>
+        <button class="menu-icon navbar-toggler shadow-none border-0 m-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="sidebar offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title text-white" id="offcanvasNavbarLabel">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 gap-lg-4 gap-md-2">
+              <li class="nav-item">
+                <a class="nav-link" href="#header-page">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#calon-page">Calon</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about-page">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#tata-cara-page">Tata Cara</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#timeline-page">Timeline</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="nav-item dropdown py-2">
+          <a class="user-btn nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="ri-user-3-fill"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </div>
       </div>
-      <ul class="nav-links-list">
-        <li class="nav-link"><a href="#calon-page">Calon</a></li>
-        <li class="nav-link"><a href="#about-page">About</a></li>
-        <li class="nav-link"><a href="#tata-cara-page">Tata Cara</a></li>
-        <li class="nav-link"><a href="#timeline-page">Timeline</a></li>
-        <button class="nav-login-button button" id="login-button">Login</button>
-      </ul>
     </nav>
 
     <section id="header-page">
       <div class="header-text">
         <h1 class="heading"><span>TETI</span> Road to The New Captain</h1>
-        <p>Suaramu adalah kunci kemajuan <span>KMTETI</span>, gunakan hak pilihmu!</p>
+        <p>
+          Suaramu adalah kunci kemajuan <span>KMTETI</span>,  gunakan hak
+          pilihmu.
+        </p>
         <div class="header-button-container">
           <button id="vote-button" class="button">Vote</button>
           <button id="daftar-button" class="button">Daftar</button>
@@ -45,7 +80,7 @@
       </div>
       <div class="logo-container">
         <div class="header-logo">
-          <img src="img/tetronica-logo.png" alt="TETRONICA LOGO" />
+          <img src="img/tetronica.svg" alt="TETRONICA LOGO" />
         </div>
       </div>
     </section>
@@ -83,7 +118,10 @@
     <section id="tata-cara-page">
       <h1 class="heading">Tata Cara</h1>
       <div class="video-container">
-        <p>anggap ini video</p>
+        <iframe
+          src="https://youtu.be/fJ9rUzIMcZQ?si=agdxo6AqCDPF4WeO"
+          frameborder="0"
+        ></iframe>
       </div>
     </section>
 
@@ -98,7 +136,7 @@
         </div>
         <div class="cards">
           <div class="info">
-            <h3 class="title">30 Oktober - 3 November </h3>
+            <h3 class="title">30 Oktober - 3 November</h3>
             <p>Pemilihan Calon Ketua</p>
           </div>
         </div>
