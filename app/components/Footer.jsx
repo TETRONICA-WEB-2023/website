@@ -14,8 +14,8 @@ export default function Footer() {
         await Queue.fire({
         title: 'Login Form',
         html: `<input type="text" id="subject" class="swal2-input" placeholder="Subjek">
-        <textarea" id="laporan" class="swal2-input" placeholder="Detail laporan"/>`,
-        confirmButtonText: 'Sign in',
+        <textarea id="laporan" class="swal2-input" placeholder="Detail laporan"/>`,
+        confirmButtonText: 'Next',
         focusConfirm: false,
         currentProgressStep: 1,
         // optional class to show fade-in backdrop animation which was disabled in Queue mixin

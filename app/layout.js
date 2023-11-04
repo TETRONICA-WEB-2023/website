@@ -8,6 +8,7 @@ import { AuthContextProvider } from "./context/AuthContext";
 import { useEffect, Suspense } from 'react';
 import localFont from 'next/font/local';
 import Script from 'next/script'
+import { usePathname, headers } from 'next/navigation';
 
 const poppins = Poppins({ subsets: ["latin"], weight: ['400', '700'], style: ["normal", "italic"]});
 
@@ -26,6 +27,8 @@ const gotham = localFont({
 // };
 
 export default function RootLayout({ children }) {
+  const pathname = usePathname();
+  const specificRoute = '/admin';
     useEffect(() => {
         require("bootstrap/dist/js/bootstrap.bundle.min.js");
       }, []);
@@ -37,9 +40,14 @@ export default function RootLayout({ children }) {
       <style jsx global>{`
         :root {
           --gotham-font: ${gotham.style.fontFamily};
+          --poppins-font: ${poppins.style.fontFamily};
         }
         .gotham-bold {
           font-family: var(--gotham-font);
+        }
+
+        .poppins {
+          font-family: var(--poppins-font);
         }
 
         .heading {
@@ -58,11 +66,11 @@ export default function RootLayout({ children }) {
       {/* <body className={gotham.style.fontFamily}> */}
         <Suspense fallback={<div>Loading...</div>}>
         <AuthContextProvider>
-          <Navbar />
+          {pathname !== specificRoute && <Navbar />}
           <div className="wrapper">
           {children}
           </div>
-          <Footer/>
+          {pathname !== specificRoute && <Footer />}
         </AuthContextProvider>
         </Suspense>
         <Script src="https://kit.fontawesome.com/fddf5c0916.js" crossOrigin="anonymous"></Script>

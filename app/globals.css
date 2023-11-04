@@ -188,7 +188,7 @@ body {
 
 body {
   /* font-family: "Poppins"; */
-  font-size: 2rem;
+  /* font-size: 2rem; */
   color: #fff;
   background: linear-gradient(90deg, #240046 0%, rgba(60, 9, 108, 0.8) 100%);
 }
@@ -205,11 +205,11 @@ body {
   width: 200px;
 }
 
-.nav-link {
+/* .nav-link {
   color:  #fff;
-  /* font-family: "Poppins"; */
+  font-family: "Poppins";
   font-size: 18px;
-}
+} */
 
 .user-btn { 
   background-color: var(--orange1);
@@ -786,3 +786,18 @@ footer dl, ol, ul {
 .copyright {
     font-size: 13px;}
 }	
+
+/* TABLE */
+
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+  bottom: .5em;
+}

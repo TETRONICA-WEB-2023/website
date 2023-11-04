@@ -61,7 +61,7 @@ const page = () => {
           <div className="card">
             <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Cristiano_Ronaldo_playing_for_Al_Nassr_FC_against_Persepolis%2C_September_2023_%28cropped%29.jpg" className="card-img-top" alt="..." />
             <div className="card-body">
-              <p className="card-text">
+              <p className="gotham-bold card-text">
                 SEKRETARIS
               </p>
               <p className="card-text">
@@ -74,7 +74,7 @@ const page = () => {
           <div className="card">
             <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Joko_Widodo_2019_official_portrait.jpg" className="card-img-top" alt="..." />
             <div className="card-body">
-              <p className="card-text text-center">
+              <p className="gotham-bold card-text text-center">
                 PRESIDEN RI
               </p>
               <p className="card-text text-center">
@@ -87,7 +87,7 @@ const page = () => {
           <div className="card">
             <img src="https://media.formula1.com/content/dam/fom-website/drivers/2023Drivers/verstappen.jpg.img.640.medium.jpg/1677069646195.jpg" className="card-img-top" alt="..." />
             <div className="card-body">
-              <p className="card-text text-end">
+              <p className="gotham-bold card-text text-end">
                 BENDAHARA
               </p>
               <p className="card-text text-end">
@@ -212,7 +212,7 @@ const page = () => {
                   <span className="visually-hidden">Next</span>
                 </button>
           </div>
-          <h1 className="text-center">DIVISI ACARA</h1>
+          <h1 className="gotham-bold text-center">DIVISI ACARA</h1>
         </div>
         {/* akhir car_acara */}
         {/* car_it */}
@@ -327,7 +327,7 @@ const page = () => {
                   <span className="visually-hidden">Next</span>
                 </button>
           </div>
-          <h1 className="text-center">DIVISI IT</h1>
+          <h1 className="gotham-bold text-center">DIVISI IT</h1>
         </div>
         {/* akhir car_it */}
         {/* car_ddd */}
@@ -442,7 +442,7 @@ const page = () => {
                   <span className="visually-hidden">Next</span>
                 </button>
           </div>
-          <h1 className="text-center">DIVISI DDD</h1>
+          <h1 className="gotham-bold text-center">DIVISI DDD</h1>
         </div>
         {/* akhir car_ddd */}
         {/* car_perkap */}
@@ -557,7 +557,7 @@ const page = () => {
                   <span className="visually-hidden">Next</span>
                 </button>
           </div>
-          <h1 className="text-center">DIVISI PERKAP</h1>
+          <h1 className="gotham-bold text-center">DIVISI PERKAP</h1>
         </div>
         {/* akhir car_perkap */}
         {/* car_pr */}
@@ -672,7 +672,7 @@ const page = () => {
                   <span className="visually-hidden">Next</span>
                 </button>
           </div>
-          <h1 className="text-center">DIVISI PR</h1>
+          <h1 className="gotham-bold text-center">DIVISI PR</h1>
         </div>
         {/* akhir car_pr */}
       </div>
