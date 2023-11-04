@@ -2,13 +2,13 @@ import React from 'react'
 
 const page = () => {
   return (
-    <main>
+    <main className='text-white'>
     <section id="about">
     <div className="container py-5">
       <div className="row text-center">
         <div className="col">
-          <h1 className="display-4">KOMISI PEMILIHAN UMUM</h1>
-          <h3>KMTETI 2023</h3>
+          <h1 className='gotham-bold display-3'>KOMISI PEMILIHAN UMUM</h1>
+          <h3 className='gotham-bold'>KMTETI 2023</h3>
         </div>
       </div>
       <div className="pt-4">
@@ -25,8 +25,8 @@ const page = () => {
     <div className="container py-5">
       <div className="row text-center">
         <div className="col">
-          <h1 className="display-4">TUGAS DAN WEWENANG</h1>
-          <h3>KPU KMTETI</h3>
+          <h1 className="gotham-bold display-5">TUGAS DAN WEWENANG</h1>
+          <h3 className='gotham-bold'>KPU KMTETI</h3>
         </div>
       </div>
       <div className="pt-4">
@@ -52,40 +52,46 @@ const page = () => {
     <div className="container py-5">
       <div className="row text-center">
         <div className="col pb-5">
-          <h2>OUR TEAM</h2>
+          <h1 className='gotham-bold display-5'>OUR TEAM</h1>
         </div>
       </div>
       {/* Ketua dkk */}
       <div className="row justify-content-evenly">
         <div className="col-md-3 mb-3">
           <div className="card">
-            <img src="/placeholder ano/subaru.png" className="card-img-top" alt="..." />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Cristiano_Ronaldo_playing_for_Al_Nassr_FC_against_Persepolis%2C_September_2023_%28cropped%29.jpg" className="card-img-top" alt="..." />
             <div className="card-body">
+              <p className="gotham-bold card-text">
+                SEKRETARIS
+              </p>
               <p className="card-text">
-                Some quick example text to build on the card title and make up the bulk of
-                the card&apos;s content.
+                RAHMA PUTRI ANJANI
               </p>
            </div>
           </div>
         </div>
         <div className="col-md-4 mb-3">
           <div className="card">
-            <img src="/placeholder ano/hajime.png" className="card-img-top" alt="..." />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Joko_Widodo_2019_official_portrait.jpg" className="card-img-top" alt="..." />
             <div className="card-body">
-              <p className="card-text">
-                Some quick example text to build on the card title and make up the bulk of
-                the card&apos;s content.
+              <p className="gotham-bold card-text text-center">
+                PRESIDEN RI
+              </p>
+              <p className="card-text text-center">
+                JOECELYN AURORA MAJESTY
               </p>
            </div>
           </div>
         </div>
         <div className="col-md-3">
           <div className="card">
-            <img src="/placeholder ano/miooo.png" className="card-img-top" alt="..." />
+            <img src="https://media.formula1.com/content/dam/fom-website/drivers/2023Drivers/verstappen.jpg.img.640.medium.jpg/1677069646195.jpg" className="card-img-top" alt="..." />
             <div className="card-body">
-              <p className="card-text">
-                Some quick example text to build on the card title and make up the bulk of
-                the card&apos;s content.
+              <p className="gotham-bold card-text text-end">
+                BENDAHARA
+              </p>
+              <p className="card-text text-end">
+                PUTU ELKA RESTU
               </p>
            </div>
           </div>
@@ -93,10 +99,10 @@ const page = () => {
       </div>
       {/* Akhir Ketua dkk */}
       {/* Anggota divisi */}
-      <div className="row justify-content-evenly">
+      <div className="row justify-content-evenly py-5">
         {/* car_acara */}
-        <div className="col-4">
-          <div id="car_acara" className="carousel slide">
+        <div className="col-md-4 px-3 py-3">
+          <div id="car_acara" className="carousel slide" data-bs-touch="true">
             <div className="carousel-indicators">
                   <button
                     type="button"
@@ -118,27 +124,72 @@ const page = () => {
                     data-bs-slide-to={2}
                     aria-label="Slide 3"
                   />
+                  <button
+                    type="button"
+                    data-bs-target="#car_acara"
+                    data-bs-slide-to={3}
+                    aria-label="Slide 4"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#car_acara"
+                    data-bs-slide-to={4}
+                    aria-label="Slide 5"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#car_acara"
+                    data-bs-slide-to={5}
+                    aria-label="Slide 6"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#car_acara"
+                    data-bs-slide-to={6}
+                    aria-label="Slide 7"
+                  />
             </div>
             <div className="carousel-inner">
                   <div className="carousel-item active">
-                    <img src="/placeholder ano/mole.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-ixn6Lst2PGA/YQs0bRVsxlI/AAAAAAABe9E/XJuLl3RnBNwMo9uHlazF9SBYoNfMJtBcwCNcBGAsYHQ/s400/eto_tora_banzai.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
-                      <h5>First slide label</h5>
-                      <p>Some representative placeholder content for the first slide.</p>
+                      <h5>MIRSAD ALGANAWI AZMA</h5>
                     </div>
                   </div>
                   <div className="carousel-item">
-                    <img src="/placeholder ano/sapi.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-4_h9rd4XQgU/Xy4eZz8gOAI/AAAAAAABafU/6do566GVhBYElQQYpSikosFLOxJuYNP8gCNcBGAsYHQ/s400/eto_ushi_banzai.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
-                      <h5>Second slide label</h5>
-                      <p>Some representative placeholder content for the second slide.</p>
+                      <h5>CHRISTIAN KEVIN ANDHIKA D.</h5>
                     </div>
                   </div>
                   <div className="carousel-item">
-                    <img src="/placeholder ano/seal.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
-                      <h5>Third slide label</h5>
-                      <p>Some representative placeholder content for the third slide.</p>
+                      <h5>CHIRISTOPHER ARIF WIBOWO</h5>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>KEYZA LUBNA SITANGGANG</h5>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>NATHANIA RATNADEWI</h5>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>NEVRITA NATASYA PUTRIANA</h5>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>RINDU SAPUTRI</h5>
                     </div>
                   </div>
             </div>
@@ -161,10 +212,11 @@ const page = () => {
                   <span className="visually-hidden">Next</span>
                 </button>
           </div>
+          <h1 className="gotham-bold text-center">DIVISI ACARA</h1>
         </div>
         {/* akhir car_acara */}
         {/* car_it */}
-        <div className="col-4">
+        <div className="col-md-4 px-3 py-3">
           <div id="car_it" className="carousel slide">
             <div className="carousel-indicators">
                   <button
@@ -187,27 +239,72 @@ const page = () => {
                     data-bs-slide-to={2}
                     aria-label="Slide 3"
                   />
+                  <button
+                    type="button"
+                    data-bs-target="#car_it"
+                    data-bs-slide-to={3}
+                    aria-label="Slide 4"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#car_it"
+                    data-bs-slide-to={4}
+                    aria-label="Slide 5"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#car_it"
+                    data-bs-slide-to={5}
+                    aria-label="Slide 6"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#car_it"
+                    data-bs-slide-to={6}
+                    aria-label="Slide 7"
+                  />
             </div>
             <div className="carousel-inner">
                   <div className="carousel-item active">
-                    <img src="/placeholder ano/mole.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-ixn6Lst2PGA/YQs0bRVsxlI/AAAAAAABe9E/XJuLl3RnBNwMo9uHlazF9SBYoNfMJtBcwCNcBGAsYHQ/s400/eto_tora_banzai.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
-                      <h5>First slide label</h5>
-                      <p>Some representative placeholder content for the first slide.</p>
+                      <h5>FAIQ PRAMATYA MURDIYANTO</h5>
                     </div>
                   </div>
                   <div className="carousel-item">
-                    <img src="/placeholder ano/sapi.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-4_h9rd4XQgU/Xy4eZz8gOAI/AAAAAAABafU/6do566GVhBYElQQYpSikosFLOxJuYNP8gCNcBGAsYHQ/s400/eto_ushi_banzai.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
-                      <h5>Second slide label</h5>
-                      <p>Some representative placeholder content for the second slide.</p>
+                      <h5>AZFANOVA SAMMY RAFIF SAPUTRA</h5>
                     </div>
                   </div>
                   <div className="carousel-item">
-                    <img src="/placeholder ano/seal.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
-                      <h5>Third slide label</h5>
-                      <p>Some representative placeholder content for the third slide.</p>
+                      <h5>DION HIBATURRAHMAN</h5>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>HARUN</h5>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>M. KHAIRA RAHMADYA NAUVAL</h5>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>NUGROHO DWI PUTRANTO</h5>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>PRADANA YAHYA ABDILLAH</h5>
                     </div>
                   </div>
             </div>
@@ -230,10 +327,11 @@ const page = () => {
                   <span className="visually-hidden">Next</span>
                 </button>
           </div>
+          <h1 className="gotham-bold text-center">DIVISI IT</h1>
         </div>
         {/* akhir car_it */}
         {/* car_ddd */}
-        <div className="col-4">
+        <div className="col-md-4 px-3 py-3">
           <div id="car_ddd" className="carousel slide">
             <div className="carousel-indicators">
                   <button
@@ -256,27 +354,72 @@ const page = () => {
                     data-bs-slide-to={2}
                     aria-label="Slide 3"
                   />
+                  <button
+                    type="button"
+                    data-bs-target="#car_ddd"
+                    data-bs-slide-to={3}
+                    aria-label="Slide 4"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#car_ddd"
+                    data-bs-slide-to={4}
+                    aria-label="Slide 5"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#car_ddd"
+                    data-bs-slide-to={5}
+                    aria-label="Slide 6"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#car_ddd"
+                    data-bs-slide-to={6}
+                    aria-label="Slide 7"
+                  />
             </div>
             <div className="carousel-inner">
                   <div className="carousel-item active">
-                    <img src="/placeholder ano/mole.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-ixn6Lst2PGA/YQs0bRVsxlI/AAAAAAABe9E/XJuLl3RnBNwMo9uHlazF9SBYoNfMJtBcwCNcBGAsYHQ/s400/eto_tora_banzai.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
-                      <h5>First slide label</h5>
-                      <p>Some representative placeholder content for the first slide.</p>
+                      <h5>MUHAMMAD RHIZAL RHOMADON</h5>
                     </div>
                   </div>
                   <div className="carousel-item">
-                    <img src="/placeholder ano/sapi.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-4_h9rd4XQgU/Xy4eZz8gOAI/AAAAAAABafU/6do566GVhBYElQQYpSikosFLOxJuYNP8gCNcBGAsYHQ/s400/eto_ushi_banzai.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
-                      <h5>Second slide label</h5>
-                      <p>Some representative placeholder content for the second slide.</p>
+                      <h5>BENJAMIN SIGIT</h5>
                     </div>
                   </div>
                   <div className="carousel-item">
-                    <img src="/placeholder ano/seal.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
-                      <h5>Third slide label</h5>
-                      <p>Some representative placeholder content for the third slide.</p>
+                      <h5>MUHAMMAD HAIDAR SYAAFI</h5>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>MUHAMMAD ZUFAR SYAAFI</h5>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>LALU KEVIN PROUDY HANDAL</h5>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>DHAFAREL HARIYANTO</h5>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>KAYANA ANINDYA AZARIA</h5>
                     </div>
                   </div>
             </div>
@@ -299,10 +442,11 @@ const page = () => {
                   <span className="visually-hidden">Next</span>
                 </button>
           </div>
+          <h1 className="gotham-bold text-center">DIVISI DDD</h1>
         </div>
         {/* akhir car_ddd */}
         {/* car_perkap */}
-        <div className="col-4">
+        <div className="col-md-4 px-3 py-3">
           <div id="car_perkap" className="carousel slide">
             <div className="carousel-indicators">
                   <button
@@ -325,27 +469,72 @@ const page = () => {
                     data-bs-slide-to={2}
                     aria-label="Slide 3"
                   />
+                  <button
+                    type="button"
+                    data-bs-target="#car_perkap"
+                    data-bs-slide-to={3}
+                    aria-label="Slide 4"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#car_perkap"
+                    data-bs-slide-to={4}
+                    aria-label="Slide 5"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#car_perkap"
+                    data-bs-slide-to={5}
+                    aria-label="Slide 6"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#car_perkap"
+                    data-bs-slide-to={6}
+                    aria-label="Slide 7"
+                  />
             </div>
             <div className="carousel-inner">
                   <div className="carousel-item active">
-                    <img src="/placeholder ano/mole.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-ixn6Lst2PGA/YQs0bRVsxlI/AAAAAAABe9E/XJuLl3RnBNwMo9uHlazF9SBYoNfMJtBcwCNcBGAsYHQ/s400/eto_tora_banzai.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
-                      <h5>First slide label</h5>
-                      <p>Some representative placeholder content for the first slide.</p>
+                      <h5>DAFFA WAHYU PRATAMA</h5>
                     </div>
                   </div>
                   <div className="carousel-item">
-                    <img src="/placeholder ano/sapi.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-4_h9rd4XQgU/Xy4eZz8gOAI/AAAAAAABafU/6do566GVhBYElQQYpSikosFLOxJuYNP8gCNcBGAsYHQ/s400/eto_ushi_banzai.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
-                      <h5>Second slide label</h5>
-                      <p>Some representative placeholder content for the second slide.</p>
+                      <h5>AMMAR ALI YASIR</h5>
                     </div>
                   </div>
                   <div className="carousel-item">
-                    <img src="/placeholder ano/seal.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
-                      <h5>Third slide label</h5>
-                      <p>Some representative placeholder content for the third slide.</p>
+                      <h5>ANDI AHMAD FARUQ RABBANI</h5>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>DANISWARA ARGYA SENA</h5>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>IRFAN FIRDAUS ISYFI</h5>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>MELVINO RIZKY PUTRA WAHYUDI</h5>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>TANAYA EDRA ABITAMA</h5>
                     </div>
                   </div>
             </div>
@@ -368,10 +557,11 @@ const page = () => {
                   <span className="visually-hidden">Next</span>
                 </button>
           </div>
+          <h1 className="gotham-bold text-center">DIVISI PERKAP</h1>
         </div>
         {/* akhir car_perkap */}
         {/* car_pr */}
-        <div className="col-4">
+        <div className="col-md-4 px-3 py-3">
           <div id="car_pr" className="carousel slide">
             <div className="carousel-indicators">
                   <button
@@ -394,27 +584,72 @@ const page = () => {
                     data-bs-slide-to={2}
                     aria-label="Slide 3"
                   />
+                  <button
+                    type="button"
+                    data-bs-target="#car_pr"
+                    data-bs-slide-to={3}
+                    aria-label="Slide 4"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#car_pr"
+                    data-bs-slide-to={4}
+                    aria-label="Slide 5"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#car_pr"
+                    data-bs-slide-to={5}
+                    aria-label="Slide 6"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#car_pr"
+                    data-bs-slide-to={6}
+                    aria-label="Slide 7"
+                  />
             </div>
             <div className="carousel-inner">
                   <div className="carousel-item active">
-                    <img src="/placeholder ano/mole.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-ixn6Lst2PGA/YQs0bRVsxlI/AAAAAAABe9E/XJuLl3RnBNwMo9uHlazF9SBYoNfMJtBcwCNcBGAsYHQ/s400/eto_tora_banzai.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
-                      <h5>First slide label</h5>
-                      <p>Some representative placeholder content for the first slide.</p>
+                      <h5>POLIKARPUS ARYA PRADHANIKA</h5>
                     </div>
                   </div>
                   <div className="carousel-item">
-                    <img src="/placeholder ano/sapi.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-4_h9rd4XQgU/Xy4eZz8gOAI/AAAAAAABafU/6do566GVhBYElQQYpSikosFLOxJuYNP8gCNcBGAsYHQ/s400/eto_ushi_banzai.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
-                      <h5>Second slide label</h5>
-                      <p>Some representative placeholder content for the second slide.</p>
+                      <h5>BERNARDS WIDIYAZULFATHIRROCHIM</h5>
                     </div>
                   </div>
                   <div className="carousel-item">
-                    <img src="/placeholder ano/seal.png" className="d-block w-100" alt="..." />
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
-                      <h5>Third slide label</h5>
-                      <p>Some representative placeholder content for the third slide.</p>
+                      <h5>CHAIRA NASTYA WARESTRI</h5>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>FANISAH</h5>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>HANAN ZHAFIRAH ATSIR</h5>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>IVAN DE GURU</h5>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="https://1.bp.blogspot.com/-2XYMxsVEAR8/Xxbj_Yv38aI/AAAAAAABaRg/bi7C9P3mdmQHQnct34swmKgmMs-_tMMtACNcBGAsYHQ/s400/animal_character_hamster.png" className="d-block w-100" alt="..." />
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>TIMOTHY TANUWIDJAYA</h5>
                     </div>
                   </div>
             </div>
@@ -437,12 +672,14 @@ const page = () => {
                   <span className="visually-hidden">Next</span>
                 </button>
           </div>
+          <h1 className="gotham-bold text-center">DIVISI PR</h1>
         </div>
         {/* akhir car_pr */}
       </div>
       {/* Akhir Anggota divisi */}
     </div>
   </section>
+  {/* Akhir OUR TEAM */}
   </main>
   )
 }

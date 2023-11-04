@@ -79,7 +79,7 @@ const Page = () => {
       <button type="button" className="btn btn-primary" onClick={() => handleVote("A")}>Vote A</button>
       <button type="button" className="btn btn-primary" onClick={() => handleVote("B")}>Vote B</button>
       <button type="button" className="btn btn-primary" onClick={() => handleVote("C")}>Vote C</button>
-      <p></p>
+      <br/>
       <button type="button" className="btn btn-primary" onClick={() => handleVoteCount("A")}>Vote Count A</button>
       <button type="button" className="btn btn-primary" onClick={() => handleVoteCount("B")}>Vote Count B</button>
       <button type="button" className="btn btn-primary" onClick={() => handleVoteCount("C")}>Vote Count C</button>
