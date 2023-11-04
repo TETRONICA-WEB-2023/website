@@ -2,13 +2,13 @@ import React from 'react'
 
 const page = () => {
   return (
-    <main>
+    <main className='text-white'>
     <section id="about">
     <div className="container py-5">
       <div className="row text-center">
         <div className="col">
-          <h1 className="display-4">KOMISI PEMILIHAN UMUM</h1>
-          <h3>KMTETI 2023</h3>
+          <h1 className='gotham-bold display-3'>KOMISI PEMILIHAN UMUM</h1>
+          <h3 className='gotham-bold'>KMTETI 2023</h3>
         </div>
       </div>
       <div className="pt-4">
@@ -25,8 +25,8 @@ const page = () => {
     <div className="container py-5">
       <div className="row text-center">
         <div className="col">
-          <h1 className="display-4">TUGAS DAN WEWENANG</h1>
-          <h3>KPU KMTETI</h3>
+          <h1 className="gotham-bold display-5">TUGAS DAN WEWENANG</h1>
+          <h3 className='gotham-bold'>KPU KMTETI</h3>
         </div>
       </div>
       <div className="pt-4">
@@ -52,7 +52,7 @@ const page = () => {
     <div className="container py-5">
       <div className="row text-center">
         <div className="col pb-5">
-          <h1 className="display-4">OUR TEAM</h1>
+          <h1 className='gotham-bold display-5'>OUR TEAM</h1>
         </div>
       </div>
       {/* Ketua dkk */}

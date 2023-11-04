@@ -31,12 +31,26 @@ export default function RootLayout({ children }) {
     return (
     <html lang="en">
     <title>TETRONICA</title>
+    <meta charSet="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <style jsx global>{`
         :root {
           --gotham-font: ${gotham.style.fontFamily};
         }
         .gotham-bold {
           font-family: var(--gotham-font);
+        }
+
+        .heading {
+          font-family: var(--gotham-font);
+          font-size: 54px;
+          color:  #fff;
+        }
+        .title {
+          color: #fff;
+          position: relative;
+          font-family: var(--gotham-font);
+          font-size: 18px;
         }
       `}</style>
       <body className={poppins.className}>
@@ -50,6 +64,7 @@ export default function RootLayout({ children }) {
           <Footer/>
         </AuthContextProvider>
         </Suspense>
+        <script src="https://kit.fontawesome.com/fddf5c0916.js" crossOrigin="anonymous"></script>
       </body>
     </html>
   );
