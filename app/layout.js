@@ -7,6 +7,7 @@ import { Poppins } from "next/font/google";
 import { AuthContextProvider } from "./context/AuthContext";
 import { useEffect, Suspense } from 'react';
 import localFont from 'next/font/local';
+import Script from 'next/script'
 
 const poppins = Poppins({ subsets: ["latin"], weight: ['400', '700'], style: ["normal", "italic"]});
 
@@ -64,7 +65,7 @@ export default function RootLayout({ children }) {
           <Footer/>
         </AuthContextProvider>
         </Suspense>
-        <script src="https://kit.fontawesome.com/fddf5c0916.js" crossOrigin="anonymous"></script>
+        <Script src="https://kit.fontawesome.com/fddf5c0916.js" crossOrigin="anonymous"></Script>
       </body>
     </html>
   );

@@ -104,7 +104,7 @@ const Navbar = () => {
 //     </div>
 //   </div>
 // </nav>
-<nav className="navbar navbar-expand-md fixed-top py-4 bg-white opacity-50">
+<nav className="navbar navbar-expand-md fixed-top py-4 bg-white opacity-80">
 <div className="nav-container container-fluid d-flex mx-lg-5">
   <a className="navbar-brand" href="#">
   <Image className="logo-tetronica" src="/logo-tetronica.png" alt="Bootstrap" width="178" height="34"/>

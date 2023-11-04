@@ -176,7 +176,7 @@ export default function Home() {
   </div>
 </section>
 <section id="calon-page">
-  <h1 className="heading">Who's Next ??</h1>
+  <h1 className="heading">Who&quot;s Next ??</h1>
   <div className="foto-calon-container">
     <div className="foto-calon">
       <img src="img/calon-sementara.png" alt="calon 1" />
