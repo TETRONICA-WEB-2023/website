@@ -1,6 +1,8 @@
 @media screen and (max-width: 768px) {
   body {
     font-size: 14px;
+    background-size: contain;
+    background-clip: border-box;
   }
 
   .heading {
@@ -25,6 +27,10 @@
   #header-page {
     height: auto;
     margin-top: 3rem;
+  }
+
+  #header-page svg { 
+    display: none;
   }
 
   .sidebar { 
