@@ -19,48 +19,11 @@ import './style.css';
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Collapse from '@mui/material/Collapse';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import DraftsIcon from '@mui/icons-material/Drafts';
-import SendIcon from '@mui/icons-material/Send';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
-import StarBorder from '@mui/icons-material/StarBorder';
-
-const columns = [
-  { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'firstName', headerName: 'First name', width: 130 },
-  { field: 'lastName', headerName: 'Last name', width: 130 },
-  {
-    field: 'age',
-    headerName: 'Age',
-    type: 'number',
-    width: 90,
-  },
-  {
-    field: 'fullName',
-    headerName: 'Full name',
-    description: 'This column has a value getter and is not sortable.',
-    sortable: false,
-    width: 160,
-    valueGetter: (params) =>
-      `${params.row.firstName || ''} ${params.row.lastName || ''}`,
-  },
-];
-
-const rows = [
-  { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-  { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-  { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-  { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-  { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-  { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-  { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-  { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-  { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-];
+import xlsExport from 'xlsexport';
 
 // Register ChartJS components using ChartJS.register
 ChartJS.register(
@@ -72,72 +35,108 @@ ChartJS.register(
   BarElement,
 );
 
-var countData = {};
 function Example() {
   const [open, setOpen] = React.useState(true);
+  const [voteCount, setVoteCount] = React.useState([])
+  const [mahasiswa, setMahasiswa] = React.useState([])
+  const [updateMahasiswa, setUpdateMahasiswa] = React.useState(new Date().toLocaleString())
 
   const handleClick = () => {
     setOpen(!open);
   };
+  useEffect(() => {
+    var counts = ref(db, '/vote');
+    (function timerVote() {
+      onValue(counts, (snapshot) => {
+        if(snapshot.exists()) {
+          var data = [];
+          Object.keys(snapshot.val()).forEach(key => {
+            data.push(Object.values(snapshot.val()[key]).length);
+          });
+          setVoteCount(data);
+        }
+      });
+      setTimeout(timerVote, 1000);
+    })();
+  }, [])
+  console.log(voteCount);
 
-  const getVoteData = (calon) => {
-    const voteCount = ref(db, 'vote/');
-    get(voteCount).then((snapshot) => {
-      if (snapshot.exists()) {
-        countData = snapshot.val()["calon" + calon];
-        console.log(countData);
-        return countData;
-      } else {
-        console.log("No data available");
-      }
-    }).catch((error) => {
-      console.error(error);
-    });
-
-    return countData;
-  };
-    console.log(getVoteData('A'));
-    const data = {
-      labels : ["Calon 1", "Calon 2", "Calon 3"],
-      datasets : [
-        {
-          label: "Suara",
-          data: [6, 19, 3],
-          backgroundColor: [
-            "rgba(255, 99, 132, 0.2)",
-            "rgba(54, 162, 235, 0.2)",
-            "rgba(255, 206, 86, 0.2)",
-          ],
-          borderColor: [
-            "rgba(255, 99, 132, 1)",
-            "rgba(54, 162, 235, 1)",
-            "rgba(255, 206, 86, 1)",
-          ],
-          borderWidth: 1,
-        },
-      ],
-    };
-
-    const options = {
-      scales: {
-        y: {
-          beginAtZero: true,
-        },
+  
+  const data = {
+    labels : ["Calon 1", "Calon 2", "Calon 3"],
+    datasets : [
+      {
+        label: "Suara",
+        data: [voteCount[0], voteCount[1], voteCount[2]],
+        backgroundColor: [
+          "rgba(255, 99, 132, 0.5)",
+          "rgba(54, 162, 235, 0.5)",
+          "rgba(255, 206, 86, 0.5)",
+        ],
+        borderColor: [
+          "rgba(255, 99, 132, 1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+        ],
+        borderWidth: 1,
       },
-    };
+    ],
+  };
 
-    
+  const options = {
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
+  };
+
+  // 
+  // DATATABLE
+  // 
+  const columns = [
+    { field: 'id', headerName: 'ID', width: 70 },
+    { field: 'namaLengkap', headerName: 'Nama Lengkap', width: 300 },
+    { field: 'nim', headerName: 'Nomor Induk Mahasiswa', width: 200 },
+    { field: 'email', headerName: 'Email', width: 300 },
+    { field: 'angkatan', headerName: 'Angkatan', width: 100 },
+    { field: 'prodi', headerName: 'Program Studi', width: 200 },
+    { field: 'status', headerName: 'Status', width: 100 },
+    { field: 'vote', headerName: 'Vote', width: 100 },
+  ];
+
+  useEffect(() => {
+    var dataMahasiswa = ref(db, '/mahasiswa');
+    (function timermhs() {
+      onValue(dataMahasiswa, (snapshot) => {
+        if(snapshot.exists()) {
+          var data = [];
+          Object.keys(snapshot.val()).forEach(key => {
+
+            data.push(Object.values(snapshot.val()[key]));
+          });
+          setMahasiswa(data);
+          setUpdateMahasiswa(new Date().toLocaleString());
+        }
+      });
+      setTimeout(timermhs, 60000);
+    })();
+  }, []);
+
+  console.log(mahasiswa[4]);
+  
+
+  var rows = [];
+  mahasiswa.forEach((item, index) => {
+    rows.push({id: index+1, namaLengkap: item[3], nim: item[0], email: item[2], angkatan: item[1], prodi: item[4], status: item[5], vote: item[6]})
+  })   
+
+  const exportDataPemilihToXLS = () => {
+    const xls = new xlsExport(rows, 'Data Pemilih');
+    xls.exportToXLS('Data Pemilih_' + new Date().toString() + '.xls');
+  }
 
     return (
-        // <>
-        //     {/* Bar chart */}
-        //     <h1 className="w-[150px] mx-auto mt-10 text-xl font-semibold capitalize ">Bar Chart</h1>
-        //     <div className="w-[1100px] h-screen flex mx-auto my-auto">
-        //         <div className='border border-gray-400 pt-0 rounded-xl  w-full h-fit my-auto  shadow-xl'>
-        //             <canvas id='myChart'></canvas>
-        //         </div>
-        //     </div>
-        // </>
         <>
         
         <header class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
@@ -242,10 +241,9 @@ function Example() {
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 className="h2 gotham-bold mt-2">Data Pemilihan</h1>
         <div className="btn-toolbar mb-2 mb-md-0">
-          <div className="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-          </div>
+          {/* <div className="btn-group me-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary" onClick={exportToXLS}>Export</button>
+          </div> */}
           <div className="mt-1">
             Last update: {new Date().toLocaleString()}
           </div>
@@ -256,19 +254,28 @@ function Example() {
       <Bar data={data} width="900" height="380" options={options} />
 
         </div>
-
+        <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
       <h2 className="gotham-bold mt-2">Data Pemilih</h2>
+      <div className="btn-toolbar mb-2 mb-md-0">
+          <div className="btn-group me-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary" onClick={exportDataPemilihToXLS}>Export</button>
+          </div>
+          <div className="mt-1">
+            Last update: {updateMahasiswa}
+          </div>
+        </div>
+      </div>
       <div className="table-responsive">
-      <div style={{ height: 400, width: '100%' }}>
+      <div style={{ height: '70vh', width: '100%' }}>
       <DataGrid
         rows={rows}
         columns={columns}
         initialState={{
           pagination: {
-            paginationModel: { page: 0, pageSize: 5 },
+            paginationModel: { page: 0, pageSize: 10 },
           },
         }}
-        pageSizeOptions={[5, 10]}
+        pageSizeOptions={[5, 10, 20, 50, 100]}
       />
     </div>
       </div>
