@@ -67,7 +67,7 @@ export default function RootLayout({ children }) {
         <Suspense fallback={<div>Loading...</div>}>
         <AuthContextProvider>
           {pathname !== specificRoute && <Navbar />}
-          <div className="wrapper">
+          <div className="navwrapper">
           {children}
           </div>
           {pathname !== specificRoute && <Footer />}
