@@ -24,7 +24,8 @@
     "react": "^18",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18",
-    "sweetalert2": "^11.7.32"
+    "sweetalert2": "^11.7.32",
+    "xlsexport": "^1.5.2"
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -18,7 +18,7 @@
 @import "https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css";
 
 body {
-    min-height: 2000px;
+    min-height: auto;
     /* font-family: 'Poppins', sans-serif; */
     /* background: rgb(157,132,27); */
     /* background: linear-gradient(170deg, rgb(78,55,22) 0%, rgb(23,16,29) 30%, rgb(23,16,29) 70%, rgb(48,35,58) 100%); */
@@ -193,7 +193,7 @@ body {
   background: linear-gradient(90deg, #240046 0%, rgba(60, 9, 108, 0.8) 100%);
 }
 
-.wrapper {
+.navwrapper {
   margin-top: 85px;
 }
 .navbar-brand { 
