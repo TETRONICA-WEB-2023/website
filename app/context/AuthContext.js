@@ -15,6 +15,7 @@ const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [email, setEmail] = useState([]);
 
   const googleSignIn = () => {
     const provider = new GoogleAuthProvider();
@@ -63,10 +64,13 @@ export const AuthContextProvider = ({ children }) => {
                   var voting = snapshot.val();
                   push(ref(db, '/vote/calon' + calon), auth.email);
                   push(ref(db, '/vote/email'), auth.email);
+                  update(ref(db, '/mahasiswa/' + email.indexOf(auth.email)), {'/vote' : 1})
+                  
                 } else {
                   var voting = [auth.email];
                   set(ref(db, '/vote/calon' + calon), voting);
                   push(ref(db, '/vote/email'), auth.email);
+                  update(ref(db, '/mahasiswa/' + email.indexOf(auth.email)), {'/vote' : 1})
                 }
               }).catch((error) => {
                 console.error(error);
@@ -93,35 +97,11 @@ export const AuthContextProvider = ({ children }) => {
             )
             set(ref(db, '/vote/calon' + calon), voting);
             set(ref(db, '/vote/email'), voting);
+            update(ref(db, '/mahasiswa/' + email.indexOf(auth.email)), {'/vote' : 1})
           }
         })
       }
       
-    }).catch((error) => {
-      console.error(error);
-    });
-  }
-
-  const voteCount = (calon) => {
-    const voteData = ref(db, '/vote/calon' + calon);
-    get(voteData).then((snapshot) => {
-      if(snapshot.exists()) {
-        var data = snapshot.val();
-        Swal.fire({
-          title: 'Jumlah suara calon ' + calon + ':',
-          text: Object.values(data).length,
-          icon: 'info',
-          confirmButtonText: 'OK'
-        })
-        return data.length;
-      } else {
-        Swal.fire({
-          title: 'Jumlah suara calon ' + calon + ':',
-          text: "0",
-          icon: 'info',
-          confirmButtonText: 'OK'
-        })
-      }
     }).catch((error) => {
       console.error(error);
     });
@@ -132,6 +112,7 @@ export const AuthContextProvider = ({ children }) => {
     var fetchedData = ref(db, "/approvedEmail");
     onValue(fetchedData, (snapshot) => {
         var data = snapshot.val();
+        setEmail(data);
         if(currentUser){
           if(!currentUser.email.includes('@mail.ugm.ac.id')) {
               Swal.fire({
@@ -151,16 +132,6 @@ export const AuthContextProvider = ({ children }) => {
               logOut();
           } else {
               setUser(currentUser);
-                  
-              // Swal.fire({
-              //     toast: true,
-              //     position: 'top-right',
-              //     showConfirmButton: false,
-              //     timer: 2500,
-              //     timerProgressBar: true,
-              //     icon: 'success',
-              //     title: 'Logged in as ' + currentUser.displayName
-              // })
           }
       } else {
           setUser(null);
@@ -174,7 +145,7 @@ export const AuthContextProvider = ({ children }) => {
   }, [user]);
 
   return (
-    <AuthContext.Provider value={{ user, googleSignIn, logOut, vote, voteCount }}>
+    <AuthContext.Provider value={{ user, googleSignIn, logOut, vote }}>
       {children}
     </AuthContext.Provider>
   );
