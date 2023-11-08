@@ -1,0 +1,86 @@
+
+#kpu, #tugas, #panitia { 
+    width: 80%;
+    max-width: 900px;
+    margin: 5rem auto;
+    padding: 5rem 0;
+}
+
+#kpu h1, h3, #tugas h1, h3, #panitia h1, h3 { 
+    text-align: center;
+    font-family: 'Gotham-bold', sans-serif;
+    font-size: 40px;
+    color: var(--orange1);
+}
+
+#kpu h3, #tugas h3, #panitia h3 { 
+    font-size: 30px;
+    color: #fff;
+    border-bottom: solid #fff ;
+    padding-bottom: 3rem;
+}
+#kpu p, #tugas ol { 
+    margin-top: 3rem;
+    font-size: 18px;
+    text-align: justify;
+}
+
+.inner-border { 
+    padding: 2rem;
+    border: solid var(--orange1);
+    border-radius: 12px;
+    background-color: #fff 50%;
+    backdrop-filter: blur(10px);
+}
+
+.outer-border { 
+    padding: 1rem;
+    border: solid #9D4EDD 5px;
+    border-radius: 20px;
+}
+
+.carousel-panitia { 
+    width: 100%;
+}
+
+.carousel-item img { 
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    body { 
+        background-size: contain;
+    }
+
+    #kpu, #tugas, #panitia { 
+        margin-bottom: 1rem;
+    }
+    
+    #kpu h1, h3, #tugas h1, h3, #panitia h1 { 
+        font-size: 20px;
+    }
+    
+    #kpu h3, #tugas h3 { 
+        font-size: 16px;
+        padding-bottom: 1.5rem;
+    }
+    
+    #kpu p, #tugas ol { 
+        margin-top: 1.5rem;
+        font-size: 12px;
+    }
+    
+    .inner-border { 
+        padding: 0.5rem;
+        border: solid var(--orange1);
+        border-radius: 12px;
+        background-color: #fff 50%;
+        backdrop-filter: blur(10px);
+    }
+    
+    .outer-border { 
+        padding: 0.5rem;
+        border: solid #9D4EDD 4px;
+        border-radius: 20px;
+    }
+}
