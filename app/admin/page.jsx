@@ -13,10 +13,8 @@ import { Bar } from "react-chartjs-2";
 import { db } from '../firebase';
 import { ref, get, child, onValue, set, push, update } from 'firebase/database';
 import * as React from 'react';
-import { DataGrid } from '@mui/x-data-grid';
 import Link from "next/link";
 import './style.css';
-import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
@@ -24,6 +22,12 @@ import Collapse from '@mui/material/Collapse';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import xlsExport from 'xlsexport';
+import MUIDataTable from "mui-datatables";
+import { ThemeProvider } from "@mui/material/styles";
+import { createTheme } from "@mui/material/styles";
+import { CacheProvider } from "@emotion/react";
+import createCache from "@emotion/cache";
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 // Register ChartJS components using ChartJS.register
 ChartJS.register(
@@ -33,17 +37,28 @@ ChartJS.register(
   LineElement,
   Tooltip,
   BarElement,
+  ChartDataLabels,
 );
+
+const muiCache = createCache({
+  key: "mui-datatables",
+  prepend: true
+});
 
 function Example() {
   const [open, setOpen] = React.useState(true);
   const [voteCount, setVoteCount] = React.useState([])
   const [mahasiswa, setMahasiswa] = React.useState([])
-  const [updateMahasiswa, setUpdateMahasiswa] = React.useState(new Date().toLocaleString())
+  const [updateMahasiswa, setUpdateMahasiswa] = React.useState(new Date().toLocaleString())  
 
   const handleClick = () => {
     setOpen(!open);
   };
+
+  const handleReset = () => {
+    
+  }
+
   useEffect(() => {
     var counts = ref(db, '/vote');
     (function timerVote() {
@@ -83,26 +98,46 @@ function Example() {
     ],
   };
 
+  const barOptions = {
+    plugins: {
+      datalabels: {
+        formatter: (value, ctx) => {
+          const datapoints = ctx.chart.data.datasets[0].data
+           const total = datapoints.reduce((total, datapoint) => total + datapoint, 0)
+          const percentage = value / total * 100
+          return percentage.toFixed(2) + "%";
+        },
+        color: 'black',
+      }
+    }
+  }
+
   const options = {
-    scales: {
-      y: {
-        beginAtZero: true,
-      },
-    },
+    search: true,
+    download: true,
+    print: true,
+    viewColumns: true,
+    filter: true,
+    filterType: "checkbox",
+    selectableRows: "none",
+    resizeableColumns: true,
+    // responsive,
+    // tableBodyHeight,
+    // tableBodyMaxHeight
   };
 
   // 
   // DATATABLE
   // 
   const columns = [
-    { field: 'id', headerName: 'ID', width: 70 },
-    { field: 'namaLengkap', headerName: 'Nama Lengkap', width: 300 },
-    { field: 'nim', headerName: 'Nomor Induk Mahasiswa', width: 200 },
-    { field: 'email', headerName: 'Email', width: 300 },
-    { field: 'angkatan', headerName: 'Angkatan', width: 100 },
-    { field: 'prodi', headerName: 'Program Studi', width: 200 },
-    { field: 'status', headerName: 'Status', width: 100 },
-    { field: 'vote', headerName: 'Vote', width: 100 },
+    { name: 'id', label: 'ID', width: 70, options: { filter: false, sort: true } },
+    { name: 'namaLengkap', label: 'Nama Lengkap', width: 300, options: { filter: false, sort: true } },
+    { name: 'nim', label: 'Nomor Induk Mahasiswa', width: 200, options: { filter: false, sort: true } },
+    { name: 'email', label: 'Email', width: 300, options: { filter: false, sort: true } },
+    { name: 'angkatan', label: 'Angkatan', width: 100 },
+    { name: 'prodi', label: 'Program Studi', width: 200 },
+    { name: 'status', label: 'Status', width: 100 },
+    { name: 'vote', label: 'Vote', width: 100 },
   ];
 
   useEffect(() => {
@@ -121,14 +156,11 @@ function Example() {
       });
       setTimeout(timermhs, 60000);
     })();
-  }, []);
-
-  console.log(mahasiswa[4]);
-  
+  }, []);  
 
   var rows = [];
   mahasiswa.forEach((item, index) => {
-    rows.push({id: index+1, namaLengkap: item[3], nim: item[0], email: item[2], angkatan: item[1], prodi: item[4], status: item[5], vote: item[6]})
+    rows.push({id: index+1, namaLengkap: item[3], nim: item[0], email: item[2], angkatan: item[1], prodi: item[4], status: item[5], vote: item[6] === 0? "Belum" : "Sudah"})
   })   
 
   const exportDataPemilihToXLS = () => {
@@ -140,7 +172,7 @@ function Example() {
         <>
         
         <header class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-          <a class="gotham-bold navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Tetronica KMTETI 2023</a>
+          <a class="gotham navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Tetronica KMTETI 2023</a>
           <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -156,49 +188,6 @@ function Example() {
       <div class="row"> */}
       <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="position-sticky pt-3">
-        <ul class="nav flex-column">
-        <List
-            sx={{ width: '100%', maxWidth: 360}}
-            component="nav"
-            aria-labelledby="nested-list-subheader"
-            // subheader={
-            //   <ListSubheader component="div" id="nested-list-subheader">
-            //     Nested List Items
-            //   </ListSubheader>
-            // }
-          >
-            <ListItemButton>
-              {/* <ListItemIcon>
-                <SendIcon />
-              </ListItemIcon> */}
-              <ListItemText primary="Jumlah Mahasiswa" />
-            </ListItemButton>
-            <ListItemButton>
-              {/* <ListItemIcon>
-                <DraftsIcon />
-              </ListItemIcon> */}
-              <ListItemText primary="Voted" />
-            </ListItemButton>
-            <ListItemButton onClick={handleClick}>
-              {/* <ListItemIcon>
-                <InboxIcon />
-              </ListItemIcon> */}
-              <ListItemText primary="Detail" />
-              {open ? <ExpandMore /> : <ExpandLess />}
-            </ListItemButton>
-            <Collapse in={!open} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                <ListItemButton sx={{ pl: 4 }}>
-                  {/* <ListItemIcon>
-                    <StarBorder />
-                  </ListItemIcon> */}
-                  <ListItemText primary="Starred" />
-                </ListItemButton>
-              </List>
-            </Collapse>
-          </List>
-        </ul>
-
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
           <span>Saved reports</span>
           <a class="link-secondary" href="#" aria-label="Add a new report">
@@ -234,16 +223,12 @@ function Example() {
       </div>
     </nav>
 
-
-
+    {/* BODY OF DOCUMENT */}
       <div className="bg-white">
       <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 className="h2 gotham-bold mt-2">Data Pemilihan</h1>
         <div className="btn-toolbar mb-2 mb-md-0">
-          {/* <div className="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary" onClick={exportToXLS}>Export</button>
-          </div> */}
           <div className="mt-1">
             Last update: {new Date().toLocaleString()}
           </div>
@@ -251,10 +236,12 @@ function Example() {
       </div>
 
       <div className="my-4 w-100">
-      <Bar data={data} width="900" height="380" options={options} />
+      <Bar data={data} options={barOptions} width="900" height="380"/>
+      </div>
 
-        </div>
-        <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+
+      <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
       <h2 className="gotham-bold mt-2">Data Pemilih</h2>
       <div className="btn-toolbar mb-2 mb-md-0">
           <div className="btn-group me-2">
@@ -267,17 +254,25 @@ function Example() {
       </div>
       <div className="table-responsive">
       <div style={{ height: '70vh', width: '100%' }}>
-      <DataGrid
-        rows={rows}
+      <CacheProvider value={muiCache}>
+      <ThemeProvider theme={createTheme()}>
+      <MUIDataTable
+        data={rows}
         columns={columns}
-        initialState={{
-          pagination: {
-            paginationModel: { page: 0, pageSize: 10 },
-          },
-        }}
-        pageSizeOptions={[5, 10, 20, 50, 100]}
+        options={options}
       />
+      </ThemeProvider>
+      </CacheProvider>
     </div>
+      </div>
+
+      <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <h2 className="gotham-bold mt-2">Reset Data</h2>
+      <div className="btn-toolbar mb-2 mb-md-0">
+          <div className="btn-group me-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary" onClick={exportDataPemilihToXLS}>Reset Data</button>
+          </div>
+        </div>
       </div>
     </main>
 

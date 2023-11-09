@@ -2,6 +2,7 @@ body {
     font-size: .875rem;
     background: white;
     color: black;
+    margin-top: 80px;
   }
   
   .feather {

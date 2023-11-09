@@ -1,0 +1,81 @@
+@import "https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css";
+
+:root {
+  --orange1: #ff7900;
+  --purple1: #3c096c;
+  --purple2: #240046;
+}
+
+nav {
+  background-color: #240046;
+  height: 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: top 0.3s;
+}
+
+.navbar-brand {
+  width: fit-content;
+  padding: auto;
+}
+
+.navbar-brand img {
+  width: 200px;
+}
+
+.nav-link-cust {
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.nav-link-cust:hover {
+  color: #bebebe;
+}
+
+.user-btn {
+  background-color: var(--orange1);
+  border: solid var(--orange1) 2px;
+  margin-left: 2rem;
+  padding: 8px;
+  border-radius: 12px;
+}
+
+/* Mobile Screen */
+@media screen and (max-width: 768px) {
+    .nav-container {
+      justify-content: center;
+    }
+  
+    .navbar-brand {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  
+    .menu-icon {
+      order: -1;
+      margin-left: -3rem;
+    }
+  
+    .offcanvas-header button {
+      color: #fff;
+      background-color: transparent;
+      font-size: 30px;
+    }
+  
+    #offcanvasNavbar {
+      background-color: rgba(60, 9, 108, 0.1);
+      backdrop-filter: blur(15px);
+      height: 40%;
+      text-align: center;
+    }
+  
+    #offcanvasNavbarLabel {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
