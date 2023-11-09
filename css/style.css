@@ -91,7 +91,7 @@
 
 #vote-button,
 #daftar-button {
-  width: 100px;
+  width: 120px;
 }
 
 #daftar-button {
@@ -116,22 +116,13 @@
 }
 
 .foto-calon-container {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  display: flex; 
   justify-items: center;
+  margin: 2rem auto;
 }
 
-.foto-calon {
-  background-color: turquoise;
-  border-radius: 12px;
-  padding: 3rem;
-  display: flex;
-  justify-content: center;
-  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
-    rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
-    rgba(0, 0, 0, 0.07) 0px 16px 16px;
+.foto-calon img { 
+  width: 400px;
 }
 
 #calon-page button {
@@ -146,13 +137,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 5rem;
-}
-
-.outer-border { 
-  padding: 1rem;
-  border: solid #9D4EDD 5px;
-  border-radius: 20px;
+  gap: 3rem;
 }
 
 .about-text {
