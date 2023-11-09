@@ -70,7 +70,7 @@ export default function RootLayout({ children }) {
         </AuthContextProvider>
         <Script src="https://unpkg.com/aos@2.3.1/dist/aos.js" crossOrigin="anonymous"></Script>
         <Script src="https://kit.fontawesome.com/fddf5c0916.js" crossOrigin="anonymous"></Script>
-        <Script>
+        <Script id="onScrollNavbar">
           {`
             let prevScrollPos = window.pageYOffset;
             window.onscroll = function() {
