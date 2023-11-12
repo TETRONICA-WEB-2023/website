@@ -35,6 +35,10 @@ nav {
   color: #bebebe;
 }
 
+::marker {
+  display: none;
+}
+
 .user-btn {
   background-color: var(--orange1);
   border: solid var(--orange1) 2px;

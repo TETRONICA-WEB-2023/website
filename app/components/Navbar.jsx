@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from 'next/image';
@@ -90,11 +91,9 @@ const Navbar = () => {
           </div>
         </div>
         {loading ? null : !user ? (
-          <li className="nav-item">
-            <a className="nav-link-cust" onClick={handleSignIn} role="button" aria-expanded="false">
+            <a className="nav-link-cust user-btn" onClick={handleSignIn} role="button">
               Login
             </a>
-          </li>
         ) : (
           <div className="nav-item dropdown py-2">
           <a className="nav-link-cust user-btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

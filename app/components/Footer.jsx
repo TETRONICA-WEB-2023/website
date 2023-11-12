@@ -16,8 +16,8 @@ export default function Footer() {
             Kecurangan terkait pemilu telah diatur dalam ketentuan KPU KMTETI. Jika anda menemukan adanya kecurangan dalam bentuk apapun, silahkan melapor dengan mengakses <Link href="/laporkan">laporkan!</Link>.
           </p>
         </div>
-        <div className="col-md-2 col-sm-6 d-grid col-2 mx-auto">
-        </div>
+        {/* <div className="col-md-2 col-sm-6 d-grid col-2 mx-auto">
+        </div> */}
         <div className="col-md-4 col-sm-6 bagtwo">
         <span className="gotham heading">STAY CONNECTED</span>
           <div className="col-md-12 ">
