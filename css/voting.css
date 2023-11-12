@@ -1,12 +1,6 @@
-body { 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .outer-border { 
-    margin-top: 2rem;
     width: 90%;
+    margin: 2.5rem auto;
 }
 
 #voting-page { 
@@ -14,6 +8,7 @@ body {
     flex-direction: column;
     align-items: center;
     backdrop-filter: blur(5px);
+    padding-bottom: 5rem;
 }
 
 .heading { 
@@ -34,15 +29,53 @@ body {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap: 5rem;
 }
 
 .foto-calon img { 
-    width: 350px;
+    width: 250px;
+    padding: 0;
+    cursor: pointer;
 }
 
-#vote-button { 
-    margin-top: 2rem;
-    width: 60%;
-    color: #fff;
+.modal { 
+    width: 80vw;
+    height: fit-content;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-weight: 500;
+}
+
+
+.modal-content { 
+    background-color: rgba(90, 24, 154, 0.5);
+    border: solid var(--orange1);
+    backdrop-filter: blur(50px);
+    font-size: 24px;
+}
+
+.modal-footer .btn { 
+    margin-right: 1rem;
     background-color: var(--orange1);
+    color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+    .h-top { 
+        font-size: 24px;
+    }
+
+    .h-bottom { 
+        font-size: 16px;
+    }
+
+    .foto-calon-container { 
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .modal-body { 
+        font-size: 16px;
+    }
 }
