@@ -1,7 +1,8 @@
 "use client";
+
+import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Poppins } from "next/font/google";
 import { AuthContextProvider } from "./context/AuthContext";
@@ -9,6 +10,8 @@ import { useEffect, Suspense } from 'react';
 import localFont from 'next/font/local';
 import Script from 'next/script'
 import { usePathname, headers } from 'next/navigation';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const poppins = Poppins({ subsets: ["latin"], weight: ['400', '700'], style: ["normal", "italic"]});
 
@@ -21,16 +24,12 @@ const gotham = localFont({
   ],
 });
 
-// export const metadata = {
-//   title: "TETRONICA KPU KMTETI",
-//   description: "Made with love",
-// };
-
 export default function RootLayout({ children }) {
   const pathname = usePathname();
-  const specificRoute = '/admin';
+  const specificRoute = ['/admin', '/vote'];
     useEffect(() => {
         require("bootstrap/dist/js/bootstrap.bundle.min.js");
+        AOS.init();
       }, []);
     return (
     <html lang="en">
@@ -42,7 +41,7 @@ export default function RootLayout({ children }) {
           --gotham-font: ${gotham.style.fontFamily};
           --poppins-font: ${poppins.style.fontFamily};
         }
-        .gotham-bold {
+        .gotham {
           font-family: var(--gotham-font);
         }
 
@@ -64,16 +63,31 @@ export default function RootLayout({ children }) {
       `}</style>
       <body className={poppins.className}>
       {/* <body className={gotham.style.fontFamily}> */}
-        <Suspense fallback={<div>Loading...</div>}>
         <AuthContextProvider>
-          {pathname !== specificRoute && <Navbar />}
-          <div className="navwrapper">
+          {!specificRoute.includes(pathname) && <Navbar />}
           {children}
-          </div>
-          {pathname !== specificRoute && <Footer />}
+          {!specificRoute.includes(pathname) && <Footer />}
         </AuthContextProvider>
-        </Suspense>
+        <Script src="https://unpkg.com/aos@2.3.1/dist/aos.js" crossOrigin="anonymous"></Script>
         <Script src="https://kit.fontawesome.com/fddf5c0916.js" crossOrigin="anonymous"></Script>
+        <Script id="onScrollNavbar">
+          {`
+            let prevScrollPos = window.pageYOffset;
+            window.onscroll = function() {
+              const currentScrollPos = window.pageYOffset;
+              try{
+                if (prevScrollPos > currentScrollPos) {
+                  document.querySelector('.animnavbar').style.top = '0';
+                } else {
+                  document.querySelector('.animnavbar').style.top = '-80px'; // Adjust this value as needed
+                }
+                prevScrollPos = currentScrollPos;
+              } catch(e){
+                console.log(e);
+              }
+            };
+          `}
+        </Script>
       </body>
     </html>
   );

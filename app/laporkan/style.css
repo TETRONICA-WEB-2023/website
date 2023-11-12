@@ -171,6 +171,9 @@
      ========================================================================== */
   .page-wrapper {
     min-height: 100vh;
+    margin-top: 5rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
   }
   
   h1, h2, h3, h4, h5, h6 {
