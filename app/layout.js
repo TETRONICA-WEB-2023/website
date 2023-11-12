@@ -26,7 +26,7 @@ const gotham = localFont({
 
 export default function RootLayout({ children }) {
   const pathname = usePathname();
-  const specificRoute = '/admin';
+  const specificRoute = ['/admin', '/vote'];
     useEffect(() => {
         require("bootstrap/dist/js/bootstrap.bundle.min.js");
         AOS.init();
@@ -64,9 +64,9 @@ export default function RootLayout({ children }) {
       <body className={poppins.className}>
       {/* <body className={gotham.style.fontFamily}> */}
         <AuthContextProvider>
-          {pathname !== specificRoute && <Navbar />}
+          {!specificRoute.includes(pathname) && <Navbar />}
           {children}
-          {pathname !== specificRoute && <Footer />}
+          {!specificRoute.includes(pathname) && <Footer />}
         </AuthContextProvider>
         <Script src="https://unpkg.com/aos@2.3.1/dist/aos.js" crossOrigin="anonymous"></Script>
         <Script src="https://kit.fontawesome.com/fddf5c0916.js" crossOrigin="anonymous"></Script>
@@ -75,12 +75,16 @@ export default function RootLayout({ children }) {
             let prevScrollPos = window.pageYOffset;
             window.onscroll = function() {
               const currentScrollPos = window.pageYOffset;
-              if (prevScrollPos > currentScrollPos) {
-                document.querySelector('.animnavbar').style.top = '0';
-              } else {
-                document.querySelector('.animnavbar').style.top = '-80px'; // Adjust this value as needed
+              try{
+                if (prevScrollPos > currentScrollPos) {
+                  document.querySelector('.animnavbar').style.top = '0';
+                } else {
+                  document.querySelector('.animnavbar').style.top = '-80px'; // Adjust this value as needed
+                }
+                prevScrollPos = currentScrollPos;
+              } catch(e){
+                console.log(e);
               }
-              prevScrollPos = currentScrollPos;
             };
           `}
         </Script>

@@ -17,11 +17,18 @@
 }
 
 body {
+  font-family: var(--poppins-font);
   font-size: 2rem;
   color: #fff;
-  background: url(/new-background.svg);
+  background: url(/new-background.png);
   background-size: cover;
   overflow-x: hidden;
+}
+
+@media screen and (max-width: 768px) {
+  body { 
+    background: url(/background-mobile.png);
+  }
 }
 
 a {
@@ -29,8 +36,24 @@ a {
 }
 
 .heading {
+  font-family: var(--gotham-font);
   font-size: 54px;
 }
+
+.inner-border { 
+  padding: 1rem;
+  border: solid var(--orange1);
+  border-radius: 12px;
+  background-color: #fff 70%;
+  backdrop-filter: blur(10px);
+}
+
+.outer-border { 
+  padding: 10px;
+  border: solid #9D4EDD 5px;
+  border-radius: 20px;
+}
+
 /* Scroll Bar */
 body::-webkit-scrollbar {
   width: 10px;

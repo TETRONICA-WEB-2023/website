@@ -71,6 +71,9 @@ nav {
       backdrop-filter: blur(15px);
       height: 40%;
       text-align: center;
+      /* display: flex;
+      flex-direction: column;
+      justify-content: space-between;  */
     }
   
     #offcanvasNavbarLabel {

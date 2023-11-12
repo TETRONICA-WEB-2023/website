@@ -198,12 +198,28 @@ footer dl, ol, ul {
     .footer-wrap {
     margin-top: 27px;
     text-align: center;
+    margin: auto;
 }
     
     footer .round-btn {
     margin: 15px 4px;}
+
+    p {
+        text-align: justify;
+    }
+
+    .social{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .bagtwo {
+        padding-top: 30px;
+    }
 }
 @media(max-width:320px){
 .copyright {
     font-size: 13px;}
-}	
+}

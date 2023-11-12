@@ -1,0 +1,63 @@
+.vote-container { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vote-container p{
+    font-family: var(--poppins-font);
+    color: #fff;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.inner-border-vote { 
+    padding: 1rem;
+    border: solid var(--orange1);
+    border-radius: 12px;
+    background-color: #fff 70%;
+    backdrop-filter: blur(10px);
+}
+  
+.outer-border-vote { 
+    padding: 10px;
+    border: solid #9D4EDD 5px;
+    border-radius: 20px;
+    margin-top: 4rem;
+    width: 90%;
+}
+  
+#voting-page { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.heading-vote { 
+    font-family: var(--gotham-font);
+    text-align: center;
+}
+
+.h-top-vote { 
+    font-size: 48px;
+    color: var(--orange1);
+}
+
+.h-bottom-vote { 
+    font-size: 20px;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+.foto-calon-container-vote { 
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+}
+
+.foto-calon-vote img { 
+    width: 350px;
+}

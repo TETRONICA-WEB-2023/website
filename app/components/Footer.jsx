@@ -13,17 +13,17 @@ export default function Footer() {
         <div className="col-md-6 col-sm-6">
           <span className="gotham heading">Laporkan Segala Bentuk Kecurangan!</span>
           <p>
-            Kecurangan terkait pemilu telah diatur dalam pasal ... . Jika anda menemukan adanya kecurangan dalam bentuk apapun, silahkan melapor dengan mengakses <Link href="/laporkan">laporkan!</Link>.
+            Kecurangan terkait pemilu telah diatur dalam ketentuan KPU KMTETI. Jika anda menemukan adanya kecurangan dalam bentuk apapun, silahkan melapor dengan mengakses <Link href="/laporkan">laporkan!</Link>.
           </p>
         </div>
         <div className="col-md-2 col-sm-6 d-grid col-2 mx-auto">
         </div>
-        <div className="col-md-4 col-sm-6">
+        <div className="col-md-4 col-sm-6 bagtwo">
         <span className="gotham heading">STAY CONNECTED</span>
-          <div className="col-md-12">
-            <div className="standard_social_links">
+          <div className="col-md-12 ">
+            <div className="standard_social_links  social">
               <div>
-                <li className="round-btn btn-line">
+                <li className="round-btn btn-whatsapp">
                   <a href="#">
                     <i className="fab fa-line" />
                   </a>
