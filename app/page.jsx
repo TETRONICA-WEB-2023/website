@@ -1,9 +1,22 @@
+"use client"
 import Image from 'next/image';
 import Swal from 'sweetalert2';
 import Script from 'next/script';
 import "./mainpage.css";
+import { UserAuth } from "./context/AuthContext";
+import Link from 'next/link';
 
 export default function Home() {
+  const { user, googleSignIn, logOut } = UserAuth();
+  const handleSignIn = async () => {
+    try {
+    Swal.fire('Please wait');
+    Swal.showLoading();
+      await googleSignIn();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
     <section id="header-page">
@@ -29,12 +42,12 @@ export default function Home() {
           Suaramu adalah kunci kemajuan <span>KMTETI</span>, gunakan hak pilihmu.
         </p>
         <div className="header-button-container">
-          <button id="vote-button" className="button">
+          <Link id="vote-button" className="button" href="/vote" role='button'>
             Vote
-          </button>
-          <button id="daftar-button" className="button">
-            Daftar
-          </button>
+          </Link>
+          {/* <button id="daftar-button" className="button" onClick={handleSignIn}>
+            Login
+          </button> */}
         </div>
       </div>
       <div class="logo-container" data-aos="fade-left" data-aos-duration="1200">

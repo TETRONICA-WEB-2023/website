@@ -111,7 +111,13 @@
   
   #vote-button,
   #daftar-button {
-    width: 100px;
+    width: 200px;
+    text-align: center;
+  }
+
+  #vote-button,
+  #daftar-button a {
+    text-decoration: none;
   }
   
   #daftar-button {

@@ -127,7 +127,7 @@ export const AuthContextProvider = ({ children }) => {
       } else {
         Swal.fire({
           title: 'Pernyataan',
-          text: 'Dengan ini saya menyatakan bahwa saya memilih kandidat ' + kandidat[calon] + ' dengan sadar atas tanggung jawab pribadi',
+          text: 'Dengan ini saya menyatakan bahwa saya memilih kandidat ' + kandidat[calon] + ' dengan sadar dan atas tanggung jawab pribadi',
           icon: 'warning',
           showCancelButton: true,
           confirmButtonColor: '#3085d6',

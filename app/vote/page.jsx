@@ -61,7 +61,7 @@ const Page = () => {
             </a>
           </div>
           {/* <button id="vote-button" class="btn">Vote <span></span></button> */}
-          <p>Sebanyak <b>{jumlah}</b> dari <b>1032</b> ({(jumlah/1032 * 100).toFixed(2)}%) peserta telah menyalurkan suaranya. Mari salurkan suaramu!</p>
+          <p>Sebanyak <b>{jumlah}</b> dari <b>1032</b> ({(jumlah/1032 * 100).toFixed(2)}%) peserta telah menyalurkan suaranya. Ayo salurkan suaramu!</p>
         </div>
       </section>
       </div>
