@@ -24,19 +24,70 @@
         <h1 class="heading h-top">VOTING CALON KETUA</h1>
         <h3 class="heading h-bottom">Silahkan Pilih Calon Pilihan Anda</h3>
         <div class="foto-calon-container">
-          <a class="foto-calon" id="calon1">
+          <div
+            class="foto-calon"
+            id="calon1"
+            nomor="1"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+          >
             <img src="/calon_img/calon1b.png" alt="" />
-          </a>
-          <a class="foto-calon" id="calon2">
+          </div>
+          <div
+            class="foto-calon"
+            id="calon2"
+            nomor="2"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+          >
             <img src="/calon_img/calon2b.png" alt="" />
-          </a>
-          <a class="foto-calon" id="calon3">
+          </div>
+          <div
+            class="foto-calon"
+            id="calon3"
+            nomor="3"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+          >
             <img src="/calon_img/calon3b.png" alt="" />
-          </a>
+          </div>
         </div>
-        <button id="vote-button" class="btn">Vote <span></span></button>
       </div>
     </section>
+
+    <div
+      class="modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">
+              Peringatan
+            </h1>
+            <button type="button" class="bg-transparent" data-bs-dismiss="modal" aria-label="Close">
+              <i class="ri-close-line text-white"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>
+              Apakah anda ingin memilih calon nomor urut <span id="no-urut">{nomor}</span> ?
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn" data-bs-dismiss="modal">
+              Tidak
+            </button>
+            <button type="button" class="btn" id="ya">Ya</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="/js/navbar.js"></script>
     <script
@@ -45,5 +96,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="/js/voting.js"></script>
   </body>
 </html>
