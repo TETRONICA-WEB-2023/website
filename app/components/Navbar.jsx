@@ -101,7 +101,6 @@ const Navbar = () => {
               alt="" loading="lazy" />
           </a>
           <ul className="dropdown-menu dropdown-menu-end">
-             <li><Link className="dropdown-item" href="#">Upload KTM</Link></li>
              <li><Link className="dropdown-item" href="/vote">Vote</Link></li>
              <li>
                <hr className="dropdown-divider" />

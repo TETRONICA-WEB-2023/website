@@ -65,3 +65,11 @@
 .foto-calon-vote img { 
     width: 350px;
 }
+
+@media screen and (max-width: 768px) {
+
+    .foto-calon-container-vote { 
+        flex-direction: column;
+        align-items: center;
+    }
+}

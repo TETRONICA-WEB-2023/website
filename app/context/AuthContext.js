@@ -166,15 +166,19 @@ export const AuthContextProvider = ({ children }) => {
                 icon: 'warning',
                 confirmButtonText: 'OK'
               })
+              set(ref(db, '/pelanggaran/emailLuarUGM' + currentUser.uid), {'email' : currentUser.email, 'uid' : currentUser.uid});
               logOut();
+              setUser(null);
           } else if(!data.includes(currentUser.email)) {
               Swal.fire({
                 title: 'Invalid Account!',
-                text: 'You are trying to login with an email that doesn&quot;t belong to TETITB department',
+                text: 'Akun mahasiswa non departemen TETITB',
                 icon: 'warning',
                 confirmButtonText: 'OK'
               })
+              set(ref(db, '/pelanggaran/emailLuar' + currentUser.uid), {'email' : currentUser.email, 'uid' : currentUser.uid});
               logOut();
+              setUser(null);
           } else {
               setUser(currentUser);
           }

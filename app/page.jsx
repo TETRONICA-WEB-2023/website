@@ -5,9 +5,13 @@ import Script from 'next/script';
 import "./mainpage.css";
 import { UserAuth } from "./context/AuthContext";
 import Link from 'next/link';
+import { useState, useEffect } from "react";
 
 export default function Home() {
   const { user, googleSignIn, logOut } = UserAuth();
+  const [start, setStart] = useState(0);
+  const [end, setEnd] = useState(0);
+
   const handleSignIn = async () => {
     try {
     Swal.fire('Please wait');
@@ -17,6 +21,18 @@ export default function Home() {
       console.log(error);
     }
   };
+
+
+  useEffect(() => {
+    var timeStart = new Date("2023-11-23T00:00:00");
+    var timeEnd = new Date("2023-11-24T23:59:59");
+    (function countDown() {
+      setStart(timeStart - new Date());
+      setEnd(timeEnd - new Date());
+      setTimeout(countDown, 1000);
+    })();
+  }, [])
+
   return (
     <>
     <section id="header-page">
@@ -42,9 +58,16 @@ export default function Home() {
           Suaramu adalah kunci kemajuan <span>KMTETI</span>, gunakan hak pilihmu.
         </p>
         <div className="header-button-container">
-          <Link id="vote-button" className="button" href="/vote" role='button'>
-            Vote
-          </Link>
+          {start > 0? (
+            <button id='vote-button' className='button-disabled' disabled='true'>
+              {Math.floor(start / (1000 * 60 * 60 * 24))}D {Math.floor((start % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))}H {Math.floor((start % (1000 * 60 * 60)) / (1000 * 60))}M {Math.floor((start % (1000 * 60)) / 1000) }S
+            </button>
+            ) : (
+              <Link id="vote-button" className="button" href="/vote" role='button'>
+              Vote
+              </Link>
+            )}
+          
           {/* <button id="daftar-button" className="button" onClick={handleSignIn}>
             Login
           </button> */}
@@ -56,20 +79,32 @@ export default function Home() {
         </div>
       </div>
     </section>
+    {/* <section>
+      <div className="countdown">
+      <ul>
+        <li><span id="days"></span>Days</li>
+        <li><span id="hours"></span>Hours</li>
+        <li><span id="minutes"></span>Minutes</li>
+        <li><span id="seconds"></span>Seconds</li>
+      </ul>
+      </div>
+    </section> */}
     <section id="calon-page">
-      <h1 className="heading">Who&#39;s Next ??</h1>
+      <h1 className="heading">Who&#39;s <span>Next</span> ??</h1>
       <div className="foto-calon-container">
         <div className="foto-calon">
-          <img src="/calon-sementara.png" alt="calon 1" />
+          <img src="/kandidat/calon1b.png" alt="calon 1" />
         </div>
         <div className="foto-calon">
-          <img src="/calon-sementara.png" alt="calon 2" />
+          <img src="/kandidat/calon2b.png" alt="calon 2" />
         </div>
         <div className="foto-calon">
-          <img src="/calon-sementara.png" alt="calon 3" />
+          <img src="/kandidat/calon3b.png" alt="calon 3" />
         </div>
       </div>
-      <button className="button">Profil Selengkapnya</button>
+      <Link className="button" href="/caket" role='button'>
+              Profil dan Visi Misi
+              </Link>
     </section>
     <section id="about-page">
       <div class="outer-border">
@@ -85,7 +120,9 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <button class="button">Baca Selengkapnya</button>
+      <Link className="button" href="/caket" role='button'>
+              Baca Selengkapnya
+              </Link>
     </section>
     <section id="tata-cara-page">
       <h1 class="heading">Tata Cara</h1>

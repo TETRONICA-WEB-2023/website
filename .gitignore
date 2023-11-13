@@ -2,6 +2,7 @@
 
 /backup
 /LaTex
+/panduanMD
 
 # dependencies
 /node_modules

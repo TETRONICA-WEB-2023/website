@@ -74,7 +74,6 @@ function Example() {
       setTimeout(timerVote, 1000);
     })();
   }, [])
-  console.log(voteCount);
 
   
   const data = {
