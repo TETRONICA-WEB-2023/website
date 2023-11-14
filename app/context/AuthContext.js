@@ -166,7 +166,7 @@ export const AuthContextProvider = ({ children }) => {
                 icon: 'warning',
                 confirmButtonText: 'OK'
               })
-              set(ref(db, '/pelanggaran/emailLuarUGM' + currentUser.uid), {'email' : currentUser.email, 'uid' : currentUser.uid});
+              push(ref(db, '/pelanggaran/emailLuarUGM/' + currentUser.uid), {'email' : currentUser.email, 'uid' : currentUser.uid, 'timestamp' : Date.now()});
               logOut();
               setUser(null);
           } else if(!data.includes(currentUser.email)) {
@@ -176,7 +176,7 @@ export const AuthContextProvider = ({ children }) => {
                 icon: 'warning',
                 confirmButtonText: 'OK'
               })
-              set(ref(db, '/pelanggaran/emailLuar' + currentUser.uid), {'email' : currentUser.email, 'uid' : currentUser.uid});
+              push(ref(db, '/pelanggaran/emailLuar/' + currentUser.uid), {'email' : currentUser.email, 'uid' : currentUser.uid, 'timestamp': Date.now()});
               logOut();
               setUser(null);
           } else {

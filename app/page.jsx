@@ -12,17 +12,6 @@ export default function Home() {
   const [start, setStart] = useState(0);
   const [end, setEnd] = useState(0);
 
-  const handleSignIn = async () => {
-    try {
-    Swal.fire('Please wait');
-    Swal.showLoading();
-      await googleSignIn();
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-
   useEffect(() => {
     var timeStart = new Date("2023-11-23T00:00:00");
     var timeEnd = new Date("2023-11-24T23:59:59");
@@ -90,7 +79,7 @@ export default function Home() {
       </div>
     </section> */}
     <section id="calon-page">
-      <h1 className="heading">Who&#39;s <span>Next</span> ??</h1>
+      <h1 className="heading">Who&#39;s Next?</h1>
       <div className="foto-calon-container">
         <div className="foto-calon">
           <img src="/kandidat/calon1b.png" alt="calon 1" />

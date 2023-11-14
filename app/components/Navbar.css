@@ -75,14 +75,13 @@ nav {
       backdrop-filter: blur(15px);
       height: 50%;
       text-align: center;
-      padding-top: 2rem;
       /* display: flex;
       flex-direction: column;
       justify-content: space-between;  */
     }
 
     #offcanvasNavbar li {
-      margin-bottom: 2rem;
+      margin-top: 2rem;
     }
   
     #offcanvasNavbarLabel {
