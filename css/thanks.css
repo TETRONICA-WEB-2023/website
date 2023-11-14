@@ -1,0 +1,50 @@
+body { 
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outer-border { 
+    width: 80%;
+}
+
+.inner-border { 
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.h-top, .h-bottom  { 
+    text-align: center;
+}
+
+.h-top { 
+    font-family: 'Gotham-bold', sans-serif;
+}
+
+img { 
+    width: 40%;
+    margin: 2rem;
+}
+
+button {    
+    background-color: var(--orange1);
+    color: #fff;
+    border-radius: 12px;
+    font-size: 20px;
+    padding: 0.5rem 2rem;
+    margin-top: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    img { 
+        width: 80%;
+    }
+
+    .h-bottom { 
+        font-size: 16px;
+    }
+}
