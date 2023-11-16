@@ -1,6 +1,6 @@
 
 #kpu, #tugas, #panitia { 
-    width: 80%;
+    width: 90%;
     max-width: 900px;
     margin: 5rem auto;
     padding: 5rem 0;
@@ -47,7 +47,7 @@
     width: 100%;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
     body { 
         background-size: contain;
     }

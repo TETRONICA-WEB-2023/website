@@ -13,10 +13,10 @@ const page = () => {
     </div>
     <div class="container-visi-misi-1">
       <div class="visi-misi-1">
-        <h2>Visi :</h2>
+        <h2 className='visi-head'>Visi :</h2>
         Menjadikan KMTETI sebagai organisasi yang mampu menjadi katalisator pengembangan mahasiswa yang progresif, berkelanjutan, serta memberikan kontribusi nyata bagi mahasiswa dan sekitarnya dengan mengedepankan profesionalitas dan
         kekeluargaan
-        <h2>Misi :</h2>
+        <h2 className='misi-head'>Misi :</h2>
         <ol>
           <li>Memberikan dampak positif dan hubungan sinergis bagi anggota serta lingkungan sekitarnya.</li>
           <li>Mewujudkan bentuk kepedulian mahasiswa TETI sebagai dukungan edukasi dan aktualisasi diri.</li>
@@ -37,9 +37,9 @@ const page = () => {
     <div class="container-visi-misi-2">
       <div class="foto-calon-caket"><img src="kandidat/calon2.png" alt="" /></div>
       <div class="visi-misi-2">
-        <h2>Visi :</h2>
+        <h2 className='visi-head'>Visi :</h2>
         Membina lingkungan yang dinamis dan inklusif yang memberdayakan mahasiswa agar unggul dalam studi mereka dan tetap menjunjung integritas. Selain itu, dapat memfasilitasi kesempatan jaringan, workshop, dan seminar yang akan meningkatkan pengalaman pendidikan bagi setiap anggota.
-        <h2>Misi :</h2>
+        <h2 className='misi-head'>Misi :</h2>
         <ol>
           <li>Meningkatkan inovasi, kolaborasi, dan pembelajaran berkelanjutan dalam himpunan kami.</li>
           <li>Membangun hubungan yang erat antara mahasiswa dan dosen agar tercipta lingkungan akademik yang terbuka dan saling mendukung.</li>
@@ -58,9 +58,9 @@ const page = () => {
     </div>
     <div class="container-visi-misi-3">
       <div class="visi-misi-3">
-        <h2>Visi :</h2>
+        <h2 className='visi-head'>Visi :</h2>
         Menjadikan KMTETI UGM sebagai wadah aspirasi yang berprinsip DIGITAL (Disiplin, Giat, dan Total), berelasi luas, dan inovatif dengan menjaga konsistensi tanggung jawab dalam berorganisasi serta memelihara keharmonisan dan kekeluargaan sesama mahasiswa DTETI.
-        <h2>Misi :</h2>
+        <h2 className='misi-head'>Misi :</h2>
         <ol>
           <li>Meningkatkan kinerja organisasi dengan sikap kebersamaan dan tanpa terjadi kesenjangan di antara mahasiswa KMTETI.</li>
           <li>Menerapkan prinsip DIGITAL (Disiplin, Giat, dan Total) agar tercipta karakter yang bertanggung jawab dan konsisten berorganisasi.</li>

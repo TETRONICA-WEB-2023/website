@@ -1,45 +1,44 @@
-
 .button {
-    border: solid transparent 2px;
-    padding: 0.5rem 1rem;
-    color: #fff;
-    background-color: var(--orange1);
-    border: solid var(--orange1) 2px;
-    border-radius: 10px;
-    font-size: 16px;
-  }
+  border: solid transparent 2px;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  background-color: var(--orange1);
+  border: solid var(--orange1) 2px;
+  border-radius: 10px;
+  font-size: 16px;
+}
 
 .button-disabled {
-    border: solid transparent 2px;
-    padding: 0.5rem 1rem;
-    color: #000000;
-    background-color: #ffaf68;
-    border: solid var(--orange1) 2px;
-    border-radius: 10px;
-    font-size: 16px;
+  border: solid transparent 2px;
+  padding: 0.5rem 1rem;
+  color: #000000;
+  background-color: #ffaf68;
+  border: solid var(--orange1) 2px;
+  border-radius: 10px;
+  font-size: 16px;
 }
-  
-  .button:hover {
-    background-color: transparent;
-    color: var(--orange1);
-    border: solid var(--orange1) 2px;
-  }
-  
-  #header-page {
-    height: 100vh;
-    width: 80%;
-    margin: auto;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-  
-  #header-page svg {
-    position: absolute;
-    opacity: 50%;
-    z-index: -5;
-    left: 14%;
-    top: 17%;
+
+.button:hover {
+  background-color: transparent;
+  color: var(--orange1);
+  border: solid var(--orange1) 2px;
+}
+
+#header-page {
+  height: 100vh;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#header-page svg {
+  position: absolute;
+  opacity: 50%;
+  z-index: -5;
+  left: 15%;
+  top: 17%;
   animation-name: floating;
   animation-duration: 3.7s;
   animation-iteration-count: infinite;
@@ -75,7 +74,6 @@
   }
   25% {
     transform: translateY(15px);
-  
   }
   75% {
     transform: translateY(-15px);
@@ -84,315 +82,314 @@
     transform: translateY(0px);
   }
 }
-  
-  .header-text {
-    margin: 2rem 5rem;
-    color: #fff;
+
+.header-text {
+  margin: 2rem 5rem;
+  color: #fff;
+}
+
+.header-text p {
+  margin-top: 2rem;
+  font-size: 23px;
+}
+
+.header-text p span {
+  color: var(--orange1);
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.header-text h1 span {
+  font-size: 75px;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 2px var(--orange1);
+}
+
+.logo-container {
+  height: 500px;
+}
+
+.header-logo {
+  background: linear-gradient(
+    180deg,
+    #f89f0e 0%,
+    rgba(236, 178, 83, 0.58) 31.27%,
+    rgba(255, 158, 0, 0) 100%
+  );
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  margin: 2rem;
+  width: 30vw;
+  height: 30vw;
+  border-radius: 50%;
+  justify-self: center;
+  position: relative;
+}
+
+.header-logo img {
+  width: 300px;
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.header-button-container {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: left;
+  gap: 2rem;
+}
+
+#vote-button,
+#daftar-button {
+  width: 200px;
+  text-align: center;
+}
+
+.button {
+  text-decoration: none;
+  width: 200px;
+  text-align: center;
+}
+
+#vote-button,
+#daftar-button a {
+  text-decoration: none;
+}
+
+#daftar-button {
+  background-color: transparent;
+  color: var(--orange1);
+}
+
+#daftar-button:hover {
+  background-color: var(--orange1);
+  color: #fff;
+}
+
+#calon-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  height: 100vh;
+  margin: 5rem auto;
+  padding-top: 5rem;
+}
+
+.foto-calon-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.foto-calon {
+  margin: 0 1rem;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  /* box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
+      rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
+      rgba(0, 0, 0, 0.07) 0px 16px 16px; */
+}
+
+.foto-calon img { 
+  width: 280px;
+}
+
+#calon-page button {
+  width: 50%;
+}
+
+#about-page {
+  width: 60%;
+  height: 100vh;
+  margin: 5rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+
+.outer-border {
+  border: solid #9d4edd 5px;
+  border-radius: 20px;
+}
+
+.about-text {
+  border: solid var(--orange1);
+  border-radius: 12px;
+  padding: 3rem;
+  backdrop-filter: blur(10px);
+}
+
+.about-text p {
+  font-size: 18px;
+  text-align: justify;
+  color: #fff;
+}
+
+#about-page button {
+  width: 50%;
+}
+
+#tata-cara-page {
+  width: 80%;
+  height: 100vh;
+  margin: 5rem auto;
+  padding-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.video-container {
+  background-color: turquoise;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
+    rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
+    rgba(0, 0, 0, 0.07) 0px 16px 16px;
+  width: 75%;
+  height: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+}
+
+/* MOBILE */
+@media screen and (max-width: 992px) {
+  body {
+    font-size: 14px;
+    background-size: contain;
+    background-clip: border-box;
   }
-  
-  .header-text p {
-    margin-top: 2rem;
-    font-size: 23px;
+
+  .heading {
+    font-size: 36px;
   }
-  
-  .header-text p span {
+
+  #header-page {
+    height: auto;
+    margin-top: 9rem;
+  }
+
+  #header-page svg {
+    left: 0;
+    top: 25%;
+  }
+
+  #menu-icon:hover {
     color: var(--orange1);
-    font-size: 30px;
-    font-weight: 600;
+    border-color: var(--orange1);
   }
-  
-  .header-text h1 span {
-    font-size: 75px;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 2px var(--orange1);
+
+  #header-page {
+    flex-wrap: wrap-reverse;
+    gap: 0.5rem;
+    width: 90%;
+    height: auto;
+    padding-top: 5rem;
   }
-  
+
   .logo-container {
-    height: 500px;
+    display: none;
   }
-  
-  .header-logo {
-    background: linear-gradient(
-      180deg,
-      #f89f0e 0%,
-      rgba(236, 178, 83, 0.58) 31.27%,
-      rgba(255, 158, 0, 0) 100%
-    );
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    margin: 2rem;
-    width: 30vw;
-    height: 30vw;
-    border-radius: 50%;
-    justify-self: center;
-    position: relative;
-  }
-  
-  .header-logo img {
-    width: 300px;
-    position: absolute;
-    top: 46%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .header-button-container {
-    margin-top: 3rem;
-    display: flex;
-    justify-content: left;
-    gap: 2rem;
-  }
-  
-  #vote-button,
-  #daftar-button {
-    width: 200px;
+
+  .header-text {
     text-align: center;
+    margin: 1rem;
+  }
+
+  .header-text h1 span {
+    font-size: 60px;
+  }
+
+  .header-text p {
+    font-size: 16px;
+    width: 90%;
+    margin: 3rem auto;
+  }
+
+  .header-text p span {
+    font-size: 20px;
+  }
+
+  .header-button-container {
+    width: fit-content;
+    margin: 3rem auto;
   }
 
   .button {
-    text-decoration: none;
-    width: 200px;
-    text-align: center;
+    padding: 6px 12px;
+    font-size: 14px;
   }
 
-  #vote-button,
-  #daftar-button a {
-    text-decoration: none;
+  .header-logo img {
+    width: 120px;
   }
-  
-  #daftar-button {
-    background-color: transparent;
-    color: var(--orange1);
-  }
-  
-  #daftar-button:hover {
-    background-color: var(--orange1);
-    color: #fff;
-  }
-  
+
   #calon-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    width: 80%;
-    height: 100vh;
+    padding: 8rem 0;
+    width: 90%;
+    height: auto;
     margin: 5rem auto;
-    padding-top: 5rem;
+    gap: 2rem;
   }
-  
+
+  #calon-page h1 {
+    margin-bottom: 3rem;
+  }
+
   .foto-calon-container {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    justify-items: center;
-  }
-  
-  .foto-calon {
-    /* background-color: pink; */
-    border-radius: 12px;
-    padding: .5rem;
     display: flex;
-    justify-content: center;
-    /* box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
-      rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
-      rgba(0, 0, 0, 0.07) 0px 16px 16px; */
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem auto;
+    gap: 3rem;
   }
-  
-  #calon-page button {
-    width: 50%;
-  }
-  
+
   #about-page {
-    width: 60%;
-    height: 100vh;
-    margin: 5rem auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5rem;
-  }
-  
-  .outer-border { 
-    padding: 1rem;
-    border: solid #9D4EDD 5px;
-    border-radius: 20px;
-  }
-  
-  .about-text {
-    border: solid var(--orange1);
-    border-radius: 12px;
-    padding: 3rem;
-    backdrop-filter: blur(10px);
-  }
-  
-  .about-text p {
-    font-size: 18px;
-    text-align: justify;
-    color : #fff;
-  }
-  
-  #about-page button {
-    width: 50%;
-  }
-  
-  #tata-cara-page {
+    margin: 2rem auto;
+    padding: 8rem 0;
+    height: auto;
     width: 80%;
-    height: 100vh;
+    gap: 2.5rem;
+  }
+
+  .about-text {
+    padding: 2rem 1rem;
+  }
+
+  .about-text p {
+    font-size: 13px;
+  }
+
+  .about-text button {
+    width: fit-content;
+  }
+
+  #tata-cara-page {
+    width: 90%;
+    height: auto;
     margin: 5rem auto;
-    padding-top: 5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    padding-top: 8rem;
+    gap: 2rem;
   }
-  
+
   .video-container {
-    background-color: turquoise;
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
-      rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
-      rgba(0, 0, 0, 0.07) 0px 16px 16px;
-    width: 75%;
-    height: 75%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 1rem;
+    width: 100%;
+    height: 300px;
   }
-  
-/* MOBILE */
-@media screen and (max-width: 768px) {
-    body {
-      font-size: 14px;
-      background-size: contain;
-      background-clip: border-box;
-    }
-  
-    .heading {
-      font-size: 36px;
-    }
-  
-    #header-page {
-      height: auto;
-      margin-top: 9rem;
-    }
-  
-    #header-page svg { 
-      display: none;
-    }
-  
-  
-    #menu-icon:hover {
-      color: var(--orange1);
-      border-color: var(--orange1);
-    }
-  
-    #header-page {
-      flex-wrap: wrap-reverse;
-      gap: 0.5rem;
-      width: 90%;
-      height: auto;
-      padding-top: 5rem;
-    }
-  
-    .logo-container {
-      display: none;
-    }
-  
-    .header-text {
-      text-align: center;
-      margin: 1rem;
-    }
-  
-    .header-text h1 span {
-      font-size: 45px;
-    }
-  
-    .header-text p {
-      font-size: 16px;
-      width: 90%;
-      margin: 3rem auto;
-    }
-  
-    .header-text p span {
-      font-size: 20px;
-    }
-  
-    .header-button-container {
-      width: fit-content;
-      margin: 3rem auto;
-    }
-  
-    .button {
-      padding: 6px 12px;
-      font-size: 14px;
-    }
-    
-    .header-logo img {
-      width: 120px;
-    }
-  
-    #calon-page {
-      padding: 8rem 0;
-      width: 90%;
-      height: auto;
-      margin: 5rem auto;
-      gap: 2rem;
-    }
-  
-    #calon-page h1 {
-      margin-bottom: 3rem;
-    }
-  
-    .foto-calon-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 5rem auto;
-      gap: 3rem;
-    }
-  
-    #about-page {
-      margin: 2rem auto;
-      padding: 8rem 0;
-      height: auto;
-      width: 80%;
-      gap: 2.5rem;
-    }
-  
-    .about-text {
-      padding: 2rem 1rem;
-    }
-  
-    .about-text p {
-      font-size: 13px;
-    }
-  
-    .about-text button { 
-      width: fit-content;
-    }
-  
-    #tata-cara-page {
-      width: 90%;
-      height: auto;
-      margin: 5rem auto;
-      padding-top: 8rem;
-      gap: 2rem;
-    }
-  
-    .video-container {
-      width: 100%;
-      height: 300px;
-    }
-  
-    #timeline-page h1 { 
-      margin-top: 5rem;
-    }
-  
-    #footer-page {
-      height: 100px;
-      padding-bottom: 10rem;
-    }
-  
+
+  #timeline-page h1 {
+    margin-top: 5rem;
   }
+
+  #footer-page {
+    height: 100px;
+    padding-bottom: 10rem;
+  }
+}
