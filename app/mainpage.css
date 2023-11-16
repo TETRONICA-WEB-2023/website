@@ -38,7 +38,7 @@
     position: absolute;
     opacity: 50%;
     z-index: -5;
-    left: 14%;
+    left: 15%;
     top: 17%;
   animation-name: floating;
   animation-duration: 3.7s;
@@ -215,7 +215,6 @@
   }
   
   .outer-border { 
-    padding: 1rem;
     border: solid #9D4EDD 5px;
     border-radius: 20px;
   }
@@ -262,7 +261,7 @@
   }
   
 /* MOBILE */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
     body {
       font-size: 14px;
       background-size: contain;
@@ -279,7 +278,8 @@
     }
   
     #header-page svg { 
-      display: none;
+      left: 0;
+      top: 25%;
     }
   
   
@@ -306,7 +306,7 @@
     }
   
     .header-text h1 span {
-      font-size: 45px;
+      font-size: 60px;
     }
   
     .header-text p {

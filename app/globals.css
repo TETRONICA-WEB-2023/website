@@ -24,7 +24,7 @@ body {
   overflow-x: hidden;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
   body { 
     background: url(/background-mobile.png);
   }

@@ -37,7 +37,7 @@ const Navbar = () => {
   }, [user]);
 
   return (
-    <nav class="animnavbar navbar navbar-expand-md navbar-dark fixed-top p-auto">
+    <nav class="animnavbar navbar navbar-expand-lg navbar-dark fixed-top p-auto">
       <div class="nav-container container-fluid d-flex mx-lg-5">
         <a class="navbar-brand" href="#"
           ><img src="/tetronica.svg" alt="Tetronica-logo"
