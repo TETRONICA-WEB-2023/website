@@ -7,7 +7,7 @@ const page = () => {
     <div class="container-calon-1-caket">
       <div class="urutan">01</div>
       <div class="nama-calon">
-        <span class="header-text-caket">HANSEN</span> JUSTIN HANDIJAYA<br />
+        <span class="header-text-caket">HANS</span>EN JUSTIN HANDIJAYA<br />
         <div class="jurusan">TEKNIK ELEKTRO 2022</div>
       </div>
     </div>

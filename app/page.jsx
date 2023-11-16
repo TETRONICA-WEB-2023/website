@@ -68,16 +68,6 @@ export default function Home() {
         </div>
       </div>
     </section>
-    {/* <section>
-      <div className="countdown">
-      <ul>
-        <li><span id="days"></span>Days</li>
-        <li><span id="hours"></span>Hours</li>
-        <li><span id="minutes"></span>Minutes</li>
-        <li><span id="seconds"></span>Seconds</li>
-      </ul>
-      </div>
-    </section> */}
     <section id="calon-page">
       <h1 className="heading">Who&#39;s Next?</h1>
       <div className="foto-calon-container">
@@ -109,7 +99,7 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <Link className="button" href="/caket" role='button'>
+      <Link className="button" href="/about" role='button'>
               Baca Selengkapnya
               </Link>
     </section>

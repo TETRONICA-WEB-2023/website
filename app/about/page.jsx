@@ -14,8 +14,8 @@ const page = () => {
             Teknologi Informasi Fakultas Teknik Universitas Gadjah Mada yang
             selanjutnya disebut KPU adalah suatu komisi yang menyelenggarakan
             pemilu berdasarkan Undang-Undang Pemilu. Pada tahun ini, KPU KMTETI
-            mengusung tema TETRONICA. TETRONICA sendiri merupakan singkatan dari
-            .......
+            mengusung tema TETRONICA. TETRONICA sendiri merupakan singkatan dari 
+            <b> Teti Road To The New Captain</b>
           </p>
         </div>
       </div>
