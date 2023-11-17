@@ -194,7 +194,7 @@
       rgba(0, 0, 0, 0.07) 0px 16px 16px; */
 }
 
-.foto-calon img { 
+.foto-calon img {
   width: 280px;
 }
 
@@ -203,19 +203,19 @@
 }
 
 #about-page {
-  width: 60%;
+  width: 65%;
   height: 100vh;
   margin: 5rem auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 5rem;
 }
 
 .outer-border {
   border: solid #9d4edd 5px;
   border-radius: 20px;
+  margin-bottom: 3rem;
 }
 
 .about-text {
@@ -238,7 +238,7 @@
 #tata-cara-page {
   width: 80%;
   height: 100vh;
-  margin: 5rem auto;
+  margin: 5rem auto 15rem;
   padding-top: 5rem;
   display: flex;
   flex-direction: column;
@@ -355,8 +355,13 @@
     margin: 2rem auto;
     padding: 8rem 0;
     height: auto;
-    width: 80%;
-    gap: 2.5rem;
+    width: 100%;
+    gap: 0;
+  }
+
+  .outer-border {
+    padding: 5px;
+    margin-bottom: 2rem;
   }
 
   .about-text {
@@ -372,15 +377,12 @@
   }
 
   #tata-cara-page {
-    width: 90%;
-    height: auto;
-    margin: 5rem auto;
-    padding-top: 8rem;
+    justify-content: flex-start;
     gap: 2rem;
   }
 
   .video-container {
-    width: 100%;
+    width: 120%;
     height: 300px;
   }
 

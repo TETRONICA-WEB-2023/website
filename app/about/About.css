@@ -56,11 +56,11 @@
         margin-bottom: 1rem;
     }
     
-    #kpu h1, h3, #tugas h1, h3, #panitia h1 { 
+    #kpu h1, h3, #tugas h1, h3, #panitia h1, h3 { 
         font-size: 20px;
     }
     
-    #kpu h3, #tugas h3 { 
+    #kpu h3, #tugas h3, #panitia h3 { 
         font-size: 16px;
         padding-bottom: 1.5rem;
     }
@@ -71,7 +71,7 @@
     }
     
     .inner-border { 
-        padding: 0.5rem;
+        padding: 8px;
         border: solid var(--orange1);
         border-radius: 12px;
         background-color: #fff 50%;
@@ -79,7 +79,8 @@
     }
     
     .outer-border { 
-        padding: 0.5rem;
+        width: 100%;
+        padding: 5px;
         border: solid #9D4EDD 4px;
         border-radius: 20px;
     }
