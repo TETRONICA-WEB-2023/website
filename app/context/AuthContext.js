@@ -1,9 +1,12 @@
 import { useContext, createContext, useState, useEffect } from "react";
 import {
+  signInWithPopup,
   signInWithRedirect,
   signOut,
   onAuthStateChanged,
   GoogleAuthProvider,
+  setPersistence,
+  browserSessionPersistence
 } from "firebase/auth";
 import { auth } from "../firebase";
 // import getData from '../function/realtime';
@@ -19,19 +22,48 @@ export const AuthContextProvider = ({ children }) => {
   const router = useRouter();
   const [user, setUser] = useState(null);
   const [email, setEmail] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const googleSignIn = () => {
-    const provider = new GoogleAuthProvider();
-    provider.setCustomParameters({
-      hd: "mail.ugm.ac.id",
-      prompt : 'select_account'
-    });
-    signInWithRedirect(auth, provider);
+    if(!auth.currentUser) {
+      Swal.fire({
+        title: "Login",
+        text: "Please wait",
+        icon: "info",
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+      })
+      Swal.showLoading();
+      setPersistence(auth, browserSessionPersistence)
+      .then(() => {
+        const provider = new GoogleAuthProvider();
+        provider.setCustomParameters({
+          hd: "mail.ugm.ac.id",
+          prompt : 'select_account'
+        });
+        setLoading(true);
+        return signInWithPopup(auth, provider)
+
+        .then(() => {
+          Swal.close();
+        })
+        
+        .catch((error) => {
+          console.log(error);
+          setLoading(false);
+          Swal.close();
+        })
+
+      })
+    }
+    
   };
 
   const logOut = () => {
+    setLoading(true);
     signOut(auth);
     setUser(null);
+    setLoading(false);
   };
 
   // const vote = (auth, calon) => {
@@ -142,6 +174,7 @@ export const AuthContextProvider = ({ children }) => {
             )
             set(ref(db, '/votes/' + auth.uid), calon);
             set(ref(db, '/status/' + auth.uid), {"uid" : auth.uid, "email" : auth.email});
+            update(ref(db, '/mahasiswa/' + email.indexOf(auth.email)), {'/vote' : 1})
             logOut();
             router.push('/thankyou');
           }
@@ -154,6 +187,8 @@ export const AuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    // setPersistence(auth, "session");
+    setLoading(false);
     var fetchedData = ref(db, "/approvedEmail");
     onValue(fetchedData, (snapshot) => {
         var data = snapshot.val();
@@ -195,7 +230,7 @@ export const AuthContextProvider = ({ children }) => {
   }, [user]);
 
   return (
-    <AuthContext.Provider value={{ user, googleSignIn, logOut, vote }}>
+    <AuthContext.Provider value={{ user, googleSignIn, logOut, vote, loading, email }}>
       {children}
     </AuthContext.Provider>
   );
