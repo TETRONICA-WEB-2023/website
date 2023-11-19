@@ -31,7 +31,7 @@ const Page = () => {
     try {
       await vote(user, calon);
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   }
 
