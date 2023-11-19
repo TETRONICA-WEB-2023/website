@@ -130,10 +130,12 @@ export default function Home() {
           Baca Selengkapnya
         </Link>
       </section>
-      <section id="tata-cara-page">
+      {/* <section id="tata-cara-page">
         <h1 class="heading">Tata Cara</h1>
-        <div class="video-container">anggap tata cara</div>
-      </section>
+        <div className="tatacara-voting">
+          
+        </div>
+      </section> */}
       {/* <section id="timeline-page">
       <h1 className="heading">Timeline</h1>
       <div className="timeline">

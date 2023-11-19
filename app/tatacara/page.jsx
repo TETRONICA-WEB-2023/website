@@ -25,13 +25,21 @@
 //     </div>
 //   )
 // }
-import "./content.css"
+import "./content.css";
 
 const Page = () => {
   return (
     <div className="panduan-wrapper">
-      <object data="/panduan.pdf" type="application/pdf" width="100%" height="800px">
-        <p>Unable to display PDF file. <a href="/panduan.pdf">Download</a> instead.</p>
+      <object
+        data="/tatacara-voting.pdf"
+        type="application/pdf"
+        width="100%"
+        height="800px"
+      >
+        <p>
+          Unable to display PDF file. <a href="/panduan.pdf">Download</a>{" "}
+          instead.
+        </p>
       </object>
     </div>
   );
