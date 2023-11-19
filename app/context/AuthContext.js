@@ -25,6 +25,8 @@ export const AuthContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [adminData, setAdminData] = useState([]);
   const [status, setStatus] = useState([]);
+  // const [kandidat, setKandidat] = useState(["Hansen Justin Handijaya", "Pijarwidyanara Andhita Hermawan", "Bagas Pujangkoro"]);
+  const [kandidat, setKandidat] = useState(["Mirsad", "Mursid", "Marsid"])
 
   const googleSignIn = () => {
     if(!auth.currentUser) {
@@ -146,7 +148,6 @@ export const AuthContextProvider = ({ children }) => {
   // }
 
   const vote = (auth, calon) => {
-    const kandidat = ["Hansen Justin Handijaya", "Pijarwidyanara Andhita Hermawan", "Bagas Pujangkoro"]
     const changeStatus = ref(db, '/status/' + auth.uid);
     get(changeStatus).then((snapshot) => {
       if(snapshot.val() != null){
@@ -178,7 +179,6 @@ export const AuthContextProvider = ({ children }) => {
             set(ref(db, '/status/' + auth.uid), {"uid" : auth.uid, "email" : auth.email});
             update(ref(db, '/mahasiswa/' + email.indexOf(auth.email)), {'/vote' : 1})
             logOut();
-            setFlag(true);
             router.push('/thankyou');
           }
         })
@@ -215,10 +215,10 @@ export const AuthContextProvider = ({ children }) => {
           })
 
           
-          console.log(status.includes(currentUser.uid));
-          console.log(adminData.includes(currentUser.uid));
-          console.log(adminData);
-          console.log(status);
+          // console.log(status.includes(currentUser.uid));
+          // console.log(adminData.includes(currentUser.uid));
+          // console.log(adminData);
+          // console.log(status);
 
 
           if(!currentUser.email.includes('@mail.ugm.ac.id')) {
@@ -243,12 +243,12 @@ export const AuthContextProvider = ({ children }) => {
               setUser(null);
 
           } else if(status.includes(currentUser.uid) && !adminData.includes(currentUser.uid)) {
-              Swal.fire({
-                title: 'Mohon Maaf',
-                text: 'Untuk mengurangi traffic, anda tidak dapat login kembali setelah melakukan voting, terima kasih',
-                icon: 'warning',
-                timer: 3000,
-              })
+              // Swal.fire({
+              //   title: 'Mohon Maaf',
+              //   text: 'Untuk mengurangi traffic, anda tidak dapat login kembali setelah melakukan voting, terima kasih',
+              //   icon: 'warning',
+              //   timer: 3000,
+              // })
               logOut();
               setUser(null);
           } else {
@@ -267,7 +267,7 @@ export const AuthContextProvider = ({ children }) => {
   }, [user]);
 
   return (
-    <AuthContext.Provider value={{ user, googleSignIn, logOut, vote, loading, email }}>
+    <AuthContext.Provider value={{ user, googleSignIn, logOut, vote, loading, email, kandidat }}>
       {children}
     </AuthContext.Provider>
   );
