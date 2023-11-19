@@ -28,6 +28,8 @@ import { createTheme } from "@mui/material/styles";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { UserAuth } from "../context/AuthContext";
+import Swal from "sweetalert2";
 
 // Register ChartJS components using ChartJS.register
 ChartJS.register(
@@ -47,28 +49,63 @@ const muiCache = createCache({
 
 function Example() {
   const [open, setOpen] = React.useState(true);
-  const [voteCount, setVoteCount] = React.useState([])
+  const [voteCount, setVoteCount] = React.useState({})
   const [mahasiswa, setMahasiswa] = React.useState([])
   const [updateMahasiswa, setUpdateMahasiswa] = React.useState(new Date().toLocaleString())  
+  const { email } = UserAuth();
 
   const handleClick = () => {
     setOpen(!open);
   };
 
   const handleReset = () => {
-    
+    Swal.fire({
+      title: 'Reset Data?',
+      text: "Data akan direset dan pemilih dapat memilih kembali.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#5A189A',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Reset'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        var status = ref(db, '/status');
+        get(status).then((snapshot) => {
+          if (snapshot.exists()) {
+            Object.values(snapshot.val()).forEach((item, index) => {
+              update(ref(db, '/mahasiswa/' + email.indexOf(item['email'])), {'/vote' : 0});
+            })
+            set(ref(db, '/votes'), {});
+            set(ref(db, '/status'), {});
+          } else {
+            console.log("No data available");
+          }
+        }).catch((error) => {
+          console.error(error);
+        });
+        Swal.fire(
+          'Reset!',
+          'Data berhasil direset.',
+          'success'
+        )
+      }
+    })
   }
 
   useEffect(() => {
-    var counts = ref(db, '/vote');
+    var counts = ref(db, '/votes');
     (function timerVote() {
       onValue(counts, (snapshot) => {
         if(snapshot.exists()) {
-          var data = [];
-          Object.keys(snapshot.val()).forEach(key => {
-            data.push(Object.values(snapshot.val()[key]).length);
-          });
-          setVoteCount(data);
+          var frequency = {};
+          for (let value of Object.values(snapshot.val())) {
+            frequency[value] = (frequency[value] || 0) + 1;
+          }
+          // var data = [];
+          // Object.keys(snapshot.val()).forEach(key => {
+          //   data.push(Object.values(snapshot.val()[key]).length);
+          // });
+          setVoteCount(frequency);
         }
       });
       setTimeout(timerVote, 1000);
@@ -269,7 +306,7 @@ function Example() {
       <h2 className="gotham-bold mt-2">Reset Data</h2>
       <div className="btn-toolbar mb-2 mb-md-0">
           <div className="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary" onClick={exportDataPemilihToXLS}>Reset Data</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary" onClick={handleReset}>Reset Data</button>
           </div>
         </div>
       </div>

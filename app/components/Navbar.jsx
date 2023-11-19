@@ -7,18 +7,15 @@ import Swal from "sweetalert2";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const { user, googleSignIn, logOut } = UserAuth();
-  const [loading, setLoading] = useState(true);
+  const { user, googleSignIn, logOut, loading } = UserAuth();
 
   const handleSignIn = async () => {
     try {
-    Swal.fire('Please wait');
-    Swal.showLoading();
       await googleSignIn();
     } catch (error) {
       console.log(error);
     }
-  };
+  }
 
   const handleSignOut = async () => {
     try {
@@ -27,14 +24,6 @@ const Navbar = () => {
       console.log(error);
     }
   };
-
-  useEffect(() => {
-    const checkAuthentication = async () => {
-      await new Promise((resolve) => setTimeout(resolve, 50));
-      setLoading(false);
-    };
-    checkAuthentication();
-  }, [user]);
 
   return (
     <nav class="animnavbar navbar navbar-expand-lg navbar-dark fixed-top p-auto">

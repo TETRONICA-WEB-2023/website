@@ -13,8 +13,8 @@ export default function Home() {
   const [end, setEnd] = useState(0);
 
   useEffect(() => {
-    var timeStart = new Date("2023-11-23T00:00:00");
-    var timeEnd = new Date("2023-11-24T23:59:59");
+    var timeStart = new Date("2023-11-22T00:00:00");
+    var timeEnd = new Date("2023-11-23T23:59:59");
     (function countDown() {
       setStart(timeStart - new Date());
       setEnd(timeEnd - new Date());

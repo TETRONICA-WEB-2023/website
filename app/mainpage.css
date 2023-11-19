@@ -285,6 +285,11 @@
     display: none;
   }
 
+  #header-page svg {
+    margin: auto;
+    width: 98%;
+  }
+
   .header-text {
     text-align: center;
     margin: 1rem;
