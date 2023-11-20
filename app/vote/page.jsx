@@ -50,7 +50,7 @@ const Page = () => {
           <h1 class="heading-vote h-top-vote">VOTING CALON KETUA</h1>
           <h3 class="heading-vote h-bottom-vote">Silahkan Pilih Calon Pilihan Anda</h3>
           <div class="foto-calon-container-vote">
-            <a class="foto-calon-vote" id="calon1" onClick={() => handleVote(0)} role="button">
+            {/* <a class="foto-calon-vote" id="calon1" onClick={() => handleVote(0)} role="button">
               <img src="/kandidat/calon1b.png" alt="" />
             </a>
             <a class="foto-calon-vote" id="calon2" onClick={() => handleVote(1)} role="button">
@@ -58,6 +58,16 @@ const Page = () => {
             </a>
             <a class="foto-calon-vote" id="calon3" onClick={() => handleVote(2)} role="button">
               <img src="/kandidat/calon3b.png" alt="" />
+            </a> */}
+
+            <a class="foto-calon-vote" id="calon1" onClick={() => handleVote(0)} role="button">
+              <img src="/dummyMirsad.jpg" alt="" />
+            </a>
+            <a class="foto-calon-vote" id="calon2" onClick={() => handleVote(1)} role="button">
+              <img src="/dummyMirsad.jpg" alt="" />
+            </a>
+            <a class="foto-calon-vote" id="calon3" onClick={() => handleVote(2)} role="button">
+              <img src="/dummyMirsad.jpg" alt="" />
             </a>
           </div>
           {/* <button id="vote-button" class="btn">Vote <span></span></button> */}

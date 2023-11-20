@@ -23,6 +23,8 @@ export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [email, setEmail] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [adminData, setAdminData] = useState([]);
+  const [status, setStatus] = useState([]);
 
   const googleSignIn = () => {
     if(!auth.currentUser) {
@@ -176,6 +178,7 @@ export const AuthContextProvider = ({ children }) => {
             set(ref(db, '/status/' + auth.uid), {"uid" : auth.uid, "email" : auth.email});
             update(ref(db, '/mahasiswa/' + email.indexOf(auth.email)), {'/vote' : 1})
             logOut();
+            setFlag(true);
             router.push('/thankyou');
           }
         })
@@ -186,14 +189,38 @@ export const AuthContextProvider = ({ children }) => {
   }
 
   useEffect(() => {
+    
+    
+
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+
+      
+    
     // setPersistence(auth, "session");
     setLoading(false);
     var fetchedData = ref(db, "/approvedEmail");
     onValue(fetchedData, (snapshot) => {
         var data = snapshot.val();
         setEmail(data);
-        if(currentUser){
+
+        if(currentUser) {
+          onValue(ref(db, '/admin'), (snapshotAdmin) => {
+            var dataAdmin = Object.values(snapshotAdmin.val());
+            setAdminData(dataAdmin);
+          })
+
+          onValue(ref(db, '/status'), (snapshotStatus) => {
+            var dataStatus = Object.keys(snapshotStatus.val());
+            setStatus(dataStatus);
+          })
+
+          
+          console.log(status.includes(currentUser.uid));
+          console.log(adminData.includes(currentUser.uid));
+          console.log(adminData);
+          console.log(status);
+
+
           if(!currentUser.email.includes('@mail.ugm.ac.id')) {
               Swal.fire({
                 title: 'Invalid Account!',
@@ -212,6 +239,16 @@ export const AuthContextProvider = ({ children }) => {
                 confirmButtonText: 'OK'
               })
               push(ref(db, '/pelanggaran/emailLuar/' + currentUser.uid), {'email' : currentUser.email, 'uid' : currentUser.uid, 'timestamp': Date.now()});
+              logOut();
+              setUser(null);
+
+          } else if(status.includes(currentUser.uid) && !adminData.includes(currentUser.uid)) {
+              Swal.fire({
+                title: 'Mohon Maaf',
+                text: 'Untuk mengurangi traffic, anda tidak dapat login kembali setelah melakukan voting, terima kasih',
+                icon: 'warning',
+                timer: 3000,
+              })
               logOut();
               setUser(null);
           } else {
