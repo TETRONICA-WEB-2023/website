@@ -52,7 +52,7 @@ export default function Home() {
               <button
                 id="vote-button"
                 className="button-disabled"
-                disabled="true"
+                disabled={true}
               >
                 {Math.floor(start / (1000 * 60 * 60 * 24))}D{" "}
                 {Math.floor((start % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))}
