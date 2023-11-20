@@ -126,7 +126,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <Link className="button" href="/caket" role="button">
+        <Link className="button" href="/about" role="button">
           Baca Selengkapnya
         </Link>
       </section>
