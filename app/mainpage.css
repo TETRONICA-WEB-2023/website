@@ -384,12 +384,27 @@
     margin-bottom: 3rem;
   }
 
+  .vs-v, .vs-s { 
+    font-size: 50px;
+  } 
+
+  .vs-s { 
+    top: 20%;
+    left: 90%;
+  }
+
   .foto-calon-container {
     display: flex;
-    flex-direction: column;
     align-items: center;
     margin-top: 5rem auto;
-    gap: 3rem;
+  }
+
+  .foto-calon { 
+    margin: 0 4rem;
+  }
+
+  .foto-calon img { 
+    width: 150px;
   }
 
   #about-page {
