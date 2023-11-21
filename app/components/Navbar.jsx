@@ -7,18 +7,15 @@ import Swal from "sweetalert2";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const { user, googleSignIn, logOut } = UserAuth();
-  const [loading, setLoading] = useState(true);
+  const { user, googleSignIn, logOut, loading, adminData } = UserAuth();
 
   const handleSignIn = async () => {
     try {
-    Swal.fire('Please wait');
-    Swal.showLoading();
       await googleSignIn();
     } catch (error) {
       console.log(error);
     }
-  };
+  }
 
   const handleSignOut = async () => {
     try {
@@ -28,16 +25,8 @@ const Navbar = () => {
     }
   };
 
-  useEffect(() => {
-    const checkAuthentication = async () => {
-      await new Promise((resolve) => setTimeout(resolve, 50));
-      setLoading(false);
-    };
-    checkAuthentication();
-  }, [user]);
-
   return (
-    <nav class="animnavbar navbar navbar-expand-md navbar-dark fixed-top p-auto">
+    <nav class="animnavbar navbar navbar-expand-lg navbar-dark fixed-top p-auto">
       <div class="nav-container container-fluid d-flex mx-lg-5">
         <a class="navbar-brand" href="#"
           ><img src="/tetronica.svg" alt="Tetronica-logo"
@@ -101,11 +90,13 @@ const Navbar = () => {
               alt="" loading="lazy" />
           </a>
           <ul className="dropdown-menu dropdown-menu-end">
-             <li><Link className="dropdown-item" href="#">Upload KTM</Link></li>
              <li><Link className="dropdown-item" href="/vote">Vote</Link></li>
              <li>
                <hr className="dropdown-divider" />
              </li>
+             {adminData.includes(user.uid) ? (
+                <li><Link className="dropdown-item" href="/admin">Admin</Link></li>
+              ) : null}
              <li>
                <a className="dropdown-item" role="button" onClick={handleSignOut}>Logout</a>
              </li>

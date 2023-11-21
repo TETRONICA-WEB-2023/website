@@ -25,6 +25,10 @@ nav {
   width: 200px;
 }
 
+.user-btn img {
+  width: 25px;
+}
+
 .nav-link-cust {
   color: #fff;
   font-size: 16px;
@@ -33,10 +37,6 @@ nav {
 
 .nav-link-cust:hover {
   color: #bebebe;
-}
-
-::marker {
-  display: none;
 }
 
 .user-btn {
@@ -48,7 +48,7 @@ nav {
 }
 
 /* Mobile Screen */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
     .nav-container {
       justify-content: center;
     }
@@ -73,11 +73,15 @@ nav {
     #offcanvasNavbar {
       background-color: rgba(60, 9, 108, 0.1);
       backdrop-filter: blur(15px);
-      height: 40%;
+      height: 50%;
       text-align: center;
-      /* display: flex;
+      display: flex;
       flex-direction: column;
-      justify-content: space-between;  */
+      justify-content: space-between;  
+    }
+
+    #offcanvasNavbar li {
+      margin-top: 2rem;
     }
   
     #offcanvasNavbarLabel {

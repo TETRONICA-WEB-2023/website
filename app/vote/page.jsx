@@ -31,7 +31,7 @@ const Page = () => {
     try {
       await vote(user, calon);
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   }
 
@@ -56,12 +56,23 @@ const Page = () => {
             <a class="foto-calon-vote" id="calon2" onClick={() => handleVote(1)} role="button">
               <img src="/kandidat/calon2b.png" alt="" />
             </a>
-            <a class="foto-calon-vote" id="calon3" onClick={() => handleVote(2)} role="button">
+            {/* <a class="foto-calon-vote" id="calon3" onClick={() => handleVote(2)} role="button">
               <img src="/kandidat/calon3b.png" alt="" />
+            </a> */}
+            
+
+            {/* <a class="foto-calon-vote" id="calon1" onClick={() => handleVote(0)} role="button">
+              <img src="/dummyMirsad.jpg" alt="" />
             </a>
+            <a class="foto-calon-vote" id="calon2" onClick={() => handleVote(1)} role="button">
+              <img src="/dummyMirsad.jpg" alt="" />
+            </a>
+            <a class="foto-calon-vote" id="calon3" onClick={() => handleVote(2)} role="button">
+              <img src="/dummyMirsad.jpg" alt="" />
+            </a> */}
           </div>
           {/* <button id="vote-button" class="btn">Vote <span></span></button> */}
-          <p>Sebanyak <b>{jumlah}</b> dari <b>1032</b> ({(jumlah/1032 * 100).toFixed(2)}%) peserta telah menyalurkan suaranya. Ayo salurkan suaramu!</p>
+          <p>Sebanyak <b>{jumlah}</b> dari <b>854</b> ({(jumlah/854 * 100).toFixed(2)}%) peserta telah menyalurkan suaranya. Ayo salurkan suaramu!</p>
         </div>
       </section>
       </div>

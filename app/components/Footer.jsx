@@ -24,12 +24,12 @@ export default function Footer() {
             <div className="standard_social_links  social">
               <div>
                 <li className="round-btn btn-whatsapp">
-                  <a href="#">
-                    <i className="fab fa-line" />
+                  <a href="https://www.youtube.com/@kpukmteti23">
+                    <i className="fab fa-youtube" />
                   </a>
                 </li>
                 <li className="round-btn btn-instagram">
-                  <a href="#">
+                  <a href="https://www.instagram.com/kpu.kmteti/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA==">
                     <i className="fab fa-instagram" aria-hidden="true" />
                   </a>
                 </li>

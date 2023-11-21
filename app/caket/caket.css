@@ -1,10 +1,10 @@
 .caket-margin {
-    margin-top: 10rem;
+  margin: 10rem auto;
 }
 
 .header-text-caket {
--webkit-text-fill-color: transparent;
--webkit-text-stroke: 2px var(--orange1);
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 2px var(--orange1);
 }
 
 .container-calon-1-caket,
@@ -50,7 +50,8 @@
   font-size: medium;
 }
 
-.visi-misi-1, .visi-misi-3 {
+.visi-misi-1,
+.visi-misi-3 {
   margin-left: 3rem;
   margin-top: -2.5rem;
 }
@@ -60,14 +61,19 @@
   margin-top: -2.5rem;
 }
 
+.visi-head,
+.misi-head {
+  margin-top: 2rem;
+}
+
 .container-visi-misi-1,
 .container-visi-misi-3 {
   /* background-color: red; */
   height: fit-content;
   display: flex;
   justify-content: space-between;
-  margin: 5rem;
-  margin-right: 10rem;
+  margin: 3rem;
+  padding: 2rem;
 }
 .container-visi-misi-2 {
   /* background-color: red; */
@@ -75,114 +81,113 @@
   display: flex;
   justify-content: space-between;
   margin: 5rem;
-  margin-left: 10rem;
-  margin-right: 10rem;
+  padding: 2rem;
 }
 
-.foto-calon-caket img { 
-    width: 350px;
+.foto-calon-caket img {
+  width: 350px;
 }
 
-@media (width<1025px) {
-    body {
-      font-size: 65%;
-    }
-    img {
-      width: 250px;
-      justify-content: center;
-    }
-    .urutan {
-      font-size: 60px;
-      font-weight: bold;
-    }
-    .nama-calon {
-      font-size: 35px;
-      font-weight: bold;
-      margin: 2rem;
-      margin-top: auto;
-    }
-    .jurusan {
-      font-size: 15px;
-      font-weight: 400;
-    }
-    .container-visi-misi-1,
-    .container-visi-misi-2,
-    .container-visi-misi-3 {
-      /* background-color: red; */
-      height: fit-content;
-      display: flex;
-      justify-content: space-between;
-      margin: 1.5rem;
-    }
-    .visi-misi-1,
-    .visi-misi-2,
-    .visi-misi-3 {
-      color: white;
-      width: 100%;
-      text-align: justify;
-      margin-left: -1rem;
-      margin-top: -2.5rem;
-    }
+@media (width<992px) {
+  body {
+    font-size: 65%;
   }
-  
-  @media (width < 600px){
-      body{
-          font-size: 55%;
-      }
-      .container-calon-1-caket,
-      .container-calon-2-caket,
-      .container-calon-3-caket {
-      display: flex;
-      justify-content: center;
-      /* background-color: aqua; */
-      color: white;
-      margin: 1rem;
-      width: auto;
-      }
-      .container-calon-2-caket{
-          flex-direction: row-reverse;
-          margin-right: 0rem;
-          justify-content: center;
-          text-align: left;
-          /* margin-left: 0rem; */
-      }
-      .urutan {
-          font-size: 40px;
-          font-weight: bold;
-        }
-      .nama-calon {
-          font-size: 20px;
-          font-weight: bold;
-          margin: 2rem;
-          margin-top: auto;
-        }
-      .jurusan {
-          font-size: 10px;
-          font-weight: 400;
-        }
-      .container-visi-misi-1,
-      .container-visi-misi-2,
-      .container-visi-misi-3 {
-          /* background-color: red; */
-          height: fit-content;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          margin: 1.5rem;
-          margin-right: 1rem;
-          margin-left: 2rem;
-      }
-      .container-visi-misi-1,
-      .container-visi-misi-3{
-          flex-direction: column-reverse;
-      }
-      img{
-          width: 150px;
-      }
-      .foto-calon-caket{
-          display: flex;
-          justify-content: center;
-          margin-bottom: 2rem;
+  img {
+    width: 250px;
+    justify-content: center;
+  }
+  .urutan {
+    font-size: 60px;
+    font-weight: bold;
+  }
+  .nama-calon {
+    font-size: 35px;
+    font-weight: bold;
+    margin: 2rem;
+    margin-top: auto;
+  }
+  .jurusan {
+    font-size: 15px;
+    font-weight: 400;
+  }
+  .container-visi-misi-1,
+  .container-visi-misi-2,
+  .container-visi-misi-3 {
+    /* background-color: red; */
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5rem;
+  }
+  .visi-misi-1,
+  .visi-misi-2,
+  .visi-misi-3 {
+    color: white;
+    width: 100%;
+    text-align: justify;
+    margin-left: -1rem;
+    margin-top: -2.5rem;
+  }
+}
 
-      }
-    }
+@media (width < 1080px) {
+  body {
+    font-size: 55%;
+  }
+  .container-calon-1-caket,
+  .container-calon-2-caket,
+  .container-calon-3-caket {
+    display: flex;
+    justify-content: center;
+    /* background-color: aqua; */
+    color: white;
+    margin: 1rem;
+    width: auto;
+  }
+
+  .container-calon-2-caket {
+    flex-direction: row-reverse;
+    margin-right: 0rem;
+    justify-content: center;
+    text-align: left;
+    /* margin-left: 0rem; */
+  }
+  .urutan {
+    font-size: 40px;
+    font-weight: bold;
+  }
+  .nama-calon {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 2rem;
+    margin-top: auto;
+  }
+  .jurusan {
+    font-size: 10px;
+    font-weight: 400;
+  }
+  .container-visi-misi-1,
+  .container-visi-misi-2,
+  .container-visi-misi-3 {
+    /* background-color: red; */
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 1.5rem;
+    margin-right: 1rem;
+    margin-left: 2rem;
+  }
+  .container-visi-misi-1,
+  .container-visi-misi-3 {
+    flex-direction: column-reverse;
+  }
+  img {
+    width: 150px;
+  }
+  .foto-calon-caket {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+}

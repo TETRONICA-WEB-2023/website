@@ -1,9 +1,12 @@
 import { useContext, createContext, useState, useEffect } from "react";
 import {
+  signInWithPopup,
   signInWithRedirect,
   signOut,
   onAuthStateChanged,
   GoogleAuthProvider,
+  setPersistence,
+  browserSessionPersistence
 } from "firebase/auth";
 import { auth } from "../firebase";
 // import getData from '../function/realtime';
@@ -19,19 +22,53 @@ export const AuthContextProvider = ({ children }) => {
   const router = useRouter();
   const [user, setUser] = useState(null);
   const [email, setEmail] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [adminData, setAdminData] = useState([]);
+  const [status, setStatus] = useState([]);
+  // const [kandidat, setKandidat] = useState(["Hansen Justin Handijaya", "Pijarwidyanara Andhita Hermawan", "Bagas Pujangkoro"]);
+  const [kandidat, setKandidat] = useState(["Hansen Justin Handijaya", "Pijarwidyanara Andhita Hermawan"]);
+  // const [kandidat, setKandidat] = useState(["Mirsad", "Mursid", "Marsid"])
 
   const googleSignIn = () => {
-    const provider = new GoogleAuthProvider();
-    provider.setCustomParameters({
-      hd: "mail.ugm.ac.id",
-      prompt : 'select_account'
-    });
-    signInWithRedirect(auth, provider);
+    if(!auth.currentUser) {
+      Swal.fire({
+        title: "Login",
+        text: "Please wait",
+        icon: "info",
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+      })
+      Swal.showLoading();
+      setPersistence(auth, browserSessionPersistence)
+      .then(() => {
+        const provider = new GoogleAuthProvider();
+        provider.setCustomParameters({
+          hd: "mail.ugm.ac.id",
+          prompt : 'select_account'
+        });
+        setLoading(true);
+        return signInWithPopup(auth, provider)
+
+        .then(() => {
+          Swal.close();
+        })
+        
+        .catch((error) => {
+          console.log(error);
+          setLoading(false);
+          Swal.close();
+        })
+
+      })
+    }
+    
   };
 
   const logOut = () => {
+    setLoading(true);
     signOut(auth);
     setUser(null);
+    setLoading(false);
   };
 
   // const vote = (auth, calon) => {
@@ -112,7 +149,6 @@ export const AuthContextProvider = ({ children }) => {
   // }
 
   const vote = (auth, calon) => {
-    const kandidat = ["Hansen Justin Handijaya", "Pijarwidyanara Andhita Hermawan", "Bagas Pujangkoro"]
     const changeStatus = ref(db, '/status/' + auth.uid);
     get(changeStatus).then((snapshot) => {
       if(snapshot.val() != null){
@@ -142,6 +178,7 @@ export const AuthContextProvider = ({ children }) => {
             )
             set(ref(db, '/votes/' + auth.uid), calon);
             set(ref(db, '/status/' + auth.uid), {"uid" : auth.uid, "email" : auth.email});
+            update(ref(db, '/mahasiswa/' + email.indexOf(auth.email)), {'/vote' : 1})
             logOut();
             router.push('/thankyou');
           }
@@ -153,12 +190,38 @@ export const AuthContextProvider = ({ children }) => {
   }
 
   useEffect(() => {
+    
+    
+
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+
+      
+    
+    // setPersistence(auth, "session");
+    setLoading(false);
     var fetchedData = ref(db, "/approvedEmail");
     onValue(fetchedData, (snapshot) => {
         var data = snapshot.val();
         setEmail(data);
-        if(currentUser){
+
+        if(currentUser) {
+          onValue(ref(db, '/admin'), (snapshotAdmin) => {
+            var dataAdmin = Object.values(snapshotAdmin.val());
+            setAdminData(dataAdmin);
+          })
+
+          onValue(ref(db, '/status'), (snapshotStatus) => {
+            var dataStatus = Object.keys(snapshotStatus.val());
+            setStatus(dataStatus);
+          })
+
+          
+          // console.log(status.includes(currentUser.uid));
+          // console.log(adminData.includes(currentUser.uid));
+          // console.log(adminData);
+          // console.log(status);
+
+
           if(!currentUser.email.includes('@mail.ugm.ac.id')) {
               Swal.fire({
                 title: 'Invalid Account!',
@@ -166,15 +229,29 @@ export const AuthContextProvider = ({ children }) => {
                 icon: 'warning',
                 confirmButtonText: 'OK'
               })
+              push(ref(db, '/pelanggaran/emailLuarUGM/' + currentUser.uid), {'email' : currentUser.email, 'uid' : currentUser.uid, 'timestamp' : Date.now()});
               logOut();
+              setUser(null);
           } else if(!data.includes(currentUser.email)) {
               Swal.fire({
                 title: 'Invalid Account!',
-                text: 'You are trying to login with an email that doesn&quot;t belong to TETITB department',
+                text: 'Akun mahasiswa non departemen TETITB',
                 icon: 'warning',
                 confirmButtonText: 'OK'
               })
+              push(ref(db, '/pelanggaran/emailLuar/' + currentUser.uid), {'email' : currentUser.email, 'uid' : currentUser.uid, 'timestamp': Date.now()});
               logOut();
+              setUser(null);
+
+          // } else if(status.includes(currentUser.uid) && !adminData.includes(currentUser.uid)) {
+          //     // Swal.fire({
+          //     //   title: 'Mohon Maaf',
+          //     //   text: 'Untuk mengurangi traffic, anda tidak dapat login kembali setelah melakukan voting, terima kasih',
+          //     //   icon: 'warning',
+          //     //   timer: 3000,
+          //     // })
+          //     logOut();
+          //     setUser(null);
           } else {
               setUser(currentUser);
           }
@@ -191,7 +268,7 @@ export const AuthContextProvider = ({ children }) => {
   }, [user]);
 
   return (
-    <AuthContext.Provider value={{ user, googleSignIn, logOut, vote }}>
+    <AuthContext.Provider value={{ user, googleSignIn, logOut, vote, loading, email, kandidat, adminData }}>
       {children}
     </AuthContext.Provider>
   );

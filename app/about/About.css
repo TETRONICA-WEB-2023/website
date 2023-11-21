@@ -1,25 +1,25 @@
 
-#kpu, #tugas, #panitia { 
-    width: 80%;
+.about-section { 
+    width: 90%;
     max-width: 900px;
     margin: 5rem auto;
     padding: 5rem 0;
 }
 
-#kpu h1, h3, #tugas h1, h3, #panitia h1, h3 { 
+.h-top-about, .h-bottom-about { 
     text-align: center;
     font-family: var(--gotham-font);
     font-size: 40px;
     color: var(--orange1);
 }
 
-#kpu h3, #tugas h3, #panitia h3 { 
+.h-bottom-about { 
     font-size: 30px;
     color: #fff;
     border-bottom: solid #fff ;
     padding-bottom: 3rem;
 }
-#kpu p, #tugas ol { 
+.about-section p, #tugas ol { 
     margin-top: 3rem;
     font-size: 18px;
     text-align: justify;
@@ -39,39 +39,34 @@
     border-radius: 20px;
 }
 
-.carousel-panitia { 
-    width: 100%;
-}
+.carousel-item img {width: 100%;}
 
-.carousel-item img { 
-    width: 100%;
-}
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
     body { 
         background-size: contain;
     }
 
-    #kpu, #tugas, #panitia { 
+    .about-section { 
         margin-bottom: 1rem;
+        width: 98%;
     }
     
-    #kpu h1, h3, #tugas h1, h3, #panitia h1 { 
+    .h-top-about, .h-bottom-about { 
         font-size: 20px;
     }
     
-    #kpu h3, #tugas h3 { 
+    .h-bottom-about { 
         font-size: 16px;
         padding-bottom: 1.5rem;
     }
     
-    #kpu p, #tugas ol { 
-        margin-top: 1.5rem;
+    .about-section p, #tugas ol { 
+        margin: 1.5rem 10px;
         font-size: 12px;
     }
     
     .inner-border { 
-        padding: 0.5rem;
+        padding: 8px;
         border: solid var(--orange1);
         border-radius: 12px;
         background-color: #fff 50%;
@@ -79,7 +74,8 @@
     }
     
     .outer-border { 
-        padding: 0.5rem;
+        width: 100%;
+        padding: 5px;
         border: solid #9D4EDD 4px;
         border-radius: 20px;
     }
