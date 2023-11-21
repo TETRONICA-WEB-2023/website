@@ -47,11 +47,12 @@ const muiCache = createCache({
 
 function Example() {
   const [open, setOpen] = React.useState(true);
-  const [voteCount, setVoteCount] = React.useState([0,0,0])
+  const [voteCount, setVoteCount] = React.useState([0,0])
   const [mahasiswa, setMahasiswa] = React.useState([])
   const [updateMahasiswa, setUpdateMahasiswa] = React.useState(new Date().toLocaleString()) 
   const [laporan, setLaporan] = React.useState([])
   const { email, kandidat } = UserAuth();
+  const [pelanggaran, setPelanggaran] = React.useState([])
 
   const handleClick = () => {
     setOpen(!open);
@@ -114,11 +115,11 @@ function Example() {
 
   
   const data = {
-    labels : [kandidat[0], kandidat[1], kandidat[2]],
+    labels : [kandidat[0], kandidat[1]],
     datasets : [
       {
         label: "Suara",
-        data: [voteCount[0] ?? 0, voteCount[1] ?? 0, voteCount[2] ?? 0],
+        data: [voteCount[0] ?? 0, voteCount[1] ?? 0],
         backgroundColor: [
           "rgba(255, 99, 132, 0.5)",
           "rgba(54, 162, 235, 0.5)",
@@ -139,7 +140,7 @@ function Example() {
     datasets : [
       {
         label: "Suara",
-        data: [voteCount[0] ?? 0 + voteCount[1] ?? 0 + voteCount[2] ?? 0, 854],
+        data: [voteCount[0] ?? 0 + voteCount[1] ?? 0, 854 - (voteCount[0] ?? 0 + voteCount[1] ?? 0)],
         backgroundColor: [
           "rgba(54, 162, 235, 0.5)",
           "rgba(255, 206, 86, 0.5)",
@@ -152,6 +153,27 @@ function Example() {
       },
     ],
   };
+
+  const barOptionsFirst = {
+    plugins: {
+      legend: {
+        display: false,
+      },
+      datalabels: {
+        
+        formatter: (value, ctx) => {
+          const datapoints = ctx.chart.data.datasets[0].data
+          const total = datapoints.reduce((total, datapoint) => total + datapoint, 0)
+          if (value === 0 || total === 0) return 0 + "%";
+          else {
+            const percentage = value / total * 100
+            return percentage.toFixed(2) + "%";
+          }
+        },
+        color: 'black',
+      }
+    }
+  }
 
   const barOptions = {
     legend: {
@@ -235,8 +257,8 @@ function Example() {
 
   const columnsLaporan = [
     { name: 'id', label: 'ID', width: 70, options: { filter: false, sort: true } },
-    { name: 'date', label: 'Tanggal', width: 300, options: { filter: true, sort: true } },
-    { name: 'subject', label: 'Subjek', width: 200, options: { filter: false, sort: true } },
+    { name: 'date', label: 'Tanggal', width: 200, options: { filter: true, sort: true } },
+    { name: 'subject', label: 'Subjek', width: 300, options: { filter: false, sort: true } },
     { name: 'description', label: 'Deskripsi', width: 300, options: { filter: false, sort: true } },
   ];
 
@@ -249,12 +271,13 @@ function Example() {
           console.log(snapshot.val());
           Object.keys(snapshot.val()).forEach(tanggal => {
             Object.keys(snapshot.val()[tanggal]).forEach(uid => {
-              Object.values(snapshot.val()[tanggal][uid]).forEach(item => {
-                data.push({id : uid, date: tanggal, subject: item[0], description: item[1]});
-              })
+             const temp =  Object.values(snapshot.val()[tanggal][uid])
+             console.log(temp)
+             data.push({id : uid, date: tanggal, subject: temp[1], description: temp[0]});
             })
           });
           setLaporan(data);
+          console.log(data);
         }
       });
       setTimeout(timerlaporan, 60000);
@@ -264,12 +287,46 @@ function Example() {
 
   // console.log(laporan);
 
-  console.log(laporan);
-
   var rowsLaporan = [];
 
   laporan.forEach((item, index) => {
-    rowsLaporan.push({id: item[0], date: item[1], subject: item[2], description: item[3]})
+    console.log(item)
+    rowsLaporan.push({id: item['id'], date: item['date'], subject: item['subject'], description: item['description']})
+  })
+
+  const columnsPelanggaran = [
+    { name: 'uid', label: 'UID', width: 70, options: { filter: false, sort: true } },
+    { name: 'jenis', label: 'Jenis', width: 150, options: { filter: true, sort: true } },
+    { name: 'date', label: 'Timestamp', width: 200, options: { filter: false, sort: true }},
+    { name: 'email', label: 'Email', width: 150, options: { filter: false, sort: true } }
+  ]
+
+  useEffect(() => {
+    var dataPelanggaran = ref(db, '/pelanggaran');
+    (function timerPelanggaran() {
+      onValue(dataPelanggaran, (snapshot) => {
+        if(snapshot.exists()) {
+          var data = [];
+          Object.keys(snapshot.val()).forEach(jenis => {
+            Object.keys(snapshot.val()[jenis]).forEach(uid => {
+              Object.keys(snapshot.val()[jenis][uid]).forEach(timestamp => {
+              const temp =  Object.values(snapshot.val()[jenis][uid][timestamp]);
+              data.push({uid : uid, jenis: jenis, date: temp[1], email: temp[0]});
+              })
+            })
+          });
+          setPelanggaran(data);
+        }
+      });
+      setTimeout(timerPelanggaran, 60000);
+    })();
+  }
+  , []);
+
+  var rowsPelanggaran = [];
+
+  pelanggaran.forEach((item, index) => {
+    rowsPelanggaran.push({uid: item['uid'], jenis: item['jenis'], date:item['date'], email: item['email']})
   })
 
   const exportDataPemilihToXLS = () => {
@@ -311,19 +368,19 @@ function Example() {
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="#data-pemilih">
               <span data-feather="file-text"></span>
               Data Pemilih
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="#data-laporan">
               <span data-feather="file-text"></span>
               Data Laporan
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="#data-pelanggaran">
               <span data-feather="file-text"></span>
               Data Pelanggaran
             </a>
@@ -345,7 +402,7 @@ function Example() {
       </div>
 
       <div className="my-4 w-100">
-      <Bar data={data} options={barOptions} width="900" height="380"/>
+      <Bar data={data} options={barOptionsFirst} width="900" height="380"/>
       </div>
 
 
@@ -353,7 +410,7 @@ function Example() {
       <Pie data={data} options={barOptions} width="450" height="190"/>
       </div>
 
-      <div id="data-pemilihan" className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 className="h2 gotham-bold mt-2">Persentase Pemilih</h1>
         <div className="btn-toolbar mb-2 mb-md-0">
           <div className="mt-1">
@@ -368,7 +425,7 @@ function Example() {
 
 
 
-      <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <div id="data-pemilih" className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
       <h2 className="gotham-bold mt-2">Data Pemilih</h2>
       <div className="btn-toolbar mb-2 mb-md-0">
           <div className="btn-group me-2">
@@ -393,7 +450,7 @@ function Example() {
     </div>
       </div>
 
-      <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <div id="data-laporan" className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
       <h2 className="gotham-bold mt-2">Data Laporan</h2>
       <div className="btn-toolbar mb-2 mb-md-0">
           <div className="btn-group me-2">
@@ -411,6 +468,31 @@ function Example() {
         <MUIDataTable
           data={rowsLaporan}
           columns={columnsLaporan}
+          options={options}
+        />
+        </ThemeProvider>
+        </CacheProvider>
+        </div>
+      </div>
+
+      <div id="data-pelanggaran" className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <h2 className="gotham-bold mt-2">Data Pelanggaran</h2>
+      <div className="btn-toolbar mb-2 mb-md-0">
+          <div className="btn-group me-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary" onClick={exportDataPemilihToXLS}>Export</button>
+          </div>
+          <div className="mt-1">
+            Last update: {updateMahasiswa}
+          </div>
+        </div>
+      </div>
+      <div className="table-responsive">
+        <div style={{ height: '70vh', width: '100%' }}>
+        <CacheProvider value={muiCache}>
+        <ThemeProvider theme={createTheme()}>
+        <MUIDataTable
+          data={rowsPelanggaran}
+          columns={columnsPelanggaran}
           options={options}
         />
         </ThemeProvider>

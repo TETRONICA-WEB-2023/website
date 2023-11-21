@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const { user, googleSignIn, logOut, loading } = UserAuth();
+  const { user, googleSignIn, logOut, loading, adminData } = UserAuth();
 
   const handleSignIn = async () => {
     try {
@@ -94,6 +94,9 @@ const Navbar = () => {
              <li>
                <hr className="dropdown-divider" />
              </li>
+             {adminData.includes(user.uid) ? (
+                <li><Link className="dropdown-item" href="/admin">Admin</Link></li>
+              ) : null}
              <li>
                <a className="dropdown-item" role="button" onClick={handleSignOut}>Logout</a>
              </li>

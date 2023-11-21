@@ -26,7 +26,8 @@ export const AuthContextProvider = ({ children }) => {
   const [adminData, setAdminData] = useState([]);
   const [status, setStatus] = useState([]);
   // const [kandidat, setKandidat] = useState(["Hansen Justin Handijaya", "Pijarwidyanara Andhita Hermawan", "Bagas Pujangkoro"]);
-  const [kandidat, setKandidat] = useState(["Mirsad", "Mursid", "Marsid"])
+  const [kandidat, setKandidat] = useState(["Hansen Justin Handijaya", "Pijarwidyanara Andhita Hermawan"]);
+  // const [kandidat, setKandidat] = useState(["Mirsad", "Mursid", "Marsid"])
 
   const googleSignIn = () => {
     if(!auth.currentUser) {
@@ -242,15 +243,15 @@ export const AuthContextProvider = ({ children }) => {
               logOut();
               setUser(null);
 
-          } else if(status.includes(currentUser.uid) && !adminData.includes(currentUser.uid)) {
-              // Swal.fire({
-              //   title: 'Mohon Maaf',
-              //   text: 'Untuk mengurangi traffic, anda tidak dapat login kembali setelah melakukan voting, terima kasih',
-              //   icon: 'warning',
-              //   timer: 3000,
-              // })
-              logOut();
-              setUser(null);
+          // } else if(status.includes(currentUser.uid) && !adminData.includes(currentUser.uid)) {
+          //     // Swal.fire({
+          //     //   title: 'Mohon Maaf',
+          //     //   text: 'Untuk mengurangi traffic, anda tidak dapat login kembali setelah melakukan voting, terima kasih',
+          //     //   icon: 'warning',
+          //     //   timer: 3000,
+          //     // })
+          //     logOut();
+          //     setUser(null);
           } else {
               setUser(currentUser);
           }
@@ -267,7 +268,7 @@ export const AuthContextProvider = ({ children }) => {
   }, [user]);
 
   return (
-    <AuthContext.Provider value={{ user, googleSignIn, logOut, vote, loading, email, kandidat }}>
+    <AuthContext.Provider value={{ user, googleSignIn, logOut, vote, loading, email, kandidat, adminData }}>
       {children}
     </AuthContext.Provider>
   );

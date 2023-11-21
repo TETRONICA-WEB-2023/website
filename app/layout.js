@@ -36,6 +36,7 @@ export default function RootLayout({ children }) {
     <title>TETRONICA</title>
     <meta charSet="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/atom.svg" sizes="any" />
       <style jsx global>{`
         :root {
           --gotham-font: ${gotham.style.fontFamily};

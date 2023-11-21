@@ -98,11 +98,11 @@ export default function Home() {
       <section id="calon-page">
         <h1 className="heading">Who&#39;s Next?</h1>
         <div className="foto-calon-container">
-          <div className="foto-calon">
+          <div id="calon-1" className="foto-calon">
             <img src="/kandidat/calon1b.png" alt="calon 1" />
           </div>
           <p className="vs-container"><span className="vs-v">V</span><span className="vs-s">S</span></p>
-          <div className="foto-calon">
+          <div id="calon-2" className="foto-calon">
             <img src="/kandidat/calon2b.png" alt="calon 2" />
           </div>
           {/* <div className="foto-calon">
