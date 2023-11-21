@@ -181,11 +181,11 @@
 .foto-calon-container {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .foto-calon {
-  margin: 0 1rem;
+  margin: 0 7rem;
   border-radius: 12px;
   display: flex;
   justify-content: center;
@@ -197,6 +197,25 @@
 .foto-calon img {
   width: 280px;
 }
+.vs-container { 
+  margin-left: -40px;
+  align-self: center;
+  position: relative;
+}
+
+.vs-v, .vs-s { 
+  color: #fff;
+  font-size: 100px;
+  font-weight: 600;
+}
+
+.vs-s {
+  /* -webkit-text-stroke: #fff 1px;
+  -webkit-text-fill-color: transparent; */
+  position: absolute;
+  top: 30px;
+  left: 60px;
+ }
 
 #calon-page button {
   width: 50%;

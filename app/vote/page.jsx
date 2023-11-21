@@ -56,9 +56,9 @@ const Page = () => {
             <a class="foto-calon-vote" id="calon2" onClick={() => handleVote(1)} role="button">
               <img src="/kandidat/calon2b.png" alt="" />
             </a>
-            <a class="foto-calon-vote" id="calon3" onClick={() => handleVote(2)} role="button">
+            {/* <a class="foto-calon-vote" id="calon3" onClick={() => handleVote(2)} role="button">
               <img src="/kandidat/calon3b.png" alt="" />
-            </a>
+            </a> */}
             
 
             {/* <a class="foto-calon-vote" id="calon1" onClick={() => handleVote(0)} role="button">

@@ -13,8 +13,8 @@ export default function Home() {
   const [end, setEnd] = useState(0);
 
   useEffect(() => {
-    var timeStart = new Date("2023-11-22T00:00:00");
-    var timeEnd = new Date("2023-11-23T23:59:59");
+    var timeStart = new Date("2023-11-23T00:00:00");
+    var timeEnd = new Date("2023-11-25T23:59:59");
     (function countDown() {
       setStart(timeStart - new Date());
       setEnd(timeEnd - new Date());
@@ -101,12 +101,13 @@ export default function Home() {
           <div className="foto-calon">
             <img src="/kandidat/calon1b.png" alt="calon 1" />
           </div>
+          <p className="vs-container"><span className="vs-v">V</span><span className="vs-s">S</span></p>
           <div className="foto-calon">
             <img src="/kandidat/calon2b.png" alt="calon 2" />
           </div>
-          <div className="foto-calon">
+          {/* <div className="foto-calon">
             <img src="/kandidat/calon3b.png" alt="calon 3" />
-          </div>
+          </div> */}
         </div>
         <Link className="button" href="/caket" role="button">
           Profil dan Visi Misi
