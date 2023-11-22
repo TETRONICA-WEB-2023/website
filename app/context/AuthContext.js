@@ -218,15 +218,15 @@ export const AuthContextProvider = ({ children }) => {
         setEmail(data);
 
         if(currentUser) {
-          onValue(ref(db, '/admin'), (snapshotAdmin) => {
-            var dataAdmin = Object.values(snapshotAdmin.val());
-            setAdminData(dataAdmin);
-          })
+          // onValue(ref(db, '/admin'), (snapshotAdmin) => {
+          //   var dataAdmin = Object.values(snapshotAdmin.val());
+          //   setAdminData(dataAdmin);
+          // })
 
-          onValue(ref(db, '/status'), (snapshotStatus) => {
-            var dataStatus = Object.keys(snapshotStatus.val());
-            setStatus(dataStatus);
-          })
+          // onValue(ref(db, '/status'), (snapshotStatus) => {
+          //   var dataStatus = Object.keys(snapshotStatus.val());
+          //   setStatus(dataStatus);
+          // })
 
           
           // console.log(status.includes(currentUser.uid));

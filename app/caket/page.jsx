@@ -39,8 +39,10 @@ const page = () => {
             </li>
             <li>
               Mengembangkan profesionalitas untuk meningkatkan potensi dari
-              mahasiswa TETI. Memaknai dan mengedepankan KMTETI sebagai
-              organisasi yang bersifat kekeluargaan.
+              mahasiswa TETI. 
+            </li>
+            <li>
+              Memaknai dan mengedepankan KMTETI sebagai organisasi yang bersifat kekeluargaan.
             </li>
           </ol>
         </div>
