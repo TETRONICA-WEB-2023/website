@@ -110,7 +110,6 @@
   100% {
     transform: translateY(0px);
   }
-  
 }
 
 .header-text {
@@ -227,13 +226,14 @@
 .foto-calon img {
   width: 280px;
 }
-.vs-container { 
+.vs-container {
   margin-left: -40px;
   align-self: center;
   position: relative;
 }
 
-.vs-v, .vs-s { 
+.vs-v,
+.vs-s {
   color: #fff;
   font-size: 100px;
   font-weight: 600;
@@ -245,7 +245,7 @@
   position: absolute;
   top: 30px;
   left: 60px;
- }
+}
 
 #calon-page button {
   width: 50%;
@@ -299,7 +299,6 @@
 @media screen and (max-width: 992px) {
   body {
     font-size: 14px;
-    background-size: contain;
     background-clip: border-box;
   }
 
@@ -381,16 +380,12 @@
   }
 
   #calon-page h1 {
+    font-size: 30px;
     margin-bottom: 3rem;
   }
 
-  .vs-v, .vs-s { 
-    font-size: 50px;
-  } 
-
-  .vs-s { 
-    top: 20%;
-    left: 90%;
+  .vs-container {
+    display: none;
   }
 
   .foto-calon-container {
@@ -399,11 +394,11 @@
     margin-top: 5rem auto;
   }
 
-  .foto-calon { 
-    margin: 0 4rem;
+  .foto-calon {
+    margin: 0 1rem;
   }
 
-  .foto-calon img { 
+  .foto-calon img {
     width: 150px;
   }
 

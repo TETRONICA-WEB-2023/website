@@ -3,6 +3,7 @@
 }
 
 .tatacara-wrapper {
+    width: 100vh;
     padding: 20px;
     color: white;
     margin: auto;
@@ -11,4 +12,9 @@
 
 .panduan-wrapper {
     margin-top: 5rem;
+}
+
+.download-pdf { 
+    color: #fff;
+    height: 100vh;
 }

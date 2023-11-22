@@ -80,6 +80,14 @@
     gap: 2rem;
   }
 
+  .h-top-vote {
+    font-size: 30px;
+  }
+
+  .h-bottom-vote {
+    font-size: 15px;
+  }
+
   .foto-calon-vote img {
     width: 250px;
   }
