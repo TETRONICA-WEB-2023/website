@@ -36,8 +36,8 @@ const Page = () => {
         width="100%"
         height="800px"
       >
-        <p>
-          Unable to display PDF file. <a href="/panduan.pdf">Download</a>{" "}
+        <p className="download-pdf">
+          Unable to display PDF file. <a href="/tatacara-voting.pdf">Download</a>{" "}
           instead.
         </p>
       </object>
