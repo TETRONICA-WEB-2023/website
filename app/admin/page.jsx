@@ -71,7 +71,21 @@ function Example() {
     }).then((result) => {
       if (result.isConfirmed) {
         var status = ref(db, '/status');
-        get(status).then((snapshot) => {
+        // get(status).then((snapshot) => {
+        //   if (snapshot.exists()) {
+        //     Object.values(snapshot.val()).forEach((item, index) => {
+        //       update(ref(db, '/mahasiswa/' + email.indexOf(item['email'])), {'/vote' : 0});
+        //     })
+        //     set(ref(db, '/votes'), {});
+        //     set(ref(db, '/status'), {});
+        //     setVoteCount([0,0,0])
+        //   } else {
+        //     console.log("No data available");
+        //   }
+        // }).catch((error) => {
+        //   console.error(error);
+        // });
+        onValue(status, (snapshot) => {
           if (snapshot.exists()) {
             Object.values(snapshot.val()).forEach((item, index) => {
               update(ref(db, '/mahasiswa/' + email.indexOf(item['email'])), {'/vote' : 0});
@@ -82,8 +96,6 @@ function Example() {
           } else {
             console.log("No data available");
           }
-        }).catch((error) => {
-          console.error(error);
         });
         Swal.fire(
           'Reset!',
@@ -96,35 +108,56 @@ function Example() {
 
   useEffect(() => {
     var admins = ref(db, '/admin');
-    get(admins).then((snapshot) => {
+    // get(admins).then((snapshot) => {
+    //   if (snapshot.exists()) {
+    //     setAdmin(Object.values(snapshot.val()));
+    //   } else {
+    //     console.log("No data available");
+    //   }
+    // }).catch((error) => {
+    //   console.error(error);
+    // });
+
+    onValue(admins, (snapshot) => {
       if (snapshot.exists()) {
         setAdmin(Object.values(snapshot.val()));
       } else {
         console.log("No data available");
       }
-    }).catch((error) => {
-      console.error(error);
     });
   });
 
   useEffect(() => {
     var counts = ref(db, '/votes');
-    (function timerVote() {
-      onValue(counts, (snapshot) => {
-        if(snapshot.exists()) {
-          var frequency = {};
-          for (let value of Object.values(snapshot.val())) {
-            frequency[value] = (frequency[value] || 0) + 1;
-          }
-          // var data = [];
-          // Object.keys(snapshot.val()).forEach(key => {
-          //   data.push(Object.values(snapshot.val()[key]).length);
-          // });
-          setVoteCount(frequency);
+    // (function timerVote() {
+    //   onValue(counts, (snapshot) => {
+    //     if(snapshot.exists()) {
+    //       var frequency = {};
+    //       for (let value of Object.values(snapshot.val())) {
+    //         frequency[value] = (frequency[value] || 0) + 1;
+    //       }
+    //       // var data = [];
+    //       // Object.keys(snapshot.val()).forEach(key => {
+    //       //   data.push(Object.values(snapshot.val()[key]).length);
+    //       // });
+    //       setVoteCount(frequency);
+    //     }
+    //   });
+    //   setTimeout(timerVote, 1000);
+    // })();
+    onValue(counts, (snapshot) => {
+      if(snapshot.exists()) {
+        var frequency = {};
+        for (let value of Object.values(snapshot.val())) {
+          frequency[value] = (frequency[value] || 0) + 1;
         }
-      });
-      setTimeout(timerVote, 1000);
-    })();
+        // var data = [];
+        // Object.keys(snapshot.val()).forEach(key => {
+        //   data.push(Object.values(snapshot.val()[key]).length);
+        // });
+        setVoteCount(frequency);
+      }
+    });
   }, [])
 
   
@@ -248,20 +281,31 @@ function Example() {
 
   useEffect(() => {
     var dataMahasiswa = ref(db, '/mahasiswa');
-    (function timermhs() {
-      onValue(dataMahasiswa, (snapshot) => {
-        if(snapshot.exists()) {
-          var data = [];
-          Object.keys(snapshot.val()).forEach(key => {
+    // (function timermhs() {
+    //   onValue(dataMahasiswa, (snapshot) => {
+    //     if(snapshot.exists()) {
+    //       var data = [];
+    //       Object.keys(snapshot.val()).forEach(key => {
 
-            data.push(Object.values(snapshot.val()[key]));
-          });
-          setMahasiswa(data);
-          setUpdateMahasiswa(new Date().toLocaleString());
-        }
-      });
-      setTimeout(timermhs, 60000);
-    })();
+    //         data.push(Object.values(snapshot.val()[key]));
+    //       });
+    //       setMahasiswa(data);
+    //       setUpdateMahasiswa(new Date().toLocaleString());
+    //     }
+    //   });
+    //   setTimeout(timermhs, 60000);
+    // })();
+    onValue(dataMahasiswa, (snapshot) => {
+      if(snapshot.exists()) {
+        var data = [];
+        Object.keys(snapshot.val()).forEach(key => {
+
+          data.push(Object.values(snapshot.val()[key]));
+        });
+        setMahasiswa(data);
+        setUpdateMahasiswa(new Date().toLocaleString());
+      }
+    });
   }, []);  
 
   var rows = [];
@@ -278,24 +322,38 @@ function Example() {
 
   useEffect(() => {
     var dataLaporan = ref(db, '/laporan');
-    (function timerlaporan() {
-      onValue(dataLaporan, (snapshot) => {
-        if(snapshot.exists()) {
-          var data = [];
-          console.log(snapshot.val());
-          Object.keys(snapshot.val()).forEach(tanggal => {
-            Object.keys(snapshot.val()[tanggal]).forEach(uid => {
-             const temp =  Object.values(snapshot.val()[tanggal][uid])
-             console.log(temp)
-             data.push({id : uid, date: tanggal, subject: temp[1], description: temp[0]});
-            })
-          });
-          setLaporan(data);
-          console.log(data);
-        }
-      });
-      setTimeout(timerlaporan, 60000);
-    })();
+    // (function timerlaporan() {
+    //   onValue(dataLaporan, (snapshot) => {
+    //     if(snapshot.exists()) {
+    //       var data = [];
+    //       console.log(snapshot.val());
+    //       Object.keys(snapshot.val()).forEach(tanggal => {
+    //         Object.keys(snapshot.val()[tanggal]).forEach(uid => {
+    //          const temp =  Object.values(snapshot.val()[tanggal][uid])
+    //          console.log(temp)
+    //          data.push({id : uid, date: tanggal, subject: temp[1], description: temp[0]});
+    //         })
+    //       });
+    //       setLaporan(data);
+    //       console.log(data);
+    //     }
+    //   });
+    //   setTimeout(timerlaporan, 60000);
+    // })();
+    onValue(dataLaporan, (snapshot) => {
+      if(snapshot.exists()) {
+        var data = [];
+        console.log(snapshot.val());
+        Object.keys(snapshot.val()).forEach(tanggal => {
+          Object.keys(snapshot.val()[tanggal]).forEach(uid => {
+           const temp =  Object.values(snapshot.val()[tanggal][uid])
+           console.log(temp)
+           data.push({id : uid, date: tanggal, subject: temp[1], description: temp[0]});
+          })
+        });
+        setLaporan(data);
+      }
+    });
   }
   , []);
 
@@ -316,23 +374,38 @@ function Example() {
 
   useEffect(() => {
     var dataPelanggaran = ref(db, '/pelanggaran');
-    (function timerPelanggaran() {
-      onValue(dataPelanggaran, (snapshot) => {
-        if(snapshot.exists()) {
-          var data = [];
-          Object.keys(snapshot.val()).forEach(jenis => {
-            Object.keys(snapshot.val()[jenis]).forEach(uid => {
-              Object.keys(snapshot.val()[jenis][uid]).forEach(timestamp => {
-              const temp =  Object.values(snapshot.val()[jenis][uid][timestamp]);
-              data.push({uid : uid, jenis: jenis, date: temp[1], email: temp[0]});
-              })
+    // (function timerPelanggaran() {
+    //   onValue(dataPelanggaran, (snapshot) => {
+    //     if(snapshot.exists()) {
+    //       var data = [];
+    //       Object.keys(snapshot.val()).forEach(jenis => {
+    //         Object.keys(snapshot.val()[jenis]).forEach(uid => {
+    //           Object.keys(snapshot.val()[jenis][uid]).forEach(timestamp => {
+    //           const temp =  Object.values(snapshot.val()[jenis][uid][timestamp]);
+    //           data.push({uid : uid, jenis: jenis, date: temp[1], email: temp[0]});
+    //           })
+    //         })
+    //       });
+    //       setPelanggaran(data);
+    //     }
+    //   });
+    //   setTimeout(timerPelanggaran, 60000);
+    // })();
+
+    onValue(dataPelanggaran, (snapshot) => {
+      if(snapshot.exists()) {
+        var data = [];
+        Object.keys(snapshot.val()).forEach(jenis => {
+          Object.keys(snapshot.val()[jenis]).forEach(uid => {
+            Object.keys(snapshot.val()[jenis][uid]).forEach(timestamp => {
+            const temp =  Object.values(snapshot.val()[jenis][uid][timestamp]);
+            data.push({uid : uid, jenis: jenis, date: temp[1], email: temp[0]});
             })
-          });
-          setPelanggaran(data);
-        }
-      });
-      setTimeout(timerPelanggaran, 60000);
-    })();
+          })
+        });
+        setPelanggaran(data);
+      }
+    });
   }
   , []);
 
