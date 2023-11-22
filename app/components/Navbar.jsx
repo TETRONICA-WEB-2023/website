@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const { user, googleSignIn, logOut, loading, adminData } = UserAuth();
+  const { user, googleSignIn, logOut, loading, adminData, start, end } = UserAuth();
 
   const handleSignIn = async () => {
     try {
@@ -90,7 +90,12 @@ const Navbar = () => {
               alt="" loading="lazy" />
           </a>
           <ul className="dropdown-menu dropdown-menu-end">
-             <li><Link className="dropdown-item" href="/vote">Vote</Link></li>
+            {
+              start < 0 && end > 0 ? (
+                <li><Link className="dropdown-item" href="/vote">Vote</Link></li>
+              ) : null
+            }
+             
              <li>
                <hr className="dropdown-divider" />
              </li>

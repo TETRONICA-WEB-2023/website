@@ -8,19 +8,8 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 
 export default function Home() {
-  const { user, googleSignIn, logOut } = UserAuth();
-  const [start, setStart] = useState(0);
-  const [end, setEnd] = useState(0);
-
-  useEffect(() => {
-    var timeStart = new Date("2023-11-23T00:00:00");
-    var timeEnd = new Date("2023-11-25T23:59:59");
-    (function countDown() {
-      setStart(timeStart - new Date());
-      setEnd(timeEnd - new Date());
-      setTimeout(countDown, 1000);
-    })();
-  }, []);
+  const { user, googleSignIn, logOut, start, end } = UserAuth();
+  
 
   return (
     <>
@@ -59,7 +48,15 @@ export default function Home() {
                 H {Math.floor((start % (1000 * 60 * 60)) / (1000 * 60))}M{" "}
                 {Math.floor((start % (1000 * 60)) / 1000)}S
               </button>
-            ) : (
+            ) : ( end < 0 ? (
+              <button
+                id="vote-button"
+                className="button-disabled"
+                disabled={true}
+              >
+                Vote Ended
+              </button>
+            ) : user && end > 0 ? (
               <Link
                 id="vote-button"
                 className="button"
@@ -68,7 +65,16 @@ export default function Home() {
               >
                 Vote
               </Link>
-            )}
+            ) : (
+              <button
+                id="vote-button"
+                className="button"
+                onClick={googleSignIn}
+              >
+                Login
+              </button>
+            ))}
+            
 
             {/* <button id="daftar-button" className="button" onClick={handleSignIn}>
             Login

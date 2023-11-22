@@ -51,8 +51,9 @@ function Example() {
   const [mahasiswa, setMahasiswa] = React.useState([])
   const [updateMahasiswa, setUpdateMahasiswa] = React.useState(new Date().toLocaleString()) 
   const [laporan, setLaporan] = React.useState([])
-  const { email, kandidat } = UserAuth();
+  const { email, kandidat, user } = UserAuth();
   const [pelanggaran, setPelanggaran] = React.useState([])
+  const [admin, setAdmin] = React.useState([])
 
   const handleClick = () => {
     setOpen(!open);
@@ -92,6 +93,19 @@ function Example() {
       }
     })
   }
+
+  useEffect(() => {
+    var admins = ref(db, '/admin');
+    get(admins).then((snapshot) => {
+      if (snapshot.exists()) {
+        setAdmin(Object.values(snapshot.val()));
+      } else {
+        console.log("No data available");
+      }
+    }).catch((error) => {
+      console.error(error);
+    });
+  });
 
   useEffect(() => {
     var counts = ref(db, '/votes');
@@ -290,7 +304,6 @@ function Example() {
   var rowsLaporan = [];
 
   laporan.forEach((item, index) => {
-    console.log(item)
     rowsLaporan.push({id: item['id'], date: item['date'], subject: item['subject'], description: item['description']})
   })
 
@@ -334,6 +347,7 @@ function Example() {
     xls.exportToXLS('Data Pemilih_' + new Date().toString() + '.xls');
   }
 
+    if(admin.includes(user?.uid)){
     return (
         <>
         
@@ -350,8 +364,6 @@ function Example() {
           </div>
         </header>
 
-      {/* <div class="container-fluid">
-      <div class="row"> */}
       <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="position-sticky pt-3">
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
@@ -389,7 +401,6 @@ function Example() {
       </div>
     </nav>
 
-    {/* BODY OF DOCUMENT */}
       <div className="bg-white">
       <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div id="data-pemilihan" className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -509,11 +520,31 @@ function Example() {
         </div>
       </div>
     </main>
-
     </div>
     </>
         
-    )
+    )}
+    else if(!user) {
+      return (
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <h1 className="text-center mt-5">Please login, this is a restricted page</h1>
+            </div>
+          </div>
+        </div>
+      )
+      } else {
+        return (
+          <div className="container">
+            <div className="row">
+              <div className="col-12">
+                <h1 className="text-center mt-5">You are not authorized to access this page</h1>
+              </div>
+            </div>
+          </div>
+        )
+      }
 }
 
 export default Example;

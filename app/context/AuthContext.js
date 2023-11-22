@@ -29,6 +29,19 @@ export const AuthContextProvider = ({ children }) => {
   const [kandidat, setKandidat] = useState(["Hansen Justin Handijaya", "Pijarwidyanara Andhita Hermawan"]);
   // const [kandidat, setKandidat] = useState(["Mirsad", "Mursid", "Marsid"])
 
+  const [start, setStart] = useState(0);
+  const [end, setEnd] = useState(0);
+
+  useEffect(() => {
+    var timeStart = new Date("2023-11-23T07:00:00");
+    var timeEnd = new Date("2023-11-23T23:59:59");
+    (function countDown() {
+      setStart(timeStart - new Date());
+      setEnd(timeEnd - new Date());
+      setTimeout(countDown, 1000);
+    })();
+  }, []);
+
   const googleSignIn = () => {
     if(!auth.currentUser) {
       Swal.fire({
@@ -268,7 +281,7 @@ export const AuthContextProvider = ({ children }) => {
   }, [user]);
 
   return (
-    <AuthContext.Provider value={{ user, googleSignIn, logOut, vote, loading, email, kandidat, adminData }}>
+    <AuthContext.Provider value={{ user, googleSignIn, logOut, vote, loading, email, kandidat, adminData, start, end }}>
       {children}
     </AuthContext.Provider>
   );

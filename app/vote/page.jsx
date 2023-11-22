@@ -10,7 +10,7 @@ import { db } from '../firebase';
 import { ref, get, child, onValue, set, push, update } from 'firebase/database';
 
 const Page = () => {
-  const { user, googleSignIn, logOut, vote } = UserAuth();
+  const { user, googleSignIn, logOut, vote, start, end } = UserAuth();
   const [loading, setLoading] = useState(true);
   const [jumlah, setJumlah] = useState(0);
   const router = useRouter();
@@ -45,7 +45,9 @@ const Page = () => {
 
   return (
       <div className="vote-container">
-      <section class="outer-border-vote">
+        {
+          user && start < 0 && end > 0 ? (
+            <section class="outer-border-vote">
         <div class="inner-border-vote" id="voting-page">
           <h1 class="heading-vote h-top-vote">VOTING CALON KETUA</h1>
           <h3 class="heading-vote h-bottom-vote">Silahkan Pilih Calon Pilihan Anda</h3>
@@ -75,6 +77,21 @@ const Page = () => {
           <p>Sebanyak <b>{jumlah}</b> dari <b>854</b> ({(jumlah/854 * 100).toFixed(2)}%) peserta telah menyalurkan suaranya. Ayo salurkan suaramu!</p>
         </div>
       </section>
+          ) : (
+            <section class="outer-border-vote">
+        <div class="inner-border-vote" id="voting-page">
+          <h3 class="heading-vote h-bottom-vote">Mohon maaf, anda belum dapat mengakses halaman ini. Pastikan telah log-in dan telah memasuki waktu pemilihan calon ketua himpunan.</h3>
+          <div class="foto-calon-container-vote">
+            <a id="vote-button"
+                className="button"
+                href="/"
+                role="button">Kembali Ke Beranda</a>
+          </div>
+        </div>
+      </section>
+          )
+        }
+      
       </div>
     // <div>
     // {loading ? null : !user ? (
