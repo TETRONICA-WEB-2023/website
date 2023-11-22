@@ -6,10 +6,59 @@ import "./mainpage.css";
 import { UserAuth } from "./context/AuthContext";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  Tooltip,
+  PointElement,
+  LineElement,
+  BarElement,
+  ArcElement,
+  Legend,
+} from "chart.js";
+import ChartDataLabels from "chartjs-plugin-datalabels";
+import { Bar, Pie } from "react-chartjs-2";
+import { db } from "./firebase";
+import { ref, get, child, onValue, set, push, update } from "firebase/database";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Tooltip,
+  BarElement,
+  ChartDataLabels,
+  ArcElement,
+  Legend
+);
 
 export default function Home() {
-  const { user, googleSignIn, logOut, start, end } = UserAuth();
-  
+  const { user, googleSignIn, logOut, start, end, kandidat } = UserAuth();
+  const [voteCount, setVoteCount] = useState([0, 0]);
+
+  useEffect(() => {
+    var counts = ref(db, "/votes");
+    (function timerVote() {
+      onValue(
+        counts,
+        (snapshot) => {
+          if (snapshot.exists()) {
+            var frequency = {};
+            for (let value of Object.values(snapshot.val())) {
+              frequency[value] = (frequency[value] || 0) + 1;
+            }
+            setVoteCount(frequency);
+          }
+        },
+        {
+          onlyOnce: true,
+        }
+      );
+      setTimeout(timerVote, 1000);
+    })();
+  }, []);
 
   return (
     <>
@@ -48,7 +97,7 @@ export default function Home() {
                 H {Math.floor((start % (1000 * 60 * 60)) / (1000 * 60))}M{" "}
                 {Math.floor((start % (1000 * 60)) / 1000)}S
               </button>
-            ) : ( end < 0 ? (
+            ) : end < 0 ? (
               <button
                 id="vote-button"
                 className="button-disabled"
@@ -73,8 +122,7 @@ export default function Home() {
               >
                 Login
               </button>
-            ))}
-            
+            )}
 
             {/* <button id="daftar-button" className="button" onClick={handleSignIn}>
             Login
@@ -106,15 +154,36 @@ export default function Home() {
         <div className="foto-calon-container">
           <div id="calon-1" className="foto-calon">
             <img src="/kandidat/calon1b.png" alt="calon 1" />
+            <div className="percentage-vote">
+              {voteCount[0]} suara ({((voteCount[0] / 854) * 100).toFixed(2)}%)
+            </div>
           </div>
-          <p className="vs-container"><span className="vs-v">V</span><span className="vs-s">S</span></p>
+          <p className="vs-container">
+            <span className="vs-v">V</span>
+            <span className="vs-s">S</span>
+          </p>
           <div id="calon-2" className="foto-calon">
             <img src="/kandidat/calon2b.png" alt="calon 2" />
+            <div className="percentage-vote">
+              {voteCount[1]} suara (
+              {((voteCount[1] / 854) * 100 ?? 0).toFixed(2)}%)
+            </div>
           </div>
           {/* <div className="foto-calon">
             <img src="/kandidat/calon3b.png" alt="calon 3" />
           </div> */}
         </div>
+        {/* {user ? (
+          <div className="header-text live-count">
+            <div className="percentage-vote">
+              {voteCount[0]} suara ({((voteCount[0] / 854) * 100).toFixed(2)}%)
+            </div>
+            <div className="percentage-vote">
+              {voteCount[1]} suara (
+              {((voteCount[1] / 854) * 100 ?? 0).toFixed(2)}%)
+            </div>
+          </div>
+        ) : null} */}
         <Link className="button" href="/caket" role="button">
           Profil dan Visi Misi
         </Link>
