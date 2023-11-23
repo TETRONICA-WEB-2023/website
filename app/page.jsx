@@ -169,7 +169,7 @@ export default function Home() {
         </div>
         { user? (
         <div className="percentage-vote">
-            Sebanyak {voteCount[0] + voteCount[1]} ({((voteCount[0] / 854) * 100).toFixed(2)}%) dari 854 peserta telah menyalurkan suaranya. Ayo salurkan suaramu!
+            Sebanyak {voteCount[0] + voteCount[1]} ({(((voteCount[0] + voteCount[1]) / 854) * 100).toFixed(2)}%) dari 854 peserta telah menyalurkan suaranya. Ayo salurkan suaramu!
         </div>
         ) : ( null )}
         {/* {user ? (
