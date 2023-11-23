@@ -154,9 +154,6 @@ export default function Home() {
         <div className="foto-calon-container">
           <div id="calon-1" className="foto-calon">
             <img src="/kandidat/calon1b.png" alt="calon 1" />
-            <div className="percentage-vote">
-              {voteCount[0]} suara ({((voteCount[0] / (voteCount[0] + voteCount[1])) * 100).toFixed(2)}%)
-            </div>
           </div>
           <p className="vs-container">
             <span className="vs-v">V</span>
@@ -164,15 +161,17 @@ export default function Home() {
           </p>
           <div id="calon-2" className="foto-calon">
             <img src="/kandidat/calon2b.png" alt="calon 2" />
-            <div className="percentage-vote">
-              {voteCount[1]} suara (
-              {((voteCount[1] / (voteCount[0] + voteCount[1])) * 100 ?? 0).toFixed(2)}%)
-            </div>
           </div>
+          
           {/* <div className="foto-calon">
             <img src="/kandidat/calon3b.png" alt="calon 3" />
           </div> */}
         </div>
+        { user? (
+        <div className="percentage-vote">
+            Sebanyak {voteCount[0] + voteCount[1]} ({((voteCount[0] / 854) * 100).toFixed(2)}%) dari 854 peserta telah menyalurkan suaranya. Ayo salurkan suaramu!
+        </div>
+        ) : ( null )}
         {/* {user ? (
           <div className="header-text live-count">
             <div className="percentage-vote">
