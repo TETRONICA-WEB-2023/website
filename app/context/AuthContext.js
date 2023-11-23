@@ -191,7 +191,11 @@ export const AuthContextProvider = ({ children }) => {
             )
             set(ref(db, '/votes/' + auth.uid), calon);
             set(ref(db, '/status/' + auth.uid), {"uid" : auth.uid, "email" : auth.email});
-            update(ref(db, '/mahasiswa/' + email.indexOf(auth.email)), {'/vote' : 1})
+            try {
+              update(ref(db, '/mahasiswa/' + email.indexOf(auth.email)), {'/vote' : 1})
+            } catch (error) {
+              console.log(error);
+            }
             logOut();
             router.push('/thankyou');
           }
