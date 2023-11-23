@@ -187,7 +187,7 @@ function Example() {
     datasets : [
       {
         label: "Suara",
-        data: [voteCount[0] ?? 0 + voteCount[1] ?? 0, 854 - (voteCount[0] ?? 0 + voteCount[1] ?? 0)],
+        data: [(voteCount[0] + voteCount[1]), 854 - (voteCount[0] + voteCount[1])],
         backgroundColor: [
           "rgba(54, 162, 235, 0.5)",
           "rgba(255, 206, 86, 0.5)",
