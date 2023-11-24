@@ -34,7 +34,7 @@ export const AuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     var timeStart = new Date("2023-11-23T07:00:00");
-    var timeEnd = new Date("2023-11-24T23:59:59");
+    var timeEnd = new Date("2023-11-24T22:00:00");
     (function countDown() {
       setStart(timeStart - new Date());
       setEnd(timeEnd - new Date());
