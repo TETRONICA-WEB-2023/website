@@ -45,7 +45,40 @@ const Page = () => {
 
   return (
       <div className="vote-container">
-        <section class="outer-border-vote">
+        {
+          user && start < 0 && end > 0 ? (
+            <section class="outer-border-vote">
+        <div class="inner-border-vote" id="voting-page">
+          <h1 class="heading-vote h-top-vote">VOTING CALON KETUA</h1>
+          <h3 class="heading-vote h-bottom-vote">Silahkan Pilih Calon Pilihan Anda</h3>
+          <div class="foto-calon-container-vote">
+            <a class="foto-calon-vote" id="calon1" onClick={() => handleVote(0)} role="button">
+              <img src="/kandidat/calon1b.png" alt="" />
+            </a>
+            <a class="foto-calon-vote" id="calon2" onClick={() => handleVote(1)} role="button">
+              <img src="/kandidat/calon2b.png" alt="" />
+            </a>
+            {/* <a class="foto-calon-vote" id="calon3" onClick={() => handleVote(2)} role="button">
+              <img src="/kandidat/calon3b.png" alt="" />
+            </a> */}
+            
+
+            {/* <a class="foto-calon-vote" id="calon1" onClick={() => handleVote(0)} role="button">
+              <img src="/dummyMirsad.jpg" alt="" />
+            </a>
+            <a class="foto-calon-vote" id="calon2" onClick={() => handleVote(1)} role="button">
+              <img src="/dummyMirsad.jpg" alt="" />
+            </a>
+            <a class="foto-calon-vote" id="calon3" onClick={() => handleVote(2)} role="button">
+              <img src="/dummyMirsad.jpg" alt="" />
+            </a> */}
+          </div>
+          {/* <button id="vote-button" class="btn">Vote <span></span></button> */}
+          <p>Sebanyak <b>{jumlah}</b> dari <b>854</b> ({(jumlah/854 * 100).toFixed(2)}%) peserta telah menyalurkan suaranya. Ayo salurkan suaramu!</p>
+        </div>
+      </section>
+          ) : (
+            <section class="outer-border-vote">
         <div class="inner-border-vote" id="voting-page">
           <h3 class="heading-vote h-bottom-vote">Mohon maaf, anda belum dapat mengakses halaman ini. Pastikan telah log-in dan telah memasuki waktu pemilihan calon ketua himpunan.</h3>
           <div class="foto-calon-container-vote">
@@ -56,6 +89,9 @@ const Page = () => {
           </div>
         </div>
       </section>
+          )
+        }
+      
       </div>
     // <div>
     // {loading ? null : !user ? (
