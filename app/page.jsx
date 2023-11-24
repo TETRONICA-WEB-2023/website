@@ -36,29 +36,19 @@ ChartJS.register(
 
 export default function Home() {
   const { user, googleSignIn, logOut, start, end, kandidat } = UserAuth();
-  const [voteCount, setVoteCount] = useState([0, 0]);
+  const [jumlah, setJumlah] = useState(0);
 
   useEffect(() => {
-    var counts = ref(db, "/votes");
+    var counts = ref(db, '/status');
     (function timerVote() {
-      onValue(
-        counts,
-        (snapshot) => {
-          if (snapshot.exists()) {
-            var frequency = {};
-            for (let value of Object.values(snapshot.val())) {
-              frequency[value] = (frequency[value] || 0) + 1;
-            }
-            setVoteCount(frequency);
-          }
-        },
-        {
-          onlyOnce: true,
+      onValue(counts, (snapshot) => {
+        if(snapshot.exists()) {
+          setJumlah(Object.keys(snapshot.val()).length);
         }
-      );
+      });
       setTimeout(timerVote, 1000);
     })();
-  }, []);
+  }, [])
 
   return (
     <>
@@ -169,7 +159,7 @@ export default function Home() {
         </div>
         { user? (
         <div className="percentage-vote">
-            Sebanyak {voteCount[0] + voteCount[1]} ({(((voteCount[0] + voteCount[1]) / 854) * 100).toFixed(2)}%) dari 854 peserta telah menyalurkan suaranya. Ayo salurkan suaramu!
+            Sebanyak {jumlah} ({(((jumlah) / 854) * 100).toFixed(2)}%) dari 854 peserta telah menyalurkan suaranya. Ayo salurkan suaramu!
         </div>
         ) : ( null )}
         {/* {user ? (
